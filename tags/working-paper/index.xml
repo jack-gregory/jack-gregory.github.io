@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Working Paper on Jack Gregory</title>
+    <link>/tags/working-paper/</link>
+    <description>Recent content in Working Paper on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/working-paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Zero-Emission Vehicle Incentives and Related Policies Affect the Market</title>
+      <link>/publication/zev-incentives/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/zev-incentives/</guid>
+      <description>This white paper is one in a series summarizing recent research findings on zero-emission vehicles and related policy for the state of California.</description>
+    </item>
+    
+    <item>
+      <title>Amazing Grace</title>
+      <link>/publication/amazing-grace/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/amazing-grace/</guid>
+      <description>This paper develops a model to analyse the tension between grace periods and foreclosure on public access, assessing its impacts on knowledge ow and welfare.</description>
+    </item>
+    
+    <item>
+      <title>Grace Period Literature Review</title>
+      <link>/publication/grace-period-lit-review/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grace-period-lit-review/</guid>
+      <description>This paper summarise the main contributions to the economic literature on grace periods.</description>
+    </item>
+    
+  </channel>
+</rss>

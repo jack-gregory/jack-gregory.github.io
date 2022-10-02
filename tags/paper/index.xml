@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper on Jack Gregory</title>
+    <link>/tags/paper/</link>
+    <description>Recent content in Paper on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 02 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fuel choice in rural Maharashtra</title>
+      <link>/publication/fuel-choice-in-rural-maharastra/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fuel-choice-in-rural-maharastra/</guid>
+      <description>We report on and analyze the results of an energy use survey in two tribal villages in rural Maharashtra, India, finding evidence for for the ‘energy ladder’ hypothesis.</description>
+    </item>
+    
+  </channel>
+</rss>

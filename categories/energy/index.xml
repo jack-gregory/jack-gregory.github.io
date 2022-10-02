@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Energy on Jack Gregory</title>
+    <link>/categories/energy/</link>
+    <description>Recent content in Energy on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/energy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Essays on Electricity Economics</title>
+      <link>/publication/essays-on-electricity-economics/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/essays-on-electricity-economics/</guid>
+      <description>My dissertation leverages electricity data for an economic investigation of three disparate topics: the effects of the COVID-19 pandemic; the implications of government ownership on the exercise of market power in the Australian National Electricity Market; and, the unintended consequences of US Clean Air Act regulation on coal boilers.</description>
+    </item>
+    
+    <item>
+      <title>How Zero-Emission Vehicle Incentives and Related Policies Affect the Market</title>
+      <link>/publication/zev-incentives/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/zev-incentives/</guid>
+      <description>This white paper is one in a series summarizing recent research findings on zero-emission vehicles and related policy for the state of California.</description>
+    </item>
+    
+    <item>
+      <title>Fuel choice in rural Maharashtra</title>
+      <link>/publication/fuel-choice-in-rural-maharastra/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fuel-choice-in-rural-maharastra/</guid>
+      <description>We report on and analyze the results of an energy use survey in two tribal villages in rural Maharashtra, India, finding evidence for for the ‘energy ladder’ hypothesis.</description>
+    </item>
+    
+  </channel>
+</rss>

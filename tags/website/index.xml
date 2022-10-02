@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website on Jack Gregory</title>
+    <link>/tags/website/</link>
+    <description>Recent content in Website on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 29 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to setup hugo-apéro on GitHub Pages ...</title>
+      <link>/blog/hugo-apero/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to both shield content and include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my peronsal site here!
+Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XML on Jack Gregory</title>
+    <link>/categories/xml/</link>
+    <description>Recent content in XML on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/xml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GII Economy Profiles</title>
+      <link>/project/gii-profiles/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-profiles/</guid>
+      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
+    </item>
+    
+  </channel>
+</rss>

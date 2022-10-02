@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jack Gregory, PhD on Jack Gregory</title>
+    <link>/</link>
+    <description>Recent content in Jack Gregory, PhD on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 29 Sep 2022 13:30:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Global Innovation Index 2022</title>
+      <link>/talk/gii22-launch/</link>
+      <pubDate>Thu, 29 Sep 2022 13:30:00 +0000</pubDate>
+      
+      <guid>/talk/gii22-launch/</guid>
+      <description>NotesPresented results as a member of the WIPO Secretariat and a member of the Global Innovation Index (GII) team.
+OverviewThe 2022 edition of the GII tracks the most recent global innovation trends against the background of an ongoing COVID-19 pandemic, slowing productivity growth and other evolving challenges. It reveals the most innovative economies in the world, ranking the innovation performance of around 132 economies while highlighting innovation strengths and weaknesses.</description>
+    </item>
+    
+    <item>
+      <title>How to setup hugo-apéro on GitHub Pages ...</title>
+      <link>/blog/hugo-apero/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to both shield content and include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my peronsal site here!
+Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+    </item>
+    
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/aweee-grandfathering/</link>
+      <pubDate>Thu, 23 Jun 2022 15:45:00 +0000</pubDate>
+      
+      <guid>/talk/aweee-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
+AbstractWhile vintage differentiation is a highly prominent feature of various regulations, it can induce significant biases. We study these biases in the context of New Source Review—a set of regulations passed within the US Clean Air Act imposing costly sulfur dioxide abatement requirements on new boilers but not existing ones. In particular, we empirically investigate how the differential treatment of coal boilers shaped the generation landscape by affecting unit utilization, retirement, and emissions.</description>
+    </item>
+    
+    <item>
+      <title>COVID restrictions, federal assistance and small businesses</title>
+      <link>/talk/mcee-covid/</link>
+      <pubDate>Mon, 16 May 2022 13:45:00 +0000</pubDate>
+      
+      <guid>/talk/mcee-covid/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;Pandemic Diseases and the Environment&amp;rdquo; Parallel Session.
+AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
+    </item>
+    
+    <item>
+      <title>Essays on Electricity Economics</title>
+      <link>/publication/essays-on-electricity-economics/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/essays-on-electricity-economics/</guid>
+      <description>My dissertation leverages electricity data for an economic investigation of three disparate topics: the effects of the COVID-19 pandemic; the implications of government ownership on the exercise of market power in the Australian National Electricity Market; and, the unintended consequences of US Clean Air Act regulation on coal boilers.</description>
+    </item>
+    
+    <item>
+      <title>COVID restrictions, federal assistance and small businesses</title>
+      <link>/talk/epc-covid/</link>
+      <pubDate>Thu, 14 Oct 2021 15:15:00 +0000</pubDate>
+      
+      <guid>/talk/epc-covid/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;COVID-19 and Energy&amp;rdquo; Research Session.
+AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Briefs</title>
+      <link>/project/gii-briefs/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-briefs/</guid>
+      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy briefs.
+DescriptionIn addition to the ranking and report, the GII launch also includes the release of the economy briefs. The briefs summarize each economy&amp;rsquo;s innovation performance for the specific report year. They tailor material from the report and the economy profiles to provide insights specific to each ranked economy within the GII. A sample brief for Australia from the GII 2022 report can be seen here.</description>
+    </item>
+    
+    <item>
+      <title>GII Data Pipeline</title>
+      <link>/project/gii-data/</link>
+      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-data/</guid>
+      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+DescriptionThe high-level workflow of the GII can be grouped into three phases:
+Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
+Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Profiles</title>
+      <link>/project/gii-profiles/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-profiles/</guid>
+      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
+    </item>
+    
+    <item>
+      <title>How Zero-Emission Vehicle Incentives and Related Policies Affect the Market</title>
+      <link>/publication/zev-incentives/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/zev-incentives/</guid>
+      <description>This white paper is one in a series summarizing recent research findings on zero-emission vehicles and related policy for the state of California.</description>
+    </item>
+    
+    <item>
+      <title>Amazing Grace</title>
+      <link>/publication/amazing-grace/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/amazing-grace/</guid>
+      <description>This paper develops a model to analyse the tension between grace periods and foreclosure on public access, assessing its impacts on knowledge ow and welfare.</description>
+    </item>
+    
+    <item>
+      <title>Grace Period Literature Review</title>
+      <link>/publication/grace-period-lit-review/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grace-period-lit-review/</guid>
+      <description>This paper summarise the main contributions to the economic literature on grace periods.</description>
+    </item>
+    
+    <item>
+      <title>Fuel choice in rural Maharashtra</title>
+      <link>/publication/fuel-choice-in-rural-maharastra/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fuel-choice-in-rural-maharastra/</guid>
+      <description>We report on and analyze the results of an energy use survey in two tribal villages in rural Maharashtra, India, finding evidence for for the ‘energy ladder’ hypothesis.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>Curriculum VitaeMy CV is available in PDF form. (Last updated: September 25, 2022)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/readme/</guid>
+      <description>website_contentContent for my personal website
+To DoGitHub profile
+About
+Content Coding icons CV
+PDF Pagedown Form
+Blogs
+Hugo-Apero website pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Alternative GII? Projects
+NEM optimization model (perfect competition) GII data pipeline (&amp;amp; manual) GII profiles GII briefs GII presentations Publications
+Gregory &amp;amp; Stern IP Aus x2 ITS Dissertation Talks</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>** Contact page doesn&amp;rsquo;t contain a body, just the front matter above. See form.html in the layouts folder.
+Formspree requires a (free) account and new form to be set up. The link is made on the final published url in the field: Restrict to Domain. It is possible to register up to 2 emails free and you can select which one you want the forms to go to within Formspree in the Settings tab.</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/license/</guid>
+      <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
+    </item>
+    
+  </channel>
+</rss>

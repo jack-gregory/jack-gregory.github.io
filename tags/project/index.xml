@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project on Jack Gregory</title>
+    <link>/tags/project/</link>
+    <description>Recent content in Project on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GII Economy Briefs</title>
+      <link>/project/gii-briefs/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-briefs/</guid>
+      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy briefs.
+DescriptionIn addition to the ranking and report, the GII launch also includes the release of the economy briefs. The briefs summarize each economy&amp;rsquo;s innovation performance for the specific report year. They tailor material from the report and the economy profiles to provide insights specific to each ranked economy within the GII. A sample brief for Australia from the GII 2022 report can be seen here.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Profiles</title>
+      <link>/project/gii-profiles/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-profiles/</guid>
+      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
+    </item>
+    
+  </channel>
+</rss>

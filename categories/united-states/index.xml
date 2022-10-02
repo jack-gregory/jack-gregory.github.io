@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>United States on Jack Gregory</title>
+    <link>/categories/united-states/</link>
+    <description>Recent content in United States on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 23 Jun 2022 15:45:00 +0000</lastBuildDate><atom:link href="/categories/united-states/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/aweee-grandfathering/</link>
+      <pubDate>Thu, 23 Jun 2022 15:45:00 +0000</pubDate>
+      
+      <guid>/talk/aweee-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
+AbstractWhile vintage differentiation is a highly prominent feature of various regulations, it can induce significant biases. We study these biases in the context of New Source Review—a set of regulations passed within the US Clean Air Act imposing costly sulfur dioxide abatement requirements on new boilers but not existing ones. In particular, we empirically investigate how the differential treatment of coal boilers shaped the generation landscape by affecting unit utilization, retirement, and emissions.</description>
+    </item>
+    
+    <item>
+      <title>Essays on Electricity Economics</title>
+      <link>/publication/essays-on-electricity-economics/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/essays-on-electricity-economics/</guid>
+      <description>My dissertation leverages electricity data for an economic investigation of three disparate topics: the effects of the COVID-19 pandemic; the implications of government ownership on the exercise of market power in the Australian National Electricity Market; and, the unintended consequences of US Clean Air Act regulation on coal boilers.</description>
+    </item>
+    
+  </channel>
+</rss>
