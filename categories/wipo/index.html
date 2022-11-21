@@ -42,7 +42,31 @@
   <meta itemprop="name" content="WIPO">
 <meta itemprop="description" content="Personal website of Jack Gregory.">
   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
   
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
   <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
@@ -143,19 +167,32 @@
 
   
   
-  <div class="measure-wide center mb4 mb5-l">
-    <header>
-      <h1 class="f3 mt0 mb2 lh-title underline fw4"><a href="/project/gii-briefs/" class="db">GII Economy Briefs</a></h1>
+  
+  <div class="flex flex-column mb4 mb5-l  flex-row-reverse-ns">
+    <figure class="ml4-ns ma0 mb2 mb0-l w-100 w-40-ns">
+      <a href="/project/gii-briefs/" class="db">
+        
+          <img src="/project/gii-briefs/brief-featured.png" class="db ma0 dim" alt="">
+        
+      </a>
+    </figure>
+    <div class="flex flex-column w-100 w-60-ns pl3-ns">
+      <header class="w-100">
+        <h1 class="f3 mv2 lh-title underline"><a href="/project/gii-briefs/" class="db">GII Economy Briefs</a></h1>
+        
+      </header>
       
-    </header>
+      <p class="f6 lh-copy mv2 flex-auto">This project combines Rmarkdown and LaTeX to automatize the production of informative economy briefs for the annual WIPO Global Innovation Index.</p>
+      <footer class="w-100">
       
-      <p class="lh-copy mb4">This project combines Rmarkdown and LaTeX to automatize the production of informative economy briefs for the annual WIPO Global Innovation Index.</p>
-    <footer>
-      
+      <p class="f7 db mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/innovation">Innovation</a>  <a href="/categories/wipo">WIPO</a> </p>
       
       
     </footer>
+    </div>
   </div>
+
+  
   
 </article>
 

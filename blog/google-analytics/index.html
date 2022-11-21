@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Setting up Google Analytics on hugo-apéro | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="In this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="Setting up Google Analytics on hugo-apéro | Jack Gregory">
+<meta property="og:description" content="In this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/google-analytics/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/google-analytics/featured.png" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/google-analytics/featured.png" >
+    
+    
+  <meta itemprop="name" content="Setting up Google Analytics on hugo-apéro">
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.
+IntroductionGoogle Analytics is a useful tool for measuring and understanding engagement with your personal website. In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site. Helpfully, most Hugo themes come with it pre-installed through an internal template.
+In this blog, I&rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:"><meta itemprop="datePublished" content="2022-09-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="831"><meta itemprop="image" content="/blog/google-analytics/featured.png">
+<meta itemprop="keywords" content="Website," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.a9f2a4292c3a1536884736d2642e2c7f21f17655fe23971612e5664e6b2c58cb.css" integrity="sha256-qfKkKSw6FTaIRzbSZC4sfyHxdlX&#43;I5cWEuVmTmssWMs=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.fcfe821bed4e43fac02ff8e5d8c6cf6c8ceea35bff9601d3f0f8c51016e0f75b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Setting up Google Analytics on hugo-apéro</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/hugo">Hugo</a> </p>
+        <p class="f7 db mv0 ttu">September 9, 2022</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p><img src="google_analytics.png" alt=""></p>
+
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In this blog, I summarize the steps necessary to set up Google Analytics on a 
+<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro</a> website.</p>
+
+
+
+
+<h2 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>
+<a href="https://marketingplatform.google.com/about/analytics" target="_blank" rel="noopener">Google Analytics</a> is a useful tool for measuring and understanding engagement with your personal website.  In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site.  Helpfully, most Hugo themes come with it pre-installed through an internal template.</p>
+<p>In this blog, I&rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:</p>
+<ol>
+<li>
+<a href="#measurement_id">Obtain a Google Analytics measurement ID</a>; and,</li>
+<li>
+<a href="#hugo_apero">Configure your Hugo-Apéro website</a>.</li>
+</ol>
+
+
+
+
+<h2 id="measurement_id">Obtain a Google Analytics measurement ID
+  <a href="#measurement_id"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>If you don&rsquo;t already have one, we first need to sign up for a Google Analytics account.  This is straightforward and can be done at their website 
+<a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">here</a>.  If you already have a Google account, then you can expedite the account setup process by using it.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li>
+<p>Go to 
+<a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">Google Analytics</a>.</p>
+</li>
+<li>
+<p>If you do not have an account, click the blue &ldquo;Get started today&rdquo; button and follow the prompts.</p>
+</li>
+<li>
+<p>Otherwise, click the &ldquo;Sign in to Analytics&rdquo; button and log in.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="google_analytics_signin.png" alt="Screenshot: Google Analytics homepage"></p>
+</div>
+
+</div>
+<p>Now that we&rsquo;re logged in to our account, we can create a measurement ID parameter<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> to track activity on our site.  First, go to the Admin settings by clicking the blue gear on the bottom-left of the page.  We need to create an account and then a property, which will track our site using a unique measurement ID.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ol>
+<li>
+<p>Click the grey gear at the bottom of the lefthand side menu to go to the &ldquo;Admin&rdquo; settings.</p>
+</li>
+<li>
+<p>Click the blue &ldquo;+ Create Account&rdquo; button.</p>
+</li>
+<li>
+<p>Follow the prompts to setup the account:</p>
+<ul>
+<li>Enter your &ldquo;Account name&rdquo;.</li>
+<li>Choose your desired &ldquo;Account Data Sharing Settings&rdquo;.</li>
+<li>Click &ldquo;Next&rdquo;.</li>
+<li>Enter your &ldquo;Property name&rdquo;.</li>
+<li>Choose your desired timezone and currency.</li>
+<li>Click &ldquo;Next&rdquo;.</li>
+<li>For &ldquo;Industry category&rdquo;, select &ldquo;Other Business Activity&rdquo; from the dropdown list.</li>
+<li>For &ldquo;Business size&rdquo;, select &ldquo;Small&rdquo;.</li>
+<li>Select all applicable ways in which you plan to use Google Analytics, if desired.</li>
+<li>Click &ldquo;Create&rdquo;.</li>
+<li>Agree to the Google Analytics Terms of Service.  Note that you do not have to do so, but you will be unable to proceed without accepting.</li>
+</ul>
+</li>
+<li>
+<p>Follow the prompts to setup a data stream:</p>
+<ul>
+<li>On the screen that appears, under &ldquo;Choose a platform&rdquo;, select &ldquo;Web&rdquo;.</li>
+<li>Enter your &ldquo;Website URL&rdquo;, which should be your base URL for your personal site.</li>
+<li>Enter your &ldquo;Stream name&rdquo;, which is the name for the particular data stream.</li>
+<li>Click &ldquo;Create stream&rdquo;.</li>
+</ul>
+</li>
+<li>
+<p>Copy the &ldquo;MEASUREMENT ID&rdquo; parameter.</p>
+</li>
+</ol>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Gif 📹</div>
+  
+  <p><img src="google_analytics_measurementid.gif" alt="Screenshot: Creating a new repository in GitHub"></p>
+</div>
+
+</div>
+<p>We have now setup Google Analytics to track activity on our website.  Note that the process outlined above is applicable for &ldquo;Google Analytics 4&rdquo;.  It is still possible to use &ldquo;Google Analytics 3&rdquo;; however, it will only be supported until the middle of 2023.  So if you are establishing a site now, it&rsquo;s best to use 4 out of the box.</p>
+<p>Also note that if you need to access the measurement ID parameter for the data stream in the future, I found this 
+<a href="https://support.google.com/analytics/answer/9539598?hl=en" target="_blank" rel="noopener">Analytics help page</a> useful.</p>
+
+
+
+
+<h2 id="hugo_apero">Configure your Hugo-Apéro website
+  <a href="#hugo_apero"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Google Analytics is built into most Hugo websites through an internal template.  These are standard code blocks for common use cases on static websites, e.g., comment boards, Twitter cards, etc.  Since Google Analytics is a common feature of most sites, its internal template can easily add the necessary code to each page.</p>
+<p>Hugo-Apéro is built to accommodate both Google Analytics 3 and 4.  You can check this by ensuring the following lines of code are included between the <code>&lt;head&gt;</code>tags within &lt;/layouts/partials/head.html&gt;:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ template &#34;_internal/google_analytics.html&#34; . }}
+</span></span><span style="display:flex;"><span>{{ template &#34;_internal/google_analytics_async.html&#34; . }}
+</span></span></code></pre></div><p>These two lines ensure the measurement ID is embedded in the HTML of each page.</p>
+<p>To include link our website to the data stream we just created on Google Analytics, we need to use the measurement ID we copied earlier.  Within the top level of your &lt;config.toml&gt;, add the measurement ID under the <code>googleAnalytics</code> parameter.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>googleAnalytics <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;G-ML9FQ66R8&#34;</span>
+</span></span></code></pre></div><p>Make sure to replace the string with your specific measurement ID.</p>
+<p>We can now check whether setup was successful by building the site locally and checking for traffic at our Google Analytics account homepage.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li>
+<p>Add the measurement ID to the <code>googleAnalytics</code> parameter within your &lt;config.toml&gt; file.</p>
+</li>
+<li>
+<p>Build your site locally by running <code>blogdown::serve_site()</code>.</p>
+</li>
+<li>
+<p>Check your Google Analytics homepage to ensure data collection is active.  By clicking on the grey house in the lefthand side menu, you should see some version of the image below.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="google_analytics_active.png" alt="Screenshot: Google Analytics homepage"></p>
+</div>
+
+</div>
+<p>You can now stop the server using <code>blogdown::stop_server()</code> and push the changes to GitHub.  At this stage, you should be able to detect traffic on your live Hugo-Apéro site.</p>
+
+
+
+
+<h2 id="references">References
+  <a href="#references"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>I found the following references helpful in adding Google Analytics to this site as well as preparing this blog:</p>
+<ul>
+<li>
+<a href="https://charly3pins.dev/blog/how-to-add-google-analytics-to-your-hugo-site/" target="_blank" rel="noopener">How to add Google Analytics to your Hugo site</a> by 
+<a href="https://charly3pins.dev/" target="_blank" rel="noopener">Charly3Pins</a>.</li>
+<li>
+<a href="https://gideonwolfe.com/posts/sysadmin/hugo/hugogoogleanalytics/" target="_blank" rel="noopener">Adding Google Analytics to your Hugo Site</a> by 
+<a href="https://gideonwolfe.com/" target="_blank" rel="noopener">Gideon Wolfe</a>.</li>
+<li>
+<a href="http://cloudywithachanceofdevops.com/posts/2018/05/17/setting-up-google-analytics-on-hugo/" target="_blank" rel="noopener">Setting Up Google Analytics on Hugo</a> by 
+<a href="http://cloudywithachanceofdevops.com/" target="_blank" rel="noopener">Zachary Deptawa</a>.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Measurement IDs are also known as tracking IDs.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">September 9, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">4 minute read, 831 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/hugo">Hugo</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/website">Website</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ...</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ...</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ... &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2022 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact Form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Jack Gregory</title>
+    <link>/categories/hugo/</link>
+    <description>Recent content in Hugo on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up Google Analytics on hugo-apéro</title>
+      <link>/blog/google-analytics/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/google-analytics/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.
+IntroductionGoogle Analytics is a useful tool for measuring and understanding engagement with your personal website. In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site. Helpfully, most Hugo themes come with it pre-installed through an internal template.
+In this blog, I&amp;rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:</description>
+    </item>
+    
+  </channel>
+</rss>

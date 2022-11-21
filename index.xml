@@ -19,13 +19,35 @@ OverviewThe 2022 edition of the GII tracks the most recent global innovation tr
     </item>
     
     <item>
+      <title>Setting up Google Analytics on hugo-apéro</title>
+      <link>/blog/google-analytics/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/google-analytics/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.
+IntroductionGoogle Analytics is a useful tool for measuring and understanding engagement with your personal website. In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site. Helpfully, most Hugo themes come with it pre-installed through an internal template.
+In this blog, I&amp;rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:</description>
+    </item>
+    
+    <item>
       <title>How to setup hugo-apéro on GitHub Pages ...</title>
       <link>/blog/hugo-apero/</link>
       <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>/blog/hugo-apero/</guid>
-      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to both shield content and include a theme dynamically.
-IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my peronsal site here!
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to and include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
+Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+    </item>
+    
+    <item>
+      <title>How to setup hugo-apéro on GitHub Pages ...</title>
+      <link>/blog/hugo-apero/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to and include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
 Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
     </item>
     
@@ -151,15 +173,14 @@ DescriptionOne of the main components of the GII report is the economy profiles
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/readme/</guid>
-      <description>website_contentContent for my personal website
+      <description>website_contentPersonal website content using blogdown and Hugo.
 To DoGitHub profile
 About
 Content Coding icons CV
 PDF Pagedown Form
 Blogs
-Hugo-Apero website pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Alternative GII? Projects
-NEM optimization model (perfect competition) GII data pipeline (&amp;amp; manual) GII profiles GII briefs GII presentations Publications
-Gregory &amp;amp; Stern IP Aus x2 ITS Dissertation Talks</description>
+Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Alternative GII? Projects
+NEM optimization model (perfect competition) GII data pipeline (&amp;amp; manual) GII profiles GII briefs GII presentations Publications</description>
     </item>
     
     <item>

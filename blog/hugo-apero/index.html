@@ -41,14 +41,38 @@
     
     
   <meta itemprop="name" content="How to setup hugo-apéro on GitHub Pages ...">
-<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to both shield content and include a theme dynamically.
-IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&rsquo;s what I&rsquo;m using to publish my peronsal site here!
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to and include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&rsquo;s what I&rsquo;m using to publish my personal site here!
 Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward."><meta itemprop="datePublished" content="2022-08-29T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-08-29T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1747"><meta itemprop="image" content="/blog/hugo-apero/featured.png">
+<meta itemprop="wordCount" content="1457"><meta itemprop="image" content="/blog/hugo-apero/featured.png">
 <meta itemprop="keywords" content="Website," />
   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
   
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
   <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
@@ -130,7 +154,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>In this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages.  I also discuss how to use git submodules to both shield content and include a theme dynamically.</p>
+<p>In this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages.  I also discuss how to use git submodules to and include a theme dynamically.</p>
 
 
 
@@ -141,7 +165,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>Hugo-Apéro is a Hugo theme for publishing websites using the <code>blogdown</code> package within R.  In fact, it&rsquo;s what I&rsquo;m using to publish my peronsal site here!</p>
+<p>Hugo-Apéro is a Hugo theme for publishing websites using the <code>blogdown</code> package within R.  In fact, it&rsquo;s what I&rsquo;m using to publish my personal site here!</p>
 <p>Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.  The steps outlined in the &ldquo;
 <a href="https://hugo-apero-docs.netlify.app/start/" target="_blank" rel="noopener">Get Started</a>&rdquo; blog series by creator 
 <a href="https://www.apreshill.com/" target="_blank" rel="noopener">Alison Hill</a> are an excellent place to start.  The series describes how to build a blogdown website in six steps:</p>
@@ -156,7 +180,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 <p>For the most part, I followed the instructions laid out in the blog series above.  However, I did make a couple of small modifications in steps 2 and 4.  The remainder of this blog will dive into those modifications, namely:</p>
 <ul>
 <li>To deploy the site on GitHub pages instead of Netlify; and,</li>
-<li>To use git submodules to make website content private and include the theme dynamically.</li>
+<li>To use git submodules to include the theme dynamically.</li>
 </ul>
 
 
@@ -169,7 +193,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
     </svg></a>
 </h2>
 <p>The Hugo-Apéro setup instructions recommend publishing your site using Netlify.  This is a great option; however, my personal preference is to keep everything within the GitHub universe.  To do so, there are a number of small modifications necessary to the recommended setup.</p>
-<p>The first change is to create a repository on GitHub, but make sure to use the following naming convention: <code>username.github.io</code>, where &ldquo;username&rdquo; is replaced with your GitHub handle.</p>
+<p>The first change is to create a repository on GitHub, but make sure to use the following naming convention: <code>[username].github.io</code>, where &ldquo;[username]&rdquo; is replaced with your GitHub handle.</p>
 <div id="" class="panelset">
   
 <div class="panel">
@@ -179,7 +203,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 <a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>:</p>
 <ul>
 <li>
-<p>Name the repo <code>username.github.io</code> under your account and replace &ldquo;username&rdquo; with your actual GitHub username.</p>
+<p>Name the repo <code>[username].github.io</code> under your account and replace &ldquo;[username]&rdquo; with your actual GitHub handle ignoring brackets.</p>
 </li>
 <li>
 <p>Make the repository &ldquo;public&rdquo;.</p>
@@ -218,16 +242,19 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
   
   <p><ol>
 <li>
-<p>From the main page of your new repository, click the green Code button and copy the HTTPS remote URL by clicking the clipboard icon.</p>
+<p>From the main page of your new repository, click the green &ldquo;Code&rdquo; button and copy the HTTPS remote URL by clicking the clipboard icon.</p>
 </li>
 <li>
-<p>Open RStudio and create a new project by clicking Click File <code>\(\rightarrow\)</code> New Project <code>\(\rightarrow\)</code> Version Control <code>\(\rightarrow\)</code> Git.</p>
+<p>Open RStudio and create a new project by clicking Click &ldquo;File&rdquo; <code>\(\rightarrow\)</code> &ldquo;New Project&rdquo; <code>\(\rightarrow\)</code> &ldquo;Version Control&rdquo; <code>\(\rightarrow\)</code> &ldquo;Git&rdquo;.</p>
 </li>
 <li>
 <p>Paste the copied URL from the previous step.</p>
 </li>
 <li>
-<p>Click Create Project.</p>
+<p>If desired, change the &ldquo;Project directory name&rdquo; to something more descriptive.  Note that this step is skipped in the corresponding gif.</p>
+</li>
+<li>
+<p>Click &ldquo;Create Project&rdquo;.</p>
 </li>
 </ol>
 </p>
@@ -276,36 +303,22 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 
 
 
-<h2 id="add-submodules">Add submodules
-  <a href="#add-submodules"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h2 id="add-hugo-apero-submodule">Add <code>hugo-apero</code> submodule
+  <a href="#add-hugo-apero-submodule"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>Creating a git submodule is essentially adding a repository within a repository.  Here we need to add two submodules:</p>
-<ul>
-<li>
-<a href="https://github.com/hugo-apero/hugo-apero" target="_blank" rel="noopener"><code>hugo-apero</code></a> to the <code>/themes/</code> folder; and,</li>
-<li><code>/contents/</code> to our website project root directory.</li>
-</ul>
-<p>The steps described below follow the blog &ldquo;
+<p>Creating a git submodule is essentially adding a repository within a repository.  Here we need to add 
+<a href="https://github.com/hugo-apero/hugo-apero" target="_blank" rel="noopener"><code>hugo-apero</code></a> to the <code>/themes/</code> folder.</p>
+<p>The steps described below are based on the blog &ldquo;
 <a href="https://blog.bitsrc.io/how-to-utilize-submodules-within-git-repos-5dfdd1c62d09" target="_blank" rel="noopener">How to Utilize Submodules within Git Repos</a>&rdquo; by 
 <a href="https://www.paigeniedringhaus.com/" target="_blank" rel="noopener">Paige Niedringhaus</a>.  The documentation on 
 <a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a> is also a useful resource.</p>
-
-
-
-
-<h3 id="add-hugo-apéro">Add Hugo-Apéro
-  <a href="#add-hugo-ap%c3%a9ro"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h3>
-<p>To add a new submodule to an existing project, open Git Bash, navigate to the project and enter the following command ignoring brackets in the terminal:</p>
+<p>To add a new submodule to an existing project, open Git Bash, navigate to the project and, in the terminal, enter the following command ignoring brackets:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git submodule add <span style="color:#000;font-weight:bold">[</span>project URL<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>folder name<span style="color:#000;font-weight:bold">]</span>
-</span></span></code></pre></div><p>The &ldquo;[project URL]&rdquo; is the URL of project we wish to add (i.e. submodule), while the &ldquo;[folder name]&rdquo; is the name of the submodule directory we wish to see in the existing project (i.e. main repository).  By default, submodules add the subproject into a eponymous directory.  It is possible to use a different path by including it at the end of the command.</p>
-<p>In our case, the Hugo-Apéro theme should be added under the theme subfolder.</p>
+</span></span></code></pre></div><p>The &ldquo;[project URL]&rdquo; is the URL of project we wish to add (i.e. submodule), while the &ldquo;[folder name]&rdquo; is the name of the submodule directory we wish to see in the existing project (i.e. main repository).  By default, submodules add the subproject into an eponymous directory in the project&rsquo;s root directory.  It is possible to use a different path by including it at the end of the command.</p>
+<p>In our case, the Hugo-Apéro theme should be added under the <code>/themes/</code> subfolder.</p>
 <div id="" class="panelset">
   
 <div class="panel">
@@ -326,7 +339,9 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 <div class="panel">
   <div class="panel-name">Screenshot 📷</div>
   
-  <p><img src="apero_submodule.png" alt="Screenshot: Creating a new repository in GitHub"></p>
+  <p><p><img src="apero_submodule.png" alt="Screenshot: Creating a hugo-aperosubmodule"></p>
+<p>Note that, in this picture, my local website repository is under the name &ldquo;website&rdquo; instead of &ldquo;jack-gregory.github.io&rdquo;.</p>
+</p>
 </div>
 
 </div>
@@ -339,51 +354,6 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 </ul>
 <p>This is necessary, since we did not include a theme when we 
 <a href="#create-site">created the site</a>.</p>
-
-
-
-
-<h3 id="add-contents">Add contents
-  <a href="#add-contents"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h3>
-<p>We now repeat the steps above to add the &ldquo;contents&rdquo; submodule, where the one exception is that we also need to create a &ldquo;website content&rdquo; repository.  This setup means that while our &ldquo;website&rdquo; repository will be public, we can nevertheless keep its content private.  This prevents it from being easily copied and transposed elsewhere on the web.</p>
-<div id="" class="panelset">
-  
-<div class="panel">
-  <div class="panel-name">To do ✔️</div>
-  
-  <p><p>Create a new repository on GitHub from 
-<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>:</p>
-<ul>
-<li>
-<p>Choose a name for your &ldquo;website content&rdquo; repository.  I chose something banal like <code>website_content</code>.</p>
-</li>
-<li>
-<p>Make the repository &ldquo;private&rdquo;.</p>
-</li>
-<li>
-<p>Check to initialize with a <code>README.md</code> file.</p>
-</li>
-<li>
-<p>Add a <code>.gitignore</code> file based on the R template.</p>
-</li>
-</ul>
-</p>
-</div>
-<div class="panel">
-  <div class="panel-name">Screenshot 📷</div>
-  
-  <p><img src="content_repo.png" alt="Screenshot: Creating a new repository in GitHub"></p>
-</div>
-
-</div>
-<p>We can now repeat the steps under the 
-<a href="#add-hugo-ap%c3%a9ro">Add Hugo-Apéro</a> subsection.  Essentially, we wish to add our private <code>website_content</code> repository as the <code>/content/</code> folder in our public &ldquo;website&rdquo; repository.  We can do so by running the following line of code in Git Bash after navigating to our local website repository:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git submodule add https://github.com/jack-gregory/website_content.git content
-</span></span></code></pre></div><p>This will clone the <code>website_content</code> repository in a <code>/content/</code> folder.  So, although our remote repository is named <code>website_content</code> on GitHub, we want it to be referenced as a folder named &ldquo;content&rdquo; within the &ldquo;website&rdquo; repository in order to comply with the default Hugo folder structure.</p>
 <p>At this point, we should now have a few new elements in our &ldquo;website&rdquo; repository.  Let’s take a closer look at each of them.</p>
 <table>
 <thead>
@@ -398,11 +368,6 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 <td style="text-align:left"><code>/.gitmodules</code></td>
 <td style="text-align:left">file</td>
 <td style="text-align:left">A configuration file with the mapping between submodule project URLs and their local subdirectory.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>/content/</code></td>
-<td style="text-align:left">folder</td>
-<td style="text-align:left">The <code>website_content</code> submodule containing our private website content.</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>/themes/hugo-apero/</code></td>
@@ -431,7 +396,6 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 </tr>
 </tbody>
 </table>
-<p>Note that, although, content is a subdirectory in our &ldquo;website&rdquo; repository, Git sees it as a submodule and does not track its contents.  Instead, Git sees it as a particular commit from that repository.</p>
 
 
 
@@ -457,7 +421,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
     </svg></a>
 </h3>
 <p>Instead of GitHub publishing our website from the root directory, we would like it to do so from a subdirectory.  Since, the only two options are to publish from the root or a <code>/docs/</code> subdirectory, we must rename <code>/public/</code> to <code>/docs/</code>.</p>
-<p>Next, to ensure that the site is build in the <code>/docs/</code> folder, we must add the following line of code to the <code>.RProfile</code> file in the root of the website repository.</p>
+<p>Next, to ensure that the site is built in the <code>/docs/</code> folder, we must add the following line of code to the <code>.RProfile</code> file in the root of the website repository.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">options</span>(blogdown.publishDir<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;docs&#39;</span>)
 </span></span></code></pre></div><p>Finally, save <code>.RProfile</code> and restart the R session for the changes to take affect.</p>
 
@@ -495,7 +459,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h3>
-<p>Assuming there are no changes within the <code>/content/</code> submodule, we can directly push our website to GitHub by running the following commands in Git Bash:</p>
+<p>We can directly push our website to GitHub by running the following commands in Git Bash:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git add .
 </span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Publish website&#34;</span> 
 </span></span><span style="display:flex;"><span>$ git push origin HEAD
@@ -578,26 +542,64 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 <p>After making changes, save the respective files to preview them.  Subsequently, the console will detect the change, the viewer pane will update, and the web browser will also refresh.</p>
 </li>
 <li>
-<p>When satisfied with the changes, build the website locally buy running 
+<p>When satisfied with the changes, build the website locally by running 
 <a href="https://pkgs.rstudio.com/blogdown/reference/build_site.html" target="_blank" rel="noopener"><code>blogdown::build_site()</code></a>.</p>
 </li>
 <li>
-<p>Add and commit all changes to the <code>/content/</code> submodule using a new local branch linked to the main remote branch.  From Git Bash and within the submodule repository, use the following code:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout -b build
-</span></span><span style="display:flex;"><span>$ git branch --set-upstream-to origin/main
-</span></span><span style="display:flex;"><span>$ git add .
-</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Content updates&#34;</span>
-</span></span><span style="display:flex;"><span>$ git push origin HEAD:main
-</span></span></code></pre></div></li>
-<li>
-<p>Add, commit and push changes to the &ldquo;website&rdquo; remote repository, including the build site in the <code>/docs/</code> folder.  From Git Bash and within the &ldquo;website&rdquo; repository, use the following code:<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Add, commit and push changes to the &ldquo;website&rdquo; remote repository, including the built site in the <code>/docs/</code> folder.  From Git Bash and within the &ldquo;website&rdquo; repository, use the following code:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git add .
 </span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Content updates&#34;</span>
 </span></span><span style="display:flex;"><span>$ git pull
-</span></span><span style="display:flex;"><span>$ git push --recurse-submodules<span style="color:#000;font-weight:bold">=</span>check
+</span></span><span style="display:flex;"><span>$ git push
 </span></span></code></pre></div></li>
 </ol>
 <p>So, there we go.  We now have our Hugo-Apéro website published to GitHub pages!</p>
+<!-- ### Add contents -->
+<!-- We now repeat the steps above to add the "contents" submodule, where the one exception is that we also need to create a "website content" repository.  This setup means that while our "website" repository will be public, we can nevertheless keep its content private.  This prevents it from being easily copied and transposed elsewhere on the web. -->
+<!-- <div id="" class="panelset">
+   -->
+<!-- <div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p>&ndash;&gt;</p>
+<!-- Create a new repository on GitHub from <https://github.com/new>: -->
+<!-- - Choose a name for your "website content" repository.  I chose something banal like `website_content`. -->
+<!-- - Make the repository "private". -->
+<!-- - Check to initialize with a `README.md` file.  -->
+<!-- - Add a `.gitignore` file based on the R template.  -->
+<!--</p>
+</div> -->
+<!-- <div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p>&ndash;&gt;</p>
+<!-- ![Screenshot: Creating a new repository in GitHub](content_repo.png) -->
+<!--</p>
+</div> -->
+<!-- 
+</div> -->
+<!-- We can now repeat the steps under the [Add Hugo-Apéro](#add-hugo-apéro) subsection.  Essentially, we wish to add our private `website_content` repository as the `/content/` folder in our public "website" repository.  We can do so by running the following line of code in Git Bash after navigating to our local website repository: -->
+<!-- ```bash -->
+<!-- $ git submodule add https://github.com/jack-gregory/website_content.git content -->
+<!-- ``` -->
+<!-- This will clone the `website_content` repository in a `/content/` folder.  So, although our remote repository is named `website_content` on GitHub, we want it to be referenced as a folder named "content" within the "website" repository in order to comply with the default Hugo folder structure. -->
+<!-- Note that, although, content is a subdirectory in our "website" repository, Git sees it as a submodule and does not track its contents.  Instead, Git sees it as a particular commit from that repository. -->
+<!-- 7. Add and commit all changes to the `/content/` submodule using a new local branch linked to the main remote branch.  From Git Bash and within the submodule repository, use the following code:[^2] -->
+<!--     ```bash -->
+<!--     $ git checkout -b build -->
+<!--     $ git branch --set-upstream-to origin/main -->
+<!--     $ git add . -->
+<!--     $ git commit -m "Content updates" -->
+<!--     $ git push origin HEAD:main -->
+<!--     ``` -->
+<!-- 8. Add, commit and push changes to the "website" remote repository, including the built site in the `/docs/` folder.  From Git Bash and within the "website" repository, use the following code:[^2] -->
+<!--     ```bash -->
+<!--     $ git add . -->
+<!--     $ git commit -m "Content updates" -->
+<!--     $ git pull -->
+<!--     $ git push --recurse-submodules=check -->
+<!--     ``` -->
+<!-- [^2]: Further details and explanation can be found in the [git submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules) documentation. -->
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -607,7 +609,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
 </li>
 <li id="fn:2">
 <p>Further details and explanation can be found in the 
-<a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a> documentation.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a> documentation.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
@@ -620,7 +622,7 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">9 minute read, 1747 words</dd>
+    <dd class="fw5 ml0">7 minute read, 1457 words</dd>
   </dl>
   
   <dl class="f6 lh-copy">
@@ -638,6 +640,8 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
     
+    <dd class="fw5 ml0"><a href="/blog/google-analytics/">Setting up Google Analytics on hugo-apéro</a></dd>
+    
   </dl>
 </details>
 
@@ -646,7 +650,13 @@ Even if you&rsquo;ve never used Hugo or blogdown previously, the setup is fairly
         <div class="post-pagination dt w-100 mt4 mb2">
   
   
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/google-analytics/">&larr; Setting up Google Analytics on hugo-apéro</a>
   
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ... &rarr;</a>
   
 </div>
 
