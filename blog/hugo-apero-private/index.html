@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>How to restrict access to a hugo-apéro website on GitHub Pages ... | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="... using git submodules">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="How to restrict access to a hugo-apéro website on GitHub Pages ... | Jack Gregory">
+<meta property="og:description" content="... using git submodules" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/hugo-apero-private/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/hugo-apero-private/featured.png" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/hugo-apero-private/featured.png" >
+    
+    
+  <meta itemprop="name" content="How to restrict access to a hugo-apéro website on GitHub Pages ...">
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages while keeping either the content or the full website code private.
+IntroductionThis is a followup to my companion blog post titled: How to setup hugo-apéro on GitHub Pages. If you&rsquo;re looking for details on how to setup your Hugo-Apéro website from scratch, I would recommend starting there.
+In the previous post, the setup resulted in a public GitHub repository for your website."><meta itemprop="datePublished" content="2022-09-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1374"><meta itemprop="image" content="/blog/hugo-apero-private/featured.png">
+<meta itemprop="keywords" content="Website," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.a9f2a4292c3a1536884736d2642e2c7f21f17655fe23971612e5664e6b2c58cb.css" integrity="sha256-qfKkKSw6FTaIRzbSZC4sfyHxdlX&#43;I5cWEuVmTmssWMs=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.84fd0088b3f2183a118cd6a9ca249ceedb90ca39c5c5678c5d31d48996351114.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">How to restrict access to a hugo-apéro website on GitHub Pages ...</h1>
+        <h4 class="f4 mt0 mb4 lh-title measure">... using git submodules</h4>
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/github">GitHub</a>  <a href="/categories/hugo">Hugo</a> </p>
+        <p class="f7 db mv0 ttu">September 1, 2022</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p><img src="hugo_apero.png" alt=""></p>
+
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages while keeping either the content or the full website code private.</p>
+
+
+
+
+<h2 id="intro">Introduction
+  <a href="#intro"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>This is a followup to my companion blog post titled: 
+<a href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages</a>.  If you&rsquo;re looking for details on how to setup your Hugo-Apéro website from scratch, I would recommend starting there.</p>
+<p>In the previous post, the setup resulted in a public GitHub repository for your website.  Here, I outline a number of potential alterations using git submodules to keep either the 
+<a href="#private-website">full website</a> or just the 
+<a href="#private-content">content</a> private.  This prevents the desired materials from being easily copied and transposed elsewhere on the web.</p>
+<p>Please note that this blog primarily highlights where it diverges from the companion post.  It provides links back to the companion post whenever the steps are identical.  Also, much of what follows is based on the blog &ldquo;
+<a href="https://blog.bitsrc.io/how-to-utilize-submodules-within-git-repos-5dfdd1c62d09" target="_blank" rel="noopener">How to Utilize Submodules within Git Repos</a>&rdquo; by 
+<a href="https://www.paigeniedringhaus.com/" target="_blank" rel="noopener">Paige Niedringhaus</a>.  The documentation on 
+<a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a> is also a useful resource.</p>
+
+
+
+
+<h2 id="private-website">Private website repository
+  <a href="#private-website"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In this setup, we keep the &ldquo;website&rdquo; repository public, while the website source code must be stored in a public repository such that it can be hosted by GitHub Pages.</p>
+
+
+
+
+<h3 id="create-repo">Create GitHub repository
+  <a href="#create-repo"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Here, the first step is to create a private repository on GitHub.  The repository name is inconsequential, so we&rsquo;ll adopt something bland but descriptive: <code>website_build</code>.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Create a new repository on GitHub from 
+<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>:</p>
+<ul>
+<li>
+<p>Name your repository as desired, though be sure to avoid any special GitHub repository names.</p>
+</li>
+<li>
+<p>Make the repository &ldquo;private&rdquo;.</p>
+</li>
+<li>
+<p>Check to initialize with a <code>README.md</code> file.</p>
+</li>
+<li>
+<p>Don&rsquo;t add a <code>.gitignore</code> file as <code>blogdown</code> will handle this later.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="build_repo_private.png" alt="Screenshot: Creating a new repository in GitHub"></p>
+</div>
+
+</div>
+
+
+
+
+<h3 id="create-site">Create site
+  <a href="#create-site"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>See 
+<a href="/blog/hugo-apero/#create-site">Create site</a> from the companion post.</p>
+
+
+
+
+<h3 id="add-submodules">Add submodules
+  <a href="#add-submodules"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>See 
+<a href="/blog/hugo-apero/#add-submodule">Add <code>hugo-apero</code> submodule</a> from the companion post.  Use the instructions therein to add a <code>hugo-apero</code> submodule as well as to assist with the remainder of this subsection.</p>
+<p>GitHub Pages hosting is only available in public repositories with a GitHub Free account.  So, since our <code>website_build</code> repository is private, we won&rsquo;t be able to publish on the web.  We could solve this by upgrading to a GitHub Pro account, which allows both public and private repositories to use GitHub Pages, or we could convert our website source folder into a public submodule.</p>
+<p>To avoid upgrading, we&rsquo;ll adopt the second option and create a public submodule to contain the source code for our website.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Create a new repository on GitHub from 
+<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>:</p>
+<ul>
+<li>
+<p>Name the repo <code>[username].github.io</code> under your account and replace &ldquo;[username]&rdquo; with your actual GitHub handle excluding brackets.</p>
+</li>
+<li>
+<p>Make the repository &ldquo;public&rdquo;.</p>
+</li>
+<li>
+<p>Check to initialize with a <code>README.md</code> file.</p>
+</li>
+<li>
+<p>Don&rsquo;t add a <code>.gitignore</code> file.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="website_repo.png" alt="Screenshot: Creating a new repository in GitHub"></p>
+</div>
+
+</div>
+<p>We now need to add the created repository into <code>website_build</code> as a submodule.  We do so by replacing the <code>/public/</code> folder.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Create a <code>public</code> submodule</p>
+<ol>
+<li>
+<p>Delete the <code>/public/</code> folder in the <code>website_build</code> repo.</p>
+</li>
+<li>
+<p>Open Git Bash and navigate to the <code>website_build</code> repo.</p>
+</li>
+<li>
+<p>Enter the following line of code in the terminal and replace &ldquo;[username]&rdquo; with your actual GitHub handle excluding brackets:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git submodule add https://github.com/<span style="color:#000;font-weight:bold">[</span>username<span style="color:#000;font-weight:bold">]</span>/<span style="color:#000;font-weight:bold">[</span>username<span style="color:#000;font-weight:bold">]</span>.github.io.git public
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+
+
+
+
+<h3 id="publish-to-github-pages">Publish to GitHub Pages
+  <a href="#publish-to-github-pages"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Now that we have our website setup locally, we can proceed to publishing it through GitHub Pages.</p>
+
+
+
+
+<h4 id="add-nojekyll">Add <code>.nojekyll</code>
+  <a href="#add-nojekyll"></a>
+</h4>
+<p>To ensure GitHub does not rebuild our website using Jekyll, we need to create a (hidden) file named <code>.nojekyll</code> in the <code>/public/</code> folder.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>  Assuming we are in our <code>website_build</code> R project, this can be done by running the following line of code in the R console:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">file.create</span>(<span style="color:#d14">&#34;public/.nojekyll&#34;</span>)
+</span></span></code></pre></div>
+
+
+
+<h4 id="build-the-website">Build the website
+  <a href="#build-the-website"></a>
+</h4>
+<p>Build the website locally using Hugo by running the following line of code in the R console:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;</span> blogdown<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">build_site</span>()
+</span></span></code></pre></div><p>This should populate the <code>/public/</code> folder with the static website.</p>
+
+
+
+
+<h4 id="push-changes-to-github">Push changes to GitHub
+  <a href="#push-changes-to-github"></a>
+</h4>
+<p>Note that, although, <code>/public/</code> is a subdirectory in the <code>website_build</code> repository, Git sees it as a submodule and does not track its contents.  Instead, Git sees it as a particular commit from that repository.  Given this and since we&rsquo;ve made changes to both the <code>/public/</code> submodule (i.e., the <code>[username].github.io</code> repository) and the <code>website_build</code> repository, we must push the changes from both sequentially.  First, we update the <code>[username].github.io</code> remote with the latest changes.  We navigate to the <code>website_build</code> repository in Git Bash and run the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#0086b3">cd</span> public
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Publish initial website&#34;</span> 
+</span></span><span style="display:flex;"><span>$ git push origin HEAD
+</span></span></code></pre></div><p>Next, we update the <code>website_build</code> remote by returning to the root directory and running the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#0086b3">cd</span> ..
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Publish initial website&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push origin HEAD:main
+</span></span></code></pre></div><p>Now, we have updated both remote repositories.</p>
+
+
+
+
+<h4 id="edit-github-pages-settings">Edit GitHub Pages settings
+  <a href="#edit-github-pages-settings"></a>
+</h4>
+<p>Finally, we need to adjust a few of the <code>[username].github.io</code> repository settings to ensure the website is properly published to GitHub pages.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Adjust some repository settings:</p>
+<ul>
+<li>
+<p>Navigate to Settings <code>\(\rightarrow\)</code> Pages.</p>
+</li>
+<li>
+<p>Under &ldquo;Build and deployment&rdquo;:</p>
+<ul>
+<li>
+<p>Change &ldquo;Source&rdquo; <code>\(\longrightarrow\)</code> &ldquo;Deploy from branch&rdquo;;</p>
+</li>
+<li>
+<p>Change &ldquo;Branch: Branch&rdquo; <code>\(\longrightarrow\)</code> &ldquo;main&rdquo;; and,</p>
+</li>
+<li>
+<p>Change &ldquo;Branch: Select folder&rdquo; <code>\(\longrightarrow\)</code> &ldquo;/(root)&rdquo;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click save.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="github_pages_settings.png" alt="Screenshot: GitHub Pages settings"></p>
+</div>
+
+</div>
+<p>The website should now be published online at the following link: &ldquo;https://[username].github.io/&rdquo;, where &ldquo;[username]&rdquo; will be replaced with your GitHub handle.</p>
+
+
+
+
+<h2 id="private-content">Private content folder
+  <a href="#private-content"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Alternatively, we could keep <code>website_build</code> public, but store all content in a private repository, e.g., <code>website_content</code>.  This involves a similar process to that for the 
+<a href="#private-website">private website repository</a> above, except for two main differences:</p>
+<ol>
+<li>Setup <code>website_build</code> as a public repository; and,</li>
+<li>Create <code>website_content</code> as a private repository and add it as a submodule replacing the <code>/content/</code> folder.</li>
+</ol>
+<p>Step 1 is identical to 
+<a href="#create-repo">Create GitHub repository</a> above, except now the repository should be public.</p>
+<p>Step 2, on the other hand, is a little more involved.  Similar to 
+<a href="#add-submodules">Add submodules</a> above, we wish to add the <code>[username].github.io</code> as a submodule under the <code>/public/</code> folder.  We also want to repeat the steps to add <code>website_content</code> as a submodule under the <code>/content/</code> folder.  This setup means that while our &ldquo;website&rdquo; repository will be public, we can nevertheless keep its content private.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Create a new repository on GitHub from 
+<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>:</p>
+<ul>
+<li>
+<p>Choose a name for your &ldquo;website content&rdquo; repository.  I chose something banal like <code>website_content</code>.</p>
+</li>
+<li>
+<p>Make the repository &ldquo;private&rdquo;.</p>
+</li>
+<li>
+<p>Check to initialize with a <code>README.md</code> file.</p>
+</li>
+<li>
+<p>Add a <code>.gitignore</code> file based on the R template.</p>
+</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Screenshot 📷</div>
+  
+  <p><img src="content_repo.png" alt="Screenshot: Creating a new repository in GitHub"></p>
+</div>
+
+</div>
+<p>We can now repeat the steps outlined in 
+<a href="#add-submodules">Add submodules</a> above.  Essentially, we wish to add our private <code>website_content</code> repository as the <code>/content/</code> folder in our public <code>website_build</code> repository.  We can do so by following the steps outlined below:</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><p>Create a <code>content</code> submodule</p>
+<ol>
+<li>
+<p>Store the contents of the <code>/content/</code> folder in another location.</p>
+</li>
+<li>
+<p>Delete the original <code>/content/</code> folder in the <code>website_build</code> repo.</p>
+</li>
+<li>
+<p>Open Git Bash and navigate to the <code>website_build</code> repo.</p>
+</li>
+<li>
+<p>Enter the following line of code in the terminal:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git submodule add https://github.com/jack-gregory/website_content.git content
+</span></span></code></pre></div><ol start="5">
+<li>Add the stored contents to the new submodule.</li>
+</ol>
+</p>
+</div>
+
+</div>
+<p>This will clone the <code>website_content</code> repository in a <code>/content/</code> folder.  So, although our remote repository is named <code>website_content</code> on GitHub, it will be referenced as a folder named &ldquo;content&rdquo; in order to comply with the default Hugo folder structure.</p>
+
+
+
+
+<h2 id="workflow">Workflow summary
+  <a href="#workflow"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>My workflow for these versions of the setup is very similar to that outlined in the companion post 
+<a href="/blog/hugo-apero/#workflow">here</a>.  However, Step 7 from the companion post should be replaced with the two steps outlined below.</p>
+<ol start="7">
+<li>
+<p>Add and commit all changes to the <code>/content/</code> and/or <code>/public/</code> submodules using a new local branch linked to the main remote branch.  From Git Bash and within each submodule repository, use the following code:<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git checkout -b build
+</span></span><span style="display:flex;"><span>$ git branch --set-upstream-to origin/main
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Content updates&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push origin HEAD:main
+</span></span></code></pre></div></li>
+<li>
+<p>Add, commit and push changes to the <code>website_build</code> remote repository, including all commits from the <code>/content/</code> and/or <code>/public/</code> submodules.  From Git Bash and within the <code>website_build</code> repository, use the following code:<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#d14">&#34;Content updates&#34;</span>
+</span></span><span style="display:flex;"><span>$ git pull
+</span></span><span style="display:flex;"><span>$ git push --recurse-submodules<span style="color:#000;font-weight:bold">=</span>check
+</span></span></code></pre></div></li>
+</ol>
+<p>So, there we go.  We can now have our Hugo-Apéro website published to GitHub pages while maintaining part or all of the code privately!</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>See 
+<a href="https://bookdown.org/yihui/blogdown/github-pages.html#fn34:~:text=To%20make%20sure%20GitHub%20does%20not%20rebuild%20your%20website%20using%20Jekyll%20and%20just%20publish%20whatever%20files%20you%20push%20to%20the%20repository%2C%20you%20need%20to%20create%20a%20%28hidden%29%20file%20named%20.nojekyll%20in%20the%20repository." target="_blank" rel="noopener">here</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Further details and explanation can be found in the 
+<a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a> documentation.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">September 1, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">7 minute read, 1374 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/github">GitHub</a>  <a href="/categories/hugo">Hugo</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/website">Website</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/google-analytics/">Setting up Google Analytics on hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ...</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/google-analytics/">&larr; Setting up Google Analytics on hugo-apéro</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/hugo-apero/">How to setup hugo-apéro on GitHub Pages ... &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2022 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact Form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

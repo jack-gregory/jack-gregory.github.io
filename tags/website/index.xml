@@ -20,14 +20,14 @@ In this blog, I&amp;rsquo;ll outline the two steps necessary to configure Google
     </item>
     
     <item>
-      <title>How to setup hugo-apéro on GitHub Pages ...</title>
-      <link>/blog/hugo-apero/</link>
-      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <title>How to restrict access to a hugo-apéro website on GitHub Pages ...</title>
+      <link>/blog/hugo-apero-private/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/blog/hugo-apero/</guid>
-      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to and include a theme dynamically.
-IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
-Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+      <guid>/blog/hugo-apero-private/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages while keeping either the content or the full website code private.
+IntroductionThis is a followup to my companion blog post titled: How to setup hugo-apéro on GitHub Pages. If you&amp;rsquo;re looking for details on how to setup your Hugo-Apéro website from scratch, I would recommend starting there.
+In the previous post, the setup resulted in a public GitHub repository for your website.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fa
       <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>/blog/hugo-apero/</guid>
-      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to and include a theme dynamically.
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to include a theme dynamically.
 IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
 Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
     </item>
