@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Thu, 29 Sep 2022 13:30:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intangible assets owned by all listed companies grew to $74 trillion in 2021</title>
+      <link>/blog/intangible-assets/</link>
+      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/intangible-assets/</guid>
+      <description>Concurrent with the digital revolution, intangible assets&amp;mdash;such as R&amp;amp;D, intellectual property, brands, software, databases, organizational assets and skills&amp;mdash;have grown in importance. They are now the cornerstone of any vibrant innovation ecosystem. As such, intangible assets should be part of any measure gauging the success of corporate and national innovation ecosystems.
+The Global Innovation Index (GII) 2022 includes novel data quantifying corporate intangible assets worldwide. This comes in support of a broader effort at the World Intellectual Property Organization (WIPO) to better understand and value intangible assets&amp;mdash;see, for example, the recent High-Level Conversation on Intangible Asset Finance of WIPO’s IP and Innovation Ecosystems Sector.</description>
+    </item>
+    
     <item>
       <title>Global Innovation Index 2022</title>
       <link>/talk/gii22-launch/</link>
@@ -179,7 +189,7 @@ About
 Content Coding icons CV
 PDF Pagedown Form
 Blogs
-Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database (Setup MariaDB on AWS RDS) Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Brand Finance (intangible assets) Alternative GII? [?] Frontier project [?] Suena project ITC [?</description>
+Hugo-Apero Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database (Setup MariaDB on AWS RDS) Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Brand Finance (intangible assets) Alternative GII? [?] Frontier project [?] Suena project ITC Creating an indicator using spatial data Factor analysis using Stata to build an index [?</description>
     </item>
     
     <item>
