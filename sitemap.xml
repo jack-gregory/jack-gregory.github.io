@@ -3,7 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/categories/</loc>
-    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/dissertation/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/electricity/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/energy/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/publication/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/publication/grandfathering/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/united-states/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/working-paper/</loc>
+    <lastmod>2022-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
@@ -15,12 +42,6 @@
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/intangible-assets/</loc>
-    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/wipo/</loc>
@@ -56,16 +77,10 @@
     <loc>/blog/hugo-apero/</loc>
     <lastmod>2022-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/electricity/</loc>
-    <lastmod>2022-06-23T15:45:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/panel/</loc>
     <lastmod>2022-06-23T15:45:00+00:00</lastmod>
   </url><url>
     <loc>/talk/aweee-grandfathering/</loc>
-    <lastmod>2022-06-23T15:45:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/united-states/</loc>
     <lastmod>2022-06-23T15:45:00+00:00</lastmod>
   </url><url>
     <loc>/categories/california/</loc>
@@ -80,19 +95,10 @@
     <loc>/categories/australia/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/dissertation/</loc>
-    <lastmod>2021-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/energy/</loc>
-    <lastmod>2021-12-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/publication/essays-on-electricity-economics/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/market-power/</loc>
-    <lastmod>2021-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/publication/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/talk/epc-covid/</loc>
@@ -129,9 +135,6 @@
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/transportation/</loc>
-    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/working-paper/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publication/amazing-grace/</loc>

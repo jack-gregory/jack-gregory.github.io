@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Fri, 11 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather’s boiler</title>
+      <link>/publication/grandfathering/</link>
+      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grandfathering/</guid>
+      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
     <item>
       <title>Intangible assets owned by all listed companies grew to $74 trillion in 2021</title>
       <link>/blog/intangible-assets/</link>
@@ -184,12 +193,13 @@ DescriptionOne of the main components of the GII report is the economy profiles
       
       <guid>/readme/</guid>
       <description>website_contentPersonal website content using blogdown and Hugo.
-To Do[?] GitHub profile (see https://github.com/abhisheknaiidu/awesome-github-profile-readme)
+To Do[?] LinkedIn profile
+[?] GitHub profile (see https://github.com/abhisheknaiidu/awesome-github-profile-readme)
 About
 Content Coding icons CV
 PDF Pagedown Form
 Blogs
-Hugo-Apero Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database (Setup MariaDB on AWS RDS) Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Brand Finance (intangible assets) Alternative GII? [?] Frontier project [?] Suena project ITC Creating an indicator using spatial data Factor analysis using Stata to build an index [?</description>
+Hugo-Apero Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database (Setup MariaDB on AWS RDS) Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Brand Finance (intangible assets) Alternative GII? [?] Frontier project [?</description>
     </item>
     
     <item>

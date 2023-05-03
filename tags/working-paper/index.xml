@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/working-paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/working-paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather’s boiler</title>
+      <link>/publication/grandfathering/</link>
+      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grandfathering/</guid>
+      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
     <item>
       <title>How Zero-Emission Vehicle Incentives and Related Policies Affect the Market</title>
       <link>/publication/zev-incentives/</link>
