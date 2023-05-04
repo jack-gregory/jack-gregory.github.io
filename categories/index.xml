@@ -7,13 +7,85 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Feb 2023 14:40:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Electricity</title>
       <link>/categories/electricity/</link>
-      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
       
       <guid>/categories/electricity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>United States</title>
+      <link>/categories/united-states/</link>
+      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      
+      <guid>/categories/united-states/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>California</title>
+      <link>/categories/california/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/categories/california/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID</title>
+      <link>/categories/covid/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/categories/covid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/categories/aws/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Innovation</title>
+      <link>/categories/innovation/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/categories/innovation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>/categories/sql/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/categories/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WIPO</title>
+      <link>/categories/wipo/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/categories/wipo/</guid>
       <description></description>
     </item>
     
@@ -27,29 +99,11 @@
     </item>
     
     <item>
-      <title>United States</title>
-      <link>/categories/united-states/</link>
-      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      <title>XML</title>
+      <link>/categories/xml/</link>
+      <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
       
-      <guid>/categories/united-states/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Innovation</title>
-      <link>/categories/innovation/</link>
-      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/innovation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WIPO</title>
-      <link>/categories/wipo/</link>
-      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/wipo/</guid>
+      <guid>/categories/xml/</guid>
       <description></description>
     </item>
     
@@ -63,38 +117,11 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>GitHub</title>
       <link>/categories/github/</link>
       <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>California</title>
-      <link>/categories/california/</link>
-      <pubDate>Mon, 16 May 2022 13:45:00 +0000</pubDate>
-      
-      <guid>/categories/california/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>COVID</title>
-      <link>/categories/covid/</link>
-      <pubDate>Mon, 16 May 2022 13:45:00 +0000</pubDate>
-      
-      <guid>/categories/covid/</guid>
       <description></description>
     </item>
     
@@ -113,33 +140,6 @@
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>/categories/market-power/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/categories/aws/</link>
-      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>/categories/sql/</link>
-      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/sql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>XML</title>
-      <link>/categories/xml/</link>
-      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/xml/</guid>
       <description></description>
     </item>
     

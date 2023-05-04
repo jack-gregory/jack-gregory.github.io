@@ -25,6 +25,7 @@ DescriptionIn addition to the ranking and report, the GII launch also includes 
       
       <guid>/project/gii-data/</guid>
       <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
 Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>
@@ -37,6 +38,7 @@ Figure 1: High-level GII workflowThis project focuses on the Data phase, where 
       
       <guid>/project/gii-profiles/</guid>
       <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+See related workshop here.
 DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
     </item>
     

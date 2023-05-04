@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Feb 2023 14:40:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/osweet-grandfathering/</link>
+      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      
+      <guid>/talk/osweet-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;2023 Air Quality Seminar&amp;rdquo; for the Association of Environmental and Resource Economists at the Online Summer Workshop in Environment, Energy, and Transportation (AERE@OSWEET).
+See the working paper here.</description>
+    </item>
+    
+    <item>
+      <title>COVID restrictions, federal assistance and small businesses</title>
+      <link>/talk/oecd-covid/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/talk/oecd-covid/</guid>
+      <description>NotesSee the chapter in my dissertation here.
+AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
+    </item>
+    
+    <item>
+      <title>GIIDB</title>
+      <link>/talk/wipo-giidb/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-giidb/</guid>
+      <description>An internal training session for the GII Database&amp;mdash;part of the GII Data Pipeline.</description>
+    </item>
+    
     <item>
       <title>Still your grandfather’s boiler</title>
       <link>/publication/grandfathering/</link>
@@ -15,6 +44,15 @@
       
       <guid>/publication/grandfathering/</guid>
       <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
+    <item>
+      <title>Economy Profiles</title>
+      <link>/talk/wipo-profiles/</link>
+      <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-profiles/</guid>
+      <description>An internal training session for the GII Profiles project.</description>
     </item>
     
     <item>
@@ -77,7 +115,7 @@ Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fa
       
       <guid>/talk/aweee-grandfathering/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
-AbstractWhile vintage differentiation is a highly prominent feature of various regulations, it can induce significant biases. We study these biases in the context of New Source Review—a set of regulations passed within the US Clean Air Act imposing costly sulfur dioxide abatement requirements on new boilers but not existing ones. In particular, we empirically investigate how the differential treatment of coal boilers shaped the generation landscape by affecting unit utilization, retirement, and emissions.</description>
+See the working paper here.</description>
     </item>
     
     <item>
@@ -87,6 +125,7 @@ AbstractWhile vintage differentiation is a highly prominent feature of various 
       
       <guid>/talk/mcee-covid/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;Pandemic Diseases and the Environment&amp;rdquo; Parallel Session.
+See the chapter in my dissertation here.
 AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
     </item>
     
@@ -106,6 +145,7 @@ AbstractThis paper uses high-frequency data on electricity consumption to demon
       
       <guid>/talk/epc-covid/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;COVID-19 and Energy&amp;rdquo; Research Session.
+See the chapter in my dissertation here.
 AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
     </item>
     
@@ -126,6 +166,7 @@ DescriptionIn addition to the ranking and report, the GII launch also includes 
       
       <guid>/project/gii-data/</guid>
       <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
 Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>
@@ -138,6 +179,7 @@ Figure 1: High-level GII workflowThis project focuses on the Data phase, where 
       
       <guid>/project/gii-profiles/</guid>
       <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+See related workshop here.
 DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
     </item>
     

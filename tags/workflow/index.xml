@@ -15,6 +15,7 @@
       
       <guid>/project/gii-data/</guid>
       <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
 Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshop on Jack Gregory</title>
+    <link>/tags/workshop/</link>
+    <description>Recent content in Workshop on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2022 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 06 Dec 2022 09:30:00 +0000</lastBuildDate><atom:link href="/tags/workshop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIIDB</title>
+      <link>/talk/wipo-giidb/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-giidb/</guid>
+      <description>An internal training session for the GII Database&amp;mdash;part of the GII Data Pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Economy Profiles</title>
+      <link>/talk/wipo-profiles/</link>
+      <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-profiles/</guid>
+      <description>An internal training session for the GII Profiles project.</description>
+    </item>
+    
+  </channel>
+</rss>

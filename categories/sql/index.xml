@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 09:30:00 +0000</lastBuildDate><atom:link href="/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIIDB</title>
+      <link>/talk/wipo-giidb/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-giidb/</guid>
+      <description>An internal training session for the GII Database&amp;mdash;part of the GII Data Pipeline.</description>
+    </item>
+    
     <item>
       <title>GII Data Pipeline</title>
       <link>/project/gii-data/</link>
@@ -15,6 +24,7 @@
       
       <guid>/project/gii-data/</guid>
       <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
 Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>

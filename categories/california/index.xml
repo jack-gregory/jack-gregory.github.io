@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Mon, 16 May 2022 13:45:00 +0000</lastBuildDate><atom:link href="/categories/california/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Feb 2023 14:00:00 +0000</lastBuildDate><atom:link href="/categories/california/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COVID restrictions, federal assistance and small businesses</title>
+      <link>/talk/oecd-covid/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/talk/oecd-covid/</guid>
+      <description>NotesSee the chapter in my dissertation here.
+AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
+    </item>
+    
     <item>
       <title>COVID restrictions, federal assistance and small businesses</title>
       <link>/talk/mcee-covid/</link>
@@ -15,6 +25,7 @@
       
       <guid>/talk/mcee-covid/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;Pandemic Diseases and the Environment&amp;rdquo; Parallel Session.
+See the chapter in my dissertation here.
 AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
     </item>
     
@@ -34,6 +45,7 @@ AbstractThis paper uses high-frequency data on electricity consumption to demon
       
       <guid>/talk/epc-covid/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;COVID-19 and Energy&amp;rdquo; Research Session.
+See the chapter in my dissertation here.
 AbstractThis paper uses high-frequency data on electricity consumption to demonstrate the effect of COVID restrictions on business activity and the mitigating effects of federal support programs. Using hourly data from the population of commercial customers in a utility and a panel event study framework, we evaluate how COVID restrictions alter total electricity consumption, the time profile of when electricity is consumed, and the probability that an account shuts down.</description>
     </item>
     
