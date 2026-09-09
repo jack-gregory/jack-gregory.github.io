@@ -6,8 +6,40 @@
     <description>Recent content in Digital Garden on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Fri, 11 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 05 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful Git commands</title>
+      <link>/blog/git-commands/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/git-commands/</guid>
+      <description>TL;DRThis post provides a running list for helpful git commands.
+Note that all user input is identified by angle brackets with capital letters, for example: &amp;lt;INSERT ...&amp;gt;.
+Additional git references can be found online at the following sites:
+git documentation; git user manual; GitHub documentation; and, Atlassian tutorials and glossary. Remote RepositoriesIn git, it is possible to manage set of tracked remote repositories.
+Check for linked repositoryTo check if a local repository is linked to a remote repository:</description>
+    </item>
+    
+    <item>
+      <title>Building a fragility index using factor analysis</title>
+      <link>/blog/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/itc-fragility-index/</guid>
+      <description>TL;DRThe ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index.</description>
+    </item>
+    
+    <item>
+      <title>Creating a proxy for local instability using geospatial event data</title>
+      <link>/blog/itc-instability-indicators/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/itc-instability-indicators/</guid>
+      <description>TL;DRThis blog shows how to use Armed Conflict Location and Event Data (ACLED) event data and geospatial techniques in R to construct location-specific indicators of local instability. Using hypothetical business locations in Ecuador, I demonstrate how nearby adverse events can be aggregated into a simple measure of exposure to insecurity, which can then be used to compare locations or incorporated into analyses of business outcomes.
+IntroductionIn the Western world, we can sometimes overlook the benefits derived from operating within stable and peaceful communities.</description>
+    </item>
+    
     <item>
       <title>Intangible assets owned by all listed companies grew to $74 trillion in 2021</title>
       <link>/blog/intangible-assets/</link>

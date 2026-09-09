@@ -6,23 +6,113 @@
     <description>Recent content in Categories on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Fri, 24 Feb 2023 14:40:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Electricity</title>
       <link>/categories/electricity/</link>
-      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>/categories/electricity/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Energy</title>
+      <link>/categories/energy/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/energy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>United States</title>
       <link>/categories/united-states/</link>
-      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>/categories/united-states/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>US</title>
+      <link>/categories/us/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Water</title>
+      <link>/categories/water/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/water/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/categories/git/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>/categories/github/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Australia</title>
+      <link>/categories/australia/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/australia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Market Power</title>
+      <link>/categories/market-power/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/market-power/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Competition</title>
+      <link>/categories/competition/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/competition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ITC</title>
+      <link>/categories/itc/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/itc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
@@ -63,15 +153,6 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
-      
-      <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SQL</title>
       <link>/categories/sql/</link>
       <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
@@ -90,15 +171,6 @@
     </item>
     
     <item>
-      <title>Energy</title>
-      <link>/categories/energy/</link>
-      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/energy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>XML</title>
       <link>/categories/xml/</link>
       <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
@@ -113,33 +185,6 @@
       <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GitHub</title>
-      <link>/categories/github/</link>
-      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Australia</title>
-      <link>/categories/australia/</link>
-      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/australia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Market Power</title>
-      <link>/categories/market-power/</link>
-      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/market-power/</guid>
       <description></description>
     </item>
     

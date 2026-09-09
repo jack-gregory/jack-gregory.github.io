@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Useful Git commands | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="A running list of helpful Git commands.">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="Useful Git commands | Jack Gregory">
+<meta property="og:description" content="A running list of helpful Git commands." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/git-commands/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/sidebar-listing.jpg" >
+    
+    
+  <meta itemprop="name" content="Useful Git commands">
+<meta itemprop="description" content="TL;DRThis post provides a running list for helpful git commands.
+Note that all user input is identified by angle brackets with capital letters, for example: &lt;INSERT ...&gt;.
+Additional git references can be found online at the following sites:
+git documentation; git user manual; GitHub documentation; and, Atlassian tutorials and glossary. Remote RepositoriesIn git, it is possible to manage set of tracked remote repositories.
+Check for linked repositoryTo check if a local repository is linked to a remote repository:"><meta itemprop="datePublished" content="2023-10-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2001">
+<meta itemprop="keywords" content="Code," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.a9f2a4292c3a1536884736d2642e2c7f21f17655fe23971612e5664e6b2c58cb.css" integrity="sha256-qfKkKSw6FTaIRzbSZC4sfyHxdlX&#43;I5cWEuVmTmssWMs=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.35e19ccfa3650a0c8f4f274224b70a66bd372ac9919ef0142a7628bdb457ad2b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Useful Git commands</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/git">git</a>  <a href="/categories/github">GitHub</a> </p>
+        <p class="f7 db mv0 ttu">October 5, 2023</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <!-- TODO: Add images -->
+<!-- featured.jpg `\(\longrightarrow\)` blog listing -->
+<!-- ![](header.png) `\(\longrightarrow\)` blog header -->
+
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>This post provides a running list for helpful git commands.</p>
+<p>Note that all user input is identified by angle brackets with capital letters, for example: <code>&lt;INSERT ...&gt;</code>.</p>
+<p>Additional git references can be found online at the following sites:</p>
+<ul>
+<li>
+<a href="https://git-scm.com/doc" target="_blank" rel="noopener">git documentation</a>;</li>
+<li>
+<a href="https://git-scm.com/docs/user-manual" target="_blank" rel="noopener">git user manual</a>;</li>
+<li>
+<a href="https://docs.github.com" target="_blank" rel="noopener">GitHub</a> documentation; and,</li>
+<li>
+<a href="https://www.atlassian.com/git" target="_blank" rel="noopener">Atlassian</a> tutorials and glossary.</li>
+</ul>
+
+
+
+
+<h2 id="remote">Remote Repositories
+  <a href="#remote"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In git, it is possible to manage set of tracked 
+<a href="https://git-scm.com/docs/git-remote" target="_blank" rel="noopener">remote</a> repositories.</p>
+
+
+
+
+<h3 id="check-for-linked-repository">Check for linked repository
+  <a href="#check-for-linked-repository"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To check if a local repository is linked to a remote repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">
+$ git remote -v
+</code></pre>
+
+
+
+<h3 id="add-linked-repository">Add linked repository
+  <a href="#add-linked-repository"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To link a local to a remote repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">
+$ git remote add origin &lt;REMOTE LINK&gt;
+</code></pre>
+
+
+
+<h3 id="undoing-pushed-changes">Undoing Pushed Changes
+  <a href="#undoing-pushed-changes"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The instructions below are derived from 
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes" target="_blank" rel="noopener">Atlassian</a>.</p>
+<p>Public commits cannot be undone, but there are workarounds as described below.</p>
+<p>To revert the last commit, where git will create a new commit with the inverse of the last commit:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git revert HEAD
+</code></pre><p>This will add a new commit to the current branch history.</p>
+<p>Alternatiuvely, to remove sensitive data from a repository, see the instructions on 
+<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository" target="_blank" rel="noopener">GitHub</a>.</p>
+
+
+
+
+<h2 id="branch">Branches
+  <a href="#branch"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In git, 
+<a href="https://git-scm.com/docs/git-branch" target="_blank" rel="noopener">branches</a> are a part of the development process.  Effectively, they are a pointer to a snapshot of any repository changes.  Typically, when you want to add a new feature or fix a bug, you spawn a new branch to encapsulate the changes.</p>
+
+
+
+
+<h3 id="list-all-local-branches">List all local branches
+  <a href="#list-all-local-branches"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To list all local branches for a particular repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch -a
+</code></pre>
+
+
+
+<h3 id="create-local-branch">Create local branch
+  <a href="#create-local-branch"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To create a branch on your local machine and switch to this branch:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git checkout -b &lt;NEW BRANCH NAME&gt;
+</code></pre>
+
+
+
+<h3 id="push-local-branch-to-remote">Push local branch to remote
+  <a href="#push-local-branch-to-remote"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To push a local branch to github:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push origin &lt;NEW BRANCH NAME&gt;
+</code></pre>
+
+
+
+<h3 id="set-upstream-branch">Set upstream branch
+  <a href="#set-upstream-branch"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The easiest way to set the upstream branch is to use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch --set-upstream-to origin/&lt;REMOTE BRANCH NAME&gt;
+</code></pre><p>Alternatively, you can use the <code>git push</code> command with the <code>-u</code> option for upstream branch:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push -u &lt;REMOTE BRANCH NAME&gt; &lt;LOCAL BRANCH NAME&gt;
+</code></pre><p>Equivalently, you can use the <code>--set-upstream-to</code> option:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push --set-upstream-to &lt;REMOTE BRANCH NAME&gt; &lt;LOCAL BRANCH NAME&gt;
+</code></pre>
+
+
+
+<h3 id="check-upstream-branch">Check upstream branch
+  <a href="#check-upstream-branch"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To check which remote branch a local branch is tracking use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch -vv
+</code></pre>
+
+
+
+<h3 id="create-local--remote-branches">Create local &amp; remote branches
+  <a href="#create-local--remote-branches"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The instructions below are derived from 
+<a href="https://forum.freecodecamp.org/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222" target="_blank" rel="noopener">Free Code Camp</a>.</p>
+<p>Create a local branch:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git checkout -b &lt;BRANCH&gt;
+</code></pre><p>Edit, add and commit any changes.  Then push the new local branch to the remote repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push -u origin &lt;BRANCH&gt;
+</code></pre><p>where the <code>-u</code> option sets the upstream branch.</p>
+
+
+
+
+<h3 id="delete-local--remote-branches">Delete local &amp; remote branches
+  <a href="#delete-local--remote-branches"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The instructions below are derived from 
+<a href="https://stackoverflow.com/a/23961231" target="_blank" rel="noopener">Stack Overflow</a>.</p>
+<p>When deleting branches both locally and remotely, keep in mind that there are three different branches involved:</p>
+<ol>
+<li>The local branch &ldquo;X&rdquo;.</li>
+<li>The remote origin branch &ldquo;X&rdquo;.</li>
+<li>The local remote-tracking branch &ldquo;origin/X&rdquo; that tracks the remote branch &ldquo;X&rdquo;.</li>
+</ol>
+<p>To delete the remote branch and the locally-stored remote-tracking branch in one command, use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push origin --delete &lt;BRANCH&gt;
+</code></pre><p>Then, to delete the local branch use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch -d &lt;BRANCH&gt;
+</code></pre><p>with the <code>-D</code> option to force delete, if necessary.  And that covers the deletion of all 3 branches with only 2 commands.</p>
+
+
+
+
+<h3 id="searching-for-branches">Searching for branches
+  <a href="#searching-for-branches"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>With &ndash;contains, shows only the branches that contain the named commit (in other words, the branches whose tip commits are descendants of the named commit).</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch [-r|-a] --contains &lt;COMMIT&gt;
+</code></pre><p>Note that option <code>-r</code> causes the remote-tracking branches to be listed, and option <code>-a</code> shows both local and remote branches.  Leaving these options out causes only the local branches to be listed.</p>
+
+
+
+
+<h2 id="commits">Commits
+  <a href="#commits"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In git, a 
+<a href="https://git-scm.com/docs/git-commit" target="_blank" rel="noopener">commit</a> records changes to a repository.</p>
+
+
+
+
+<h3 id="amend-most-recent-local-commit">Amend most recent local commit
+  <a href="#amend-most-recent-local-commit"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>To replace the message of the most recent commit without creating a new commit in the history:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git commit --amend -m &#34;&lt;MESSAGE&gt;&#34;
+$ git commit --amend
+</code></pre><p>Where the latter opens the default editor with the old message pre-filled ready to edit.</p>
+<p>The option <code>--amend</code> also permits the addition of staged changes to the commit.  If you only want to change the message and not the content, make sure nothing is staged before running it.  Alternatively, to amend content but keep the message use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git commit --amend --no-edit
+</code></pre><p>Note that the amended commit gets a new hash, since amending rewrites it.  Also, if you&rsquo;ve already pushed a commit prior to amending, you&rsquo;ll need to force-push the amended commit to update it on the remote:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push --force-with-lease
+</code></pre><p>Critically, this can cause issues for others who have already pulled the old commit.  So, be cautious when pushing with force.</p>
+
+
+
+
+<h2 id="submodule">Submodules
+  <a href="#submodule"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>A 
+<a href="https://git-scm.com/docs/gitsubmodules" target="_blank" rel="noopener">submodule</a> is a repository embedded inside another repository. The submodule has its own history; the repository it is embedded in is called a superproject.  Additional submodule documentation can be found online here:</p>
+<ul>
+<li>
+<a href="https://git-scm.com/docs/git-submodule" target="_blank" rel="noopener">git documentation</a>;</li>
+<li>
+<a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git book entry</a>; and,</li>
+<li>
+<a href="https://github.blog/2016-02-01-working-with-submodules" target="_blank" rel="noopener">GitHub blog</a>.</li>
+</ul>
+
+
+
+
+<h3 id="cloning-repository-with-submodules">Cloning repository with submodules
+  <a href="#cloning-repository-with-submodules"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>When you clone a repository with submodules, you get the directories that contain submodules, but none of the files within them by default.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git clone &lt;HTTPS ADDRESS&gt;
+</code></pre><p>In order to clone the submodules, you must run two commands: <code>git submodule init</code> to initialize your local configuration file; and, <code>git submodule update</code> to fetch all the data from the submodule repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git submodule init
+$ git submodule update
+</code></pre><p>Alternatively, if you pass <code>--recurse-submodules</code> to the <code>git clone</code> command, it will automatically initialize and update each submodule in the repository, including nested submodules if any of the submodules in the repository have submodules themselves.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git clone --recurse-submodules &lt;HTTPS ADDRESS&gt;
+</code></pre>
+
+
+
+<h3 id="pulling-changes-from-submodule-remote">Pulling changes from submodule remote
+  <a href="#pulling-changes-from-submodule-remote"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The simplest workflow for using submodules is if you are simply consuming it within the repository and not modifying it there.  That is, you wish to get updates from the submodule repository (i.e. upstream changes from submodule remote), but you are not modifying the submodule within the repository locally.</p>
+<p>If you want to check for new work in a submodule, you can go into the directory and run <code>git fetch</code> and <code>git merge</code> the upstream branch to update the local code.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git fetch
+$ git merge origin/main
+</code></pre><p>Alternatively, this can be run in one step, where git will go into your submodules and fetch and update for you.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git submodule update --remote &lt;SUBMODULE FOLDER&gt;
+</code></pre><p>Omitting the submodule folder will update all submodules within the repository.  Then <code>git commit</code> can be run to commit all updates to the repository.</p>
+
+
+
+
+<h3 id="pulling-changes-from-repository-remote">Pulling changes from repository remote
+  <a href="#pulling-changes-from-repository-remote"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Instead of updating the submodules, it is possible to get updates for the repository and all submodules at once (i.e. upstream changes from the repository remote).  By default, the <code>git pull</code> command recursively fetches submodule changes; however, it does not update the submodules.  To finalize the update, you must also run <code>git submodule update</code>:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git pull
+$ git submodule update --remote
+</code></pre><p>Alternatively, if you want to automate this process, you can add the <code>--recurse-submodules</code> option to the <code>git pull</code> command.  This will make git run <code>git submodule update</code> immediately after the pull, putting the submodules in the correct state.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git pull --recurse-submodules
+</code></pre><p>And again, <code>git commit</code> can be run to commit all updates to the repository.</p>
+
+
+
+
+<h3 id="submodule-changes">Submodule changes
+  <a href="#submodule-changes"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>A more complicated workflow involves modifying the submodule within the repository.  So far, when we run the <code>git submodule update</code> command to fetch changes from the submodule repositories, git gets the changes and updates the files in the subdirectory but leaves the submodule in a “detached HEAD” state.  This means that there is no local working branch tracking changes.  With no working branch tracking changes, even if you commit changes to the submodule, those changes will be lost the next time you run <code>git submodule update</code>.  There are some extra steps to track changes in a submodule.</p>
+<p>The process for committing changes to a submodule to both the submodule repositories and the main repository involves a number of steps.  First, you need to either create or check out a branch in each submodule:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ cd &lt;SUBMODULE FOLDER&gt;
+$ git checkout &lt;BRANCH NAME&gt;
+</code></pre><p>Ensure that the branch is tracking the main branch on the remote repository:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git branch -vv
+$ git branch --set-upstream-to origin/main
+</code></pre><p>After making changes within the submodule, we stage and commit them to the local branch we just checked out.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git add &lt;FILENAME&gt;
+$ git commit -m &#34;&lt;COMMIT MESSAGE&gt;&#34;
+</code></pre><p>Next, we check for updates to the remote submodules.  However, we need to tell git what to do if there have been changes, either: &ldquo;merge&rdquo; or &ldquo;rebase.&rdquo;  For our purposes, we will typically rely on the <code>--merge</code> option.  Then, we can pull the upstream changes for the submodules into the local repository using:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ cd ..
+$ git submodule update --remote --merge
+</code></pre><p>Now we have some changes in our submodule directory: some of these were brought in from upstream through updates and others were made locally and are not available to anyone else since they have not been pushed to the remote.  We have already committed these changes in the submodule directory, but we now need to commit them in the main project local repository.</p>
+<p>Now, if we commit in the main project and push it up without pushing the submodule changes up as well, other people who try to check out our changes are going to be in trouble since they will have no way to get the submodule changes that are depended on. Those changes will only exist on our local copy.  The simple option is to go into each submodule and manually push to the remotes to make sure they’re externally available and then push the local repository (i.e. main project).  To push to the upstream branch on the remote, use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ cd &lt;SUBMODULE FOLDER&gt;
+$ git push origin HEAD:main
+</code></pre><p>To push to the branch of the same name on the remote, use:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ cd &lt;SUBMODULE FOLDER&gt;
+$ git push origin HEAD
+</code></pre><p>If you push to a remote branch with the same name on the remote, then you must go to the particular submodule remote and complete a pull request and merge manually.</p>
+<p>Now, we return to the main project and add and commit any changes, including those from the submodule.  Next, we pull any changes from the main project on the remote.  Finally, we push our main project changes to the remote.  Where we use the “check” option to ensure the push fails if any of the committed submodule changes haven’t been pushed.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ cd ..
+$ git pull
+$ git push --recurse-submodules=check
+</code></pre><p>Alternatively, The other option is to use the “on-demand” option, which will attempt to push the submodule changes for you.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">$ git push --recurse-submodules=on-demand
+</code></pre>
+
+
+
+<h3 id="change-submodule-path">Change submodule path
+  <a href="#change-submodule-path"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The instructions below are derived from 
+<a href="https://stackoverflow.com/questions/4526910/rename-a-git-submodule" target="_blank" rel="noopener">Stack Overflow</a>.</p>
+<p>To rename a git submodule directory:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">mv &lt;OLD SUBMODULE PATH&gt; &lt;NEW SUBMODULE PATH&gt;
+git rm &lt;OLD SUBMODULE PATH&gt;
+git add &lt;NEW SUBMODULE PATH&gt;
+git submodule sync
+</code></pre><p>Note that this approach may not update the index and .gitmodules properly.</p>
+
+
+
+
+<h2 id="differences">Differences
+  <a href="#differences"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In git, it is possible to show 
+<a href="https://git-scm.com/docs/git-remote" target="_blank" rel="noopener">differences</a> between commits, commit and working tree, branches, etc.</p>
+<p>For code review purposes, it can be helpful to inspect and/or export all changes between reference points.</p>
+<p>First, to retrieve the SHA codes, check the commit history either on the current or a named branch:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git log –oneline
+git log –oneline &lt;BRANCH NAME&gt;
+</code></pre><p>To compare two commits or the last commit:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff &lt;COMMIT&gt; &lt;COMMIT&gt;
+git diff &lt;COMMIT&gt; HEAD
+</code></pre><p>To export comparison to file:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff &lt;COMMIT&gt; &lt;COMMIT&gt; &gt; &lt;FILEPATH&gt;.txt
+</code></pre><p>To compare present/unstaged code with the code in staging area:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff
+</code></pre><p>To compare present/unstaged code with the last commit:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff –staged
+</code></pre><p>To compare present/unstaged code with any commit:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff &lt;COMMIT&gt;
+</code></pre><p>To compare the tips of two branches:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff &lt;BRANCH NAME&gt; &lt;BRANCH NAME&gt;
+git diff &lt;BRANCH NAME&gt;..&lt;BRANCH NAME&gt;
+</code></pre><p>To compare Changes that occurred on the second branch since the first branch was started off it:</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git diff &lt;BRANCH NAME&gt;...&lt;BRANCH NAME&gt;
+</code></pre>
+
+
+
+<h2 id="errors">Errors
+  <a href="#errors"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Below, we provide solutions to common git errors.</p>
+
+
+
+
+<h3 id="cannot-lock-ref">Cannot lock ref
+  <a href="#cannot-lock-ref"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The instructions below are derived from a post on 
+<a href="https://medium.com/@zahidbashirkhan/solved-git-error-cannot-lock-ref-error-fe5dd17950d7" target="_blank" rel="noopener">Medium</a>.</p>
+<p>The git <code>error: cannot lock ref</code> can usually be resolved by pruning old branches that might be conflicting with a pull operation.</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git remote prune origin
+</code></pre>
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">October 5, 2023</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">10 minute read, 2001 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/git">git</a>  <a href="/categories/github">GitHub</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/code">Code</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/itc-fragility-index/">Building a fragility index using factor analysis &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2026 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?hl=en&amp;user=swqolQMAAAAJ" title="google-scholar-square" target="_blank" rel="noopener">
+      <i class="ai ai-google-scholar-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact Form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

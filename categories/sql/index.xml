@@ -6,7 +6,7 @@
     <description>Recent content in SQL on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
+    <copyright>© 2026 Jack Gregory</copyright>
     <lastBuildDate>Tue, 06 Dec 2022 09:30:00 +0000</lastBuildDate><atom:link href="/categories/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GIIDB</title>
@@ -23,7 +23,7 @@
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-data/</guid>
-      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.1
 See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.

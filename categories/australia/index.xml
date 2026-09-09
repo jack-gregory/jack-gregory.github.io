@@ -6,8 +6,27 @@
     <description>Recent content in Australia on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/australia/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 03 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/australia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markets with power</title>
+      <link>/publication/markets-with-power/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/markets-with-power/</guid>
+      <description>We estimate counterfactual prices for the Australian National Electricity Market under the assumption of perfect competition and investigate to what extent market power contributed to elevated prices between 2015 and 2019.</description>
+    </item>
+    
+    <item>
+      <title>Markets with power</title>
+      <link>/talk/eem-markets-with-power/</link>
+      <pubDate>Wed, 07 Jun 2023 16:00:00 +0000</pubDate>
+      
+      <guid>/talk/eem-markets-with-power/</guid>
+      <description>NotesPanel speaker during Paper Session 4C.
+See the publication here.</description>
+    </item>
+    
     <item>
       <title>Essays on Electricity Economics</title>
       <link>/publication/essays-on-electricity-economics/</link>

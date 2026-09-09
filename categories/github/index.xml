@@ -6,8 +6,21 @@
     <description>Recent content in GitHub on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/github/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 05 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful Git commands</title>
+      <link>/blog/git-commands/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/git-commands/</guid>
+      <description>TL;DRThis post provides a running list for helpful git commands.
+Note that all user input is identified by angle brackets with capital letters, for example: &amp;lt;INSERT ...&amp;gt;.
+Additional git references can be found online at the following sites:
+git documentation; git user manual; GitHub documentation; and, Atlassian tutorials and glossary. Remote RepositoriesIn git, it is possible to manage set of tracked remote repositories.
+Check for linked repositoryTo check if a local repository is linked to a remote repository:</description>
+    </item>
+    
     <item>
       <title>How to restrict access to a hugo-apéro website on GitHub Pages ...</title>
       <link>/blog/hugo-apero-private/</link>

@@ -6,15 +6,56 @@
     <description>Recent content in Projects on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Wed, 07 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 01 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ITC Fragility Index</title>
+      <link>/project/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/itc-fragility-index/</guid>
+      <description>ObjectiveTo build a business-specific “fragility index” based on the International Trade Centre (ITC) Business Fragility Survey.1
+DescriptionThe Business Fragility Survey is a national business-level questionnaire aimed at assessing how small and medium enterprises (SME) cope within fragile social and political environments. The Survey contacted around 2,600 businesses from eight developing countries, of which over 1,100 provided complete responses. The Survey was carried out in partnership with domestic business support organizations.</description>
+    </item>
+    
+    <item>
+      <title>ITC Instability Indicators</title>
+      <link>/project/itc-instability-indicators/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/itc-instability-indicators/</guid>
+      <description>ObjectiveTo build business-specific “instability indicators” based on the International Trade Centre (ITC) Business Fragility Survey and Armed Conflict Location and Event Data (ACLED).1
+DescriptionThe Business Fragility Survey is a national business-level questionnaire aimed at assessing how small and medium enterprises (SME) cope within fragile social and political environments. The Survey contacted around 2,600 businesses from eight developing countries, of which over 1,100 provided complete responses. The Survey was carried out in partnership with domestic business support organizations.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Presentations</title>
+      <link>/project/gii-presentations/</link>
+      <pubDate>Mon, 17 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-presentations/</guid>
+      <description>ObjectiveTo automatize the production of annual economy presentations for the Global Innovation Index (GII).1
+DescriptionIn addition to the annual launch event, the GII is also promoted through national release events and stakeholder seminars. As such, there is a need to tailor material in presentation format both from the report and the economy briefs to provide insights specific to each ranked economy within the GII. A sample presentation template from the GII 2022 report can be seen here.</description>
+    </item>
+    
+    <item>
+      <title>GII Sources and Definitions Appendix</title>
+      <link>/project/gii-sources-and-definitions/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-sources-and-definitions/</guid>
+      <description>ObjectiveTo automatize the production of the Global Innovation Index (GII) Appendix on sources and definitions.1
+DescriptionTo build the GII, WIPO collects a wide array of data from a variety of sources. As such, we must cite and describe how we prepare and utilize the data for transparency purposes. The Sources and Definitions Appendix from the GII 2022 report can be seen here.
+Previously, source metadata were collected in an ad hoc fashion and synthesized manually.</description>
+    </item>
+    
     <item>
       <title>GII Economy Briefs</title>
       <link>/project/gii-briefs/</link>
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-briefs/</guid>
-      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy briefs.
+      <description>ObjectiveTo insource and automatize the production of annual economy briefs for the Global Innovation Index (GII).1
 DescriptionIn addition to the ranking and report, the GII launch also includes the release of the economy briefs. The briefs summarize each economy&amp;rsquo;s innovation performance for the specific report year. They tailor material from the report and the economy profiles to provide insights specific to each ranked economy within the GII. A sample brief for Australia from the GII 2022 report can be seen here.</description>
     </item>
     
@@ -24,7 +65,7 @@ DescriptionIn addition to the ranking and report, the GII launch also includes 
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-data/</guid>
-      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.1
 See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
@@ -37,7 +78,7 @@ Figure 1: High-level GII workflowThis project focuses on the Data phase, where 
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-profiles/</guid>
-      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+      <description>ObjectiveTo insource and automatize the production of annual economy profiles for the Global Innovation Index (GII).1
 See related workshop here.
 DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
     </item>

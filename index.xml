@@ -6,8 +6,97 @@
     <description>Recent content in Jack Gregory, PhD on Jack Gregory</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Jack Gregory</copyright>
-    <lastBuildDate>Fri, 24 Feb 2023 14:40:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather’s boiler</title>
+      <link>/publication/grandfathering/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grandfathering/</guid>
+      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
+    <item>
+      <title>AMI water meters deliver end-use water and financial savings in leaky households</title>
+      <link>/publication/leaky-households/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/leaky-households/</guid>
+      <description>Using 2WFE techniques we show that advanced metering infrastructure combined with targeted conservation messaging can significantly reduce residential water use, primarily by helping households detect and reduce leaks, generating both water savings and financial benefits.</description>
+    </item>
+    
+    <item>
+      <title>Useful Git commands</title>
+      <link>/blog/git-commands/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/git-commands/</guid>
+      <description>TL;DRThis post provides a running list for helpful git commands.
+Note that all user input is identified by angle brackets with capital letters, for example: &amp;lt;INSERT ...&amp;gt;.
+Additional git references can be found online at the following sites:
+git documentation; git user manual; GitHub documentation; and, Atlassian tutorials and glossary. Remote RepositoriesIn git, it is possible to manage set of tracked remote repositories.
+Check for linked repositoryTo check if a local repository is linked to a remote repository:</description>
+    </item>
+    
+    <item>
+      <title>Markets with power</title>
+      <link>/publication/markets-with-power/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/markets-with-power/</guid>
+      <description>We estimate counterfactual prices for the Australian National Electricity Market under the assumption of perfect competition and investigate to what extent market power contributed to elevated prices between 2015 and 2019.</description>
+    </item>
+    
+    <item>
+      <title>Markets with power</title>
+      <link>/talk/eem-markets-with-power/</link>
+      <pubDate>Wed, 07 Jun 2023 16:00:00 +0000</pubDate>
+      
+      <guid>/talk/eem-markets-with-power/</guid>
+      <description>NotesPanel speaker during Paper Session 4C.
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Building a fragility index using factor analysis</title>
+      <link>/blog/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/itc-fragility-index/</guid>
+      <description>TL;DRThe ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index.</description>
+    </item>
+    
+    <item>
+      <title>ITC Fragility Index</title>
+      <link>/project/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/itc-fragility-index/</guid>
+      <description>ObjectiveTo build a business-specific “fragility index” based on the International Trade Centre (ITC) Business Fragility Survey.1
+DescriptionThe Business Fragility Survey is a national business-level questionnaire aimed at assessing how small and medium enterprises (SME) cope within fragile social and political environments. The Survey contacted around 2,600 businesses from eight developing countries, of which over 1,100 provided complete responses. The Survey was carried out in partnership with domestic business support organizations.</description>
+    </item>
+    
+    <item>
+      <title>Creating a proxy for local instability using geospatial event data</title>
+      <link>/blog/itc-instability-indicators/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/itc-instability-indicators/</guid>
+      <description>TL;DRThis blog shows how to use Armed Conflict Location and Event Data (ACLED) event data and geospatial techniques in R to construct location-specific indicators of local instability. Using hypothetical business locations in Ecuador, I demonstrate how nearby adverse events can be aggregated into a simple measure of exposure to insecurity, which can then be used to compare locations or incorporated into analyses of business outcomes.
+IntroductionIn the Western world, we can sometimes overlook the benefits derived from operating within stable and peaceful communities.</description>
+    </item>
+    
+    <item>
+      <title>ITC Instability Indicators</title>
+      <link>/project/itc-instability-indicators/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/itc-instability-indicators/</guid>
+      <description>ObjectiveTo build business-specific “instability indicators” based on the International Trade Centre (ITC) Business Fragility Survey and Armed Conflict Location and Event Data (ACLED).1
+DescriptionThe Business Fragility Survey is a national business-level questionnaire aimed at assessing how small and medium enterprises (SME) cope within fragile social and political environments. The Survey contacted around 2,600 businesses from eight developing countries, of which over 1,100 provided complete responses. The Survey was carried out in partnership with domestic business support organizations.</description>
+    </item>
+    
     <item>
       <title>Still your grandfather&#39;s boiler</title>
       <link>/talk/osweet-grandfathering/</link>
@@ -15,7 +104,7 @@
       
       <guid>/talk/osweet-grandfathering/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;2023 Air Quality Seminar&amp;rdquo; for the Association of Environmental and Resource Economists at the Online Summer Workshop in Environment, Energy, and Transportation (AERE@OSWEET).
-See the working paper here.</description>
+See the publication here.</description>
     </item>
     
     <item>
@@ -38,15 +127,6 @@ AbstractThis paper uses high-frequency data on electricity consumption to demon
     </item>
     
     <item>
-      <title>Still your grandfather’s boiler</title>
-      <link>/publication/grandfathering/</link>
-      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/grandfathering/</guid>
-      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
-    </item>
-    
-    <item>
       <title>Economy Profiles</title>
       <link>/talk/wipo-profiles/</link>
       <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
@@ -63,6 +143,16 @@ AbstractThis paper uses high-frequency data on electricity consumption to demon
       <guid>/blog/intangible-assets/</guid>
       <description>Concurrent with the digital revolution, intangible assets&amp;mdash;such as R&amp;amp;D, intellectual property, brands, software, databases, organizational assets and skills&amp;mdash;have grown in importance. They are now the cornerstone of any vibrant innovation ecosystem. As such, intangible assets should be part of any measure gauging the success of corporate and national innovation ecosystems.
 The Global Innovation Index (GII) 2022 includes novel data quantifying corporate intangible assets worldwide. This comes in support of a broader effort at the World Intellectual Property Organization (WIPO) to better understand and value intangible assets&amp;mdash;see, for example, the recent High-Level Conversation on Intangible Asset Finance of WIPO’s IP and Innovation Ecosystems Sector.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Presentations</title>
+      <link>/project/gii-presentations/</link>
+      <pubDate>Mon, 17 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-presentations/</guid>
+      <description>ObjectiveTo automatize the production of annual economy presentations for the Global Innovation Index (GII).1
+DescriptionIn addition to the annual launch event, the GII is also promoted through national release events and stakeholder seminars. As such, there is a need to tailor material in presentation format both from the report and the economy briefs to provide insights specific to each ranked economy within the GII. A sample presentation template from the GII 2022 report can be seen here.</description>
     </item>
     
     <item>
@@ -115,7 +205,18 @@ Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fa
       
       <guid>/talk/aweee-grandfathering/</guid>
       <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
-See the working paper here.</description>
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>GII Sources and Definitions Appendix</title>
+      <link>/project/gii-sources-and-definitions/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-sources-and-definitions/</guid>
+      <description>ObjectiveTo automatize the production of the Global Innovation Index (GII) Appendix on sources and definitions.1
+DescriptionTo build the GII, WIPO collects a wide array of data from a variety of sources. As such, we must cite and describe how we prepare and utilize the data for transparency purposes. The Sources and Definitions Appendix from the GII 2022 report can be seen here.
+Previously, source metadata were collected in an ad hoc fashion and synthesized manually.</description>
     </item>
     
     <item>
@@ -155,7 +256,7 @@ AbstractThis paper uses high-frequency data on electricity consumption to demon
       <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-briefs/</guid>
-      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy briefs.
+      <description>ObjectiveTo insource and automatize the production of annual economy briefs for the Global Innovation Index (GII).1
 DescriptionIn addition to the ranking and report, the GII launch also includes the release of the economy briefs. The briefs summarize each economy&amp;rsquo;s innovation performance for the specific report year. They tailor material from the report and the economy profiles to provide insights specific to each ranked economy within the GII. A sample brief for Australia from the GII 2022 report can be seen here.</description>
     </item>
     
@@ -165,7 +266,7 @@ DescriptionIn addition to the ranking and report, the GII launch also includes 
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-data/</guid>
-      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.
+      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.1
 See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
@@ -178,7 +279,7 @@ Figure 1: High-level GII workflowThis project focuses on the Data phase, where 
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>/project/gii-profiles/</guid>
-      <description>ObjectiveTo internalize and automatize the production of the Global Innovation Index (GII) economy profiles.
+      <description>ObjectiveTo insource and automatize the production of annual economy profiles for the Global Innovation Index (GII).1
 See related workshop here.
 DescriptionOne of the main components of the GII report is the economy profiles. The profiles provide an overview of each economy&amp;rsquo;s performance within the GII for the specific report year. They summarize model output, highlight outdated and missing data, and identify indicator strengths and weaknesses. The profiles for the GII 2022 can be seen here.</description>
     </item>
@@ -225,7 +326,7 @@ DescriptionOne of the main components of the GII report is the economy profiles
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/cv/</guid>
-      <description>Curriculum VitaeMy CV is available in PDF form. (Last updated: September 25, 2022)</description>
+      <description>Curriculum VitaeMy CV is available in PDF form. (Last updated: September 09, 2026)</description>
     </item>
     
     <item>
@@ -237,11 +338,11 @@ DescriptionOne of the main components of the GII report is the economy profiles
       <description>website_contentPersonal website content using blogdown and Hugo.
 To Do[?] LinkedIn profile
 [?] GitHub profile (see https://github.com/abhisheknaiidu/awesome-github-profile-readme)
-About
-Content Coding icons CV
-PDF Pagedown Form
-Blogs
-Hugo-Apero Hugo-Apero website Hugo-Apero private website Google analytics pdf vs pagedown website CV workflows GII workflow Collection &amp;amp; cleaning Cloud database (Setup MariaDB on AWS RDS) Auditing Model Profiles Briefs Presentations? Orbis Analysis? Quarterly data? Brand Finance (intangible assets) Alternative GII? [?] Frontier project [?</description>
+Website
+Update heading font Revise home page (i.e., image placement) Revise about page Revise images for blogs / projects / publications / talks (see Adobe Stock) Revise categories &amp;amp; tags Add Google Scholar icon About
+Content Coding icons (see Devicon &amp;amp; Iconify) CV
+PDF Pagedown [?] Button (see https://www.amitgrinson.com) Contact
+[?] Move &amp;ldquo;Contact&amp;rdquo; to upper navigation bar Add text on &amp;ldquo;available for consultation&amp;rdquo; Blogs</description>
     </item>
     
     <item>

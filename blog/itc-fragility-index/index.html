@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Building a fragility index using factor analysis | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="In this blog, I use factor analysis techniques in R to build a business-specific fragility index.">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="Building a fragility index using factor analysis | Jack Gregory">
+<meta property="og:description" content="In this blog, I use factor analysis techniques in R to build a business-specific fragility index." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/itc-fragility-index/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/sidebar-listing.jpg" >
+    
+    
+  <meta itemprop="name" content="Building a fragility index using factor analysis">
+<meta itemprop="description" content="TL;DRThe ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index."><meta itemprop="datePublished" content="2023-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-05-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5229">
+<meta itemprop="keywords" content="ITC," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.a9f2a4292c3a1536884736d2642e2c7f21f17655fe23971612e5664e6b2c58cb.css" integrity="sha256-qfKkKSw6FTaIRzbSZC4sfyHxdlX&#43;I5cWEuVmTmssWMs=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.35e19ccfa3650a0c8f4f274224b70a66bd372ac9919ef0142a7628bdb457ad2b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Building a fragility index using factor analysis</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/competition">Competition</a> </p>
+        <p class="f7 db mv0 ttu">May 1, 2023</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <script src="/blog/itc-fragility-index/index_files/kePrint/kePrint.js"></script>
+<link href="/blog/itc-fragility-index/index_files/lightable/lightable.css" rel="stylesheet" />
+<script src="/blog/itc-fragility-index/index_files/kePrint/kePrint.js"></script>
+<link href="/blog/itc-fragility-index/index_files/lightable/lightable.css" rel="stylesheet" />
+<script src="/blog/itc-fragility-index/index_files/kePrint/kePrint.js"></script>
+<link href="/blog/itc-fragility-index/index_files/lightable/lightable.css" rel="stylesheet" />
+<script src="/blog/itc-fragility-index/index_files/kePrint/kePrint.js"></script>
+<link href="/blog/itc-fragility-index/index_files/lightable/lightable.css" rel="stylesheet" />
+<script src="/blog/itc-fragility-index/index_files/kePrint/kePrint.js"></script>
+<link href="/blog/itc-fragility-index/index_files/lightable/lightable.css" rel="stylesheet" />
+<style type="text/css">
+table.table-blog{margin:25px auto;border-collapse:collapse;border:1px solid #EEE;border-top:2px solid #002F6C;border-bottom:2px solid #002F6C;box-shadow:0px 0px 20px rgba(0,0,0,0.1),0px 10px 20px rgba(0,0,0,0.05),0px 20px 20px rgba(0,0,0,0.05),0px 30px 20px rgba(0,0,0,0.05)}table.table-blog tbody tr:nth-child(odd){background:#FFF}table.table-blog tbody tr:nth-child(even){background:#FFF}table.table-blog tr:hover{background:#EEE}table.table-blog tr:hover td{color:#111}table.table-blog th,table.table-blog td{color:#555;border:1px solid #EEE;padding:1px 5px;line-height:1.0}table.table-blog th{background:#C9E6F7;color:#005D98}table.table-blog th.last{border-right:none}table.table-blog td{font-size:90%}
+</style>
+
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+
+
+
+
+<h2 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Fragility affects businesses through multiple channels, from insecurity and social tensions to disruptions in economic activity. Capturing these different dimensions in a single measure presents a simple but important question: how can we turn a collection of survey responses into a meaningful measure of business-level fragility?</p>
+<p>This blog demonstrates the methodology behind the ITC Fragility Index, constructed for the 
+<a href="https://intracen.org/" target="_blank" rel="noopener">International Trade Center (ITC)</a> and their small and medium enterprise (SME) fragility research in the 
+<a href="https://www.intracen.org/resources/publications/sme-competitiveness-outlook-2023-small-businesses-in-fragility-from-survival" target="_blank" rel="noopener">SME Competitiveness Outlook 2023</a> (
+<a href="#ref-ITC:2023">ITC 2023</a>). Data were obtained from the ITC Business Fragility Survey: a national business-level questionnaire aimed at assessing how SMEs cope within fragile social and political environments. Rather than simply adding the survey responses together, we use factor analysis to identify the underlying dimensions in the data and determine how individual indicators group together. Further details on the Survey and the related indicators can be found below as well as in the associated 
+<a href="/project/itc-fragility-index/">project</a> description.</p>
+<p>The analysis identifies three pillars—Human Security, Social Cohesion, and Economic Performance. We use exploratory factor analysis (EFA) to uncover this structure and confirmatory factor analysis (CFA) to test it. The resulting pillars are then standardized and combined to produce a single fragility score for each business.</p>
+<p>The remainder of the blog walks through this process in R, illustrating how factor analysis can provide a transparent and reproducible foundation for constructing a composite index. The next two sections describe the Survey 
+<a href="#data">data</a> and the factor analysis 
+<a href="#methodology">methodology</a>. We then implement the methodology using a synthetic dataset for 
+<a href="#diagnostics">diagnostics</a>, 
+<a href="#efa">EFA</a>, 
+<a href="#validation">validation</a>, and 
+<a href="#index">index construction</a>. The 
+<a href="#conclusion">final section</a> concludes.</p>
+
+
+
+
+<h2 id="data">Data
+  <a href="#data"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Below, we describe the ITC Fragility Survey and generate a sample survey based on question statistics from the original Survey.</p>
+
+
+
+
+<h3 id="survey-overview">Survey overview
+  <a href="#survey-overview"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The ITC Business Fragility Survey is a national firm-level survey aimed at assessing how companies cope within fragile contexts. It contains data from businesses from eight countries collected between 2018 and 2022. The set of companies is sourced from the 
+<a href="https://www.intracen.org/our-work/projects/sme-competitiveness-survey-and-outlook" target="_blank" rel="noopener">ITC SME Competitiveness Survey (SMECS)</a>, which is typically carried out in partnership with domestic business support organizations. The survey contacted 2,561 businesses, of which only 1,107 provided complete responses.</p>
+<p>The ITC Business Fragility Survey includes questions about firm characteristics such as size, sector, and trade status, as well as the age and gender of the manager. It includes questions about business growth in terms of revenue and employees, as well as ease of access to financial resources and human capital. Finally, it queries business experience with fragility – encompassing finance, permits, regulations, competition, corruption, crime, etc. – and the coping mechanisms adopted by companies. The table below summarizes the survey questions related to fragility that feed into the Index.</p>
+<table class="table table-blog" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<p><span id="tab:tbl-survey"></span>Table 1: ITC Fragility Survey questions</p>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+<p>Grouping</p>
+</th>
+<th style="text-align:left;">
+<p>Variable</p>
+</th>
+<th style="text-align:left;">
+<p>Type</p>
+</th>
+<th style="text-align:left;">
+<p>Question</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>Human &amp; firm security</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_02</p>
+</td>
+<td style="text-align:left;">
+<p>Binary</p>
+</td>
+<td style="text-align:left;">
+<p>Did this establishment pay for security (equipment, personnel, or professional services) in the last 12 months?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_03*</p>
+</td>
+<td style="text-align:left;">
+<p>Ordinal</p>
+</td>
+<td style="text-align:left;">
+<p>Has insecurity and instability affected business operations in the last 12 months, and how often?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Social cohesion &amp; trust</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_04</p>
+</td>
+<td style="text-align:left;">
+<p>Binary</p>
+</td>
+<td style="text-align:left;">
+<p>How does your business ensure that contracts with buyers and suppliers are enforced?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_05*</p>
+</td>
+<td style="text-align:left;">
+<p>Ordinal</p>
+</td>
+<td style="text-align:left;">
+<p>How much trust do you have in various groups and institutions?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_06</p>
+</td>
+<td style="text-align:left;">
+<p>Ordinal</p>
+</td>
+<td style="text-align:left;">
+<p>Does the ethnicity, family ties, political affiliation, or religion of an entrepreneur affect success with official institutions?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Economic integration &amp; performance</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_07</p>
+</td>
+<td style="text-align:left;">
+<p>Ordinal</p>
+</td>
+<td style="text-align:left;">
+<p>How do you feel about the future of your business?</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_08</p>
+</td>
+<td style="text-align:left;">
+<p>Ordinal</p>
+</td>
+<td style="text-align:left;">
+<p>How have revenues been affected by violence, conflict, and/or political instability in the last 12 months?</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The Index is based on a subset of firms from eight countries for which full and comparable data are available. The sample includes firms of different size, sector, and region.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> As shown below, one in two surveyed firms are in services, one third are in agriculture, and the remaining 15 percent are in manufacturing. Nineteen out of twenty companies in the sample are SMEs. Importantly, the sample is not representative in all countries, and response rates vary across countries and sectors.</p>
+<table class="table table-blog" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<p><span id="tab:tbl-summary"></span>Table 2: Sample composition by country, sector, and firm size</p>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+<p>Group</p>
+</th>
+<th style="text-align:left;">
+<p>Category</p>
+</th>
+<th style="text-align:right;">
+<p>n</p>
+</th>
+<th style="text-align:left;">
+<p>Share</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>Country</p>
+</td>
+<td style="text-align:left;">
+<p>Burkina Faso</p>
+</td>
+<td style="text-align:right;">
+<p>206</p>
+</td>
+<td style="text-align:left;">
+<p>8%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Colombia</p>
+</td>
+<td style="text-align:right;">
+<p>650</p>
+</td>
+<td style="text-align:left;">
+<p>25%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Honduras</p>
+</td>
+<td style="text-align:right;">
+<p>143</p>
+</td>
+<td style="text-align:left;">
+<p>6%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Iraq</p>
+</td>
+<td style="text-align:right;">
+<p>272</p>
+</td>
+<td style="text-align:left;">
+<p>11%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Kenya</p>
+</td>
+<td style="text-align:right;">
+<p>234</p>
+</td>
+<td style="text-align:left;">
+<p>9%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Myanmar</p>
+</td>
+<td style="text-align:right;">
+<p>179</p>
+</td>
+<td style="text-align:left;">
+<p>7%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>South Sudan</p>
+</td>
+<td style="text-align:right;">
+<p>309</p>
+</td>
+<td style="text-align:left;">
+<p>12%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Ukraine</p>
+</td>
+<td style="text-align:right;">
+<p>568</p>
+</td>
+<td style="text-align:left;">
+<p>22%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Sector</p>
+</td>
+<td style="text-align:left;">
+<p>Agriculture</p>
+</td>
+<td style="text-align:right;">
+<p>408</p>
+</td>
+<td style="text-align:left;">
+<p>16%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Manufacturing</p>
+</td>
+<td style="text-align:right;">
+<p>206</p>
+</td>
+<td style="text-align:left;">
+<p>8%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>None</p>
+</td>
+<td style="text-align:right;">
+<p>1239</p>
+</td>
+<td style="text-align:left;">
+<p>48%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Services</p>
+</td>
+<td style="text-align:right;">
+<p>708</p>
+</td>
+<td style="text-align:left;">
+<p>28%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Size</p>
+</td>
+<td style="text-align:left;">
+<p>Large</p>
+</td>
+<td style="text-align:right;">
+<p>19</p>
+</td>
+<td style="text-align:left;">
+<p>1%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Medium</p>
+</td>
+<td style="text-align:right;">
+<p>75</p>
+</td>
+<td style="text-align:left;">
+<p>3%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Micro</p>
+</td>
+<td style="text-align:right;">
+<p>840</p>
+</td>
+<td style="text-align:left;">
+<p>33%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>None</p>
+</td>
+<td style="text-align:right;">
+<p>1300</p>
+</td>
+<td style="text-align:left;">
+<p>51%</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+<p>Small</p>
+</td>
+<td style="text-align:right;">
+<p>327</p>
+</td>
+<td style="text-align:left;">
+<p>13%</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h3 id="synthetic-sample">Synthetic sample
+  <a href="#synthetic-sample"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The Survey dataset is proprietary, so we rely on a synthetic sample for this blog post.</p>
+<p>The Survey is entirely composed of binary or ordinal survey data. Thus, as a pre-step with the original Survey dataset, we standardize all variables between 0 and 1 to prevent any one variable from having undue influence over the analysis.</p>
+<p>We generate a synthetic sample of 1,000 observations using 
+<a href="https://www.synthpop.org.uk/" target="_blank" rel="noopener"><code>synthpop</code></a> and its function 
+<a href="https://cran.r-project.org/web/packages/synthpop/refman/synthpop.html#syn" target="_blank" rel="noopener"><code>syn()</code></a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">set.seed</span>(<span style="color:#099">1010</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.survey <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">readRDS</span>(here<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">here</span>(<span style="color:#d14">&#34;itc_fragility.rds&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.synthetic <span style="color:#000;font-weight:bold">&lt;-</span> 
+</span></span><span style="display:flex;"><span>  synthpop<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">syn</span>(
+</span></span><span style="display:flex;"><span>    df.survey<span style="color:#900;font-weight:bold">[setdiff</span>(<span style="color:#900;font-weight:bold">names</span>(df.survey), <span style="color:#d14">&#34;FRAGID&#34;</span>)], 
+</span></span><span style="display:flex;"><span>    k<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1000</span>
+</span></span><span style="display:flex;"><span>  )<span style="color:#000;font-weight:bold">$</span>syn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.fragility <span style="color:#000;font-weight:bold">&lt;-</span> tibble<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">rowid_to_column</span>(df.synthetic, var<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ID&#34;</span>)
+</span></span></code></pre></div>
+
+
+
+<h2 id="methodology">Methodology
+  <a href="#methodology"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The Fragility Index is created using factor analysis. Broadly, factor analysis seeks to define the fundamental dimensions assumed to underlie a set of variables. It combines a theoretical understanding of the subject matter with statistical techniques to summarize manifest variables into a smaller set of latent factors while minimizing information loss (
+<a href="#ref-Hair_etal:2010">Hair et al. 2010</a>).</p>
+<p>Factor analysis relies on a number of assumptions (
+<a href="#ref-OECD:2008">OECD 2008</a>):</p>
+<ol>
+<li><strong>Theoretically grounded variables.</strong> Factor analysis is most useful when conceptually defined dimensions can be represented by derived factors; if none exist, the technique cannot create valid factors. The exclusion of relevant variables, or the inclusion of spurious ones, affects which factors are uncovered, so the initial variable set should be driven by theoretical considerations as far as practicable.</li>
+<li><strong>Ordinal or binary data is acceptable.</strong> Factor analysis technically calls for quantitative data with at least an interval scale. However, as noted by Kim and Mueller (
+<a href="#ref-KimMueller:1978">1978</a>), an ordinal scale – ordered data without measurable differences between categories – is justifiable if its categories do not seriously distort the underlying scaling. Binary data is likewise permissible if correlations between variables are moderate, typically below 0.7.</li>
+<li><strong>Correlation is the whole point.</strong> Factor analysis leverages correlations between variables. Low correlations may preclude the approach, while high correlations may indicate multicollinearity. No firm quantitative threshold exists, but a substantial number of values in the correlation matrix should exceed 0.3. Measurement errors are also assumed to be uncorrelated.</li>
+<li><strong>Outliers matter.</strong> As with most statistical techniques, outliers can affect results. Tests for influential cases should be run, with comparison analyses between samples with and without outliers used as a robustness check; in extreme cases, outliers should be removed prior to analysis.</li>
+</ol>
+<p>Factor analysis typically proceeds according to a fairly standardised recipe. We begin by confirming assumptions (2) and (3) regarding correlations through a number of 
+<a href="#diagnostics">pre-analysis diagnostics</a>. We follow this with an 
+<a href="#efa">EFA</a> to estimate the index structure. Then, we perform a 
+<a href="#validation">post-analysis validation</a> to confirm the robustness of the estimated structure and to address assumption (4) that outliers do not affect results. When satisfied, we finish by constructing the 
+<a href="#index">index</a>.</p>
+
+
+
+
+<h2 id="diagnostics">Diagnostics
+  <a href="#diagnostics"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Because factor analysis relies on estimating many correlations at once, some will look “significant” purely by chance. A large sample is the best protection against overfitting. As a general rule, you want at least five observations for every variable (
+<a href="#ref-Hair_etal:2010">Hair et al. 2010</a>). Our generated sample comfortably clears that threshold.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>m.fragility <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">cor</span>(df.fragility[l.vars<span style="color:#000;font-weight:bold">$</span>all])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.corr <span style="color:#000;font-weight:bold">&lt;-</span> m.fragility <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">as.table</span>() <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">as.data.frame</span>() <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">rename_with</span>(.fn<span style="color:#000;font-weight:bold">=</span>toupper) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">rename</span>(CORR <span style="color:#000;font-weight:bold">=</span> FREQ) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">filter</span>(<span style="color:#900;font-weight:bold">as.character</span>(VAR1) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#900;font-weight:bold">as.character</span>(VAR2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>l.corr <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">list</span>(
+</span></span><span style="display:flex;"><span>  n_pairs   <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">nrow</span>(df.corr),
+</span></span><span style="display:flex;"><span>  n_over_03 <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">sum</span>(<span style="color:#900;font-weight:bold">abs</span>(df.corr<span style="color:#000;font-weight:bold">$</span>CORR) <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0.3</span>),
+</span></span><span style="display:flex;"><span>  n_over_07 <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">sum</span>(<span style="color:#900;font-weight:bold">abs</span>(df.corr<span style="color:#000;font-weight:bold">$</span>CORR) <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0.7</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Across the 300 distinct pairwise correlations, we want a healthy number sitting in the “Goldilocks” zone between 0.3 and 0.7: strong enough to justify factor analysis, but not so strong that variables are redundant with one another. Out of all pairwise correlations, 75 have values greater than 0.3, representing approximately 25 percent of the dataset. Only 1 correlation has a value above 0.7. This suggests that there are a substantial number of correlations in the “Goldilocks” region.</p>
+<p>While the above provides some descriptive evidence of commonality within our dataset, two formal tests confirm the data is suitable. Bartlett’s test of sphericity checks whether the correlation matrix is statistically distinguishable from an identity matrix – that is, whether the variables are correlated at all – while the Kaiser-Meyer-Olkin (KMO) measure checks sampling adequacy, with values below 0.5 signaling that the variables share too little in common to proceed. Because Bartlett’s test is sensitive to sample size, it is best implemented alongside KMO (
+<a href="#ref-TabachnickFidell:2013">Tabachnick and Fidell 2013</a>). We use the 
+<a href="https://personality-project.org/r/psych/" target="_blank" rel="noopener"><code>psych</code></a> package and the 
+<a href="https://personality-project.org/r/psych/help/cortest.bartlett.html" target="_blank" rel="noopener"><code>cortest.bartlett()</code></a> and 
+<a href="https://personality-project.org/r/psych/help/KMO.html" target="_blank" rel="noopener"><code>KMO()</code></a> functions to implement the tests, respectively.</p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>psych<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">cortest.bartlett</span>(m.fragility, n <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">nrow</span>(df.fragility))
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Output 📤</span></p>
+<pre><code>## $chisq
+## [1] 8024.596
+## 
+## $p.value
+## [1] 0
+## 
+## $df
+## [1] 300
+</code></pre>
+</div>
+</div>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>psych<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">KMO</span>(m.fragility)
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Output 📤</span></p>
+<pre><code>## Kaiser-Meyer-Olkin factor adequacy
+## Call: psych::KMO(r = m.fragility)
+## Overall MSA =  0.87
+## MSA for each item = 
+##            ID     FRAG_C_02  FRAG_C_03_A1  FRAG_C_03_A2  FRAG_C_03_A3 
+##          0.46          0.53          0.81          0.83          0.84 
+##  FRAG_C_03_A4  FRAG_C_03_A5  FRAG_C_03_A6  FRAG_C_03_A7  FRAG_C_03_A8 
+##          0.93          0.93          0.92          0.90          0.91 
+##  FRAG_C_03_A9 FRAG_C_03_A10 FRAG_C_03_A11 FRAG_C_03_A12 FRAG_C_03_A13 
+##          0.89          0.93          0.91          0.91          0.92 
+## FRAG_C_03_A14     FRAG_C_04  FRAG_C_05_A1  FRAG_C_05_A2  FRAG_C_05_A3 
+##          0.92          0.58          0.83          0.71          0.72 
+##  FRAG_C_05_A4  FRAG_C_05_A5     FRAG_C_06     FRAG_C_07     FRAG_C_08 
+##          0.87          0.81          0.70          0.77          0.76
+</code></pre>
+</div>
+</div>
+<p>A significant Bartlett’s test alongside a KMO comfortably above 0.5 gives the green light to proceed with factor analysis.</p>
+
+
+
+
+<h2 id="exploratory-factor-analysis">Exploratory Factor Analysis
+  <a href="#exploratory-factor-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>We next perform an exploratory factor analysis (EFA) on the remaining variables to identify the underlying dimensions in the data.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>The analysis proceeds in three steps:</p>
+<ol>
+<li><strong>Estimate the factor matrix.</strong> We first estimate the factor loadings, which indicate the strength of the relationship between each variable and factor. Higher absolute loadings indicate a stronger association and help us interpret the meaning of each factor.</li>
+<li><strong>Rotate the factor solution.</strong> After determining the number of factors to retain, we rotate the factor matrix to obtain a simpler and more interpretable structure. Ideally, each variable loads strongly on one factor and weakly on the others. We use the commonly applied varimax rotation.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+<li><strong>Evaluate and refine the solution.</strong> We then examine the rotated factor matrix for variables with low loadings or substantial cross-loadings across factors. When these occur, we remove the most problematic variable and repeat the analysis. We continue until the remaining variables produce a clear and interpretable factor structure.</li>
+</ol>
+
+
+
+
+<h3 id="initial-extraction">Initial extraction
+  <a href="#initial-extraction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>We run an exploratory factor analysis using the 
+<a href="https://personality-project.org/r/psych/help/fa.html" target="_blank" rel="noopener"><code>psych::fa()</code></a> function and all Survey variables. We apply principal-axis factoring and retain factors with an eigenvalue above one – the standard “latent root” stopping rule (
+<a href="#ref-Hair_etal:2010">Hair et al. 2010</a>; 
+<a href="#ref-OECD:2008">OECD 2008</a>).</p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>l.fa <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">list</span>(
+</span></span><span style="display:flex;"><span>  initial <span style="color:#000;font-weight:bold">=</span> psych<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">fa</span>(df.fragility[l.vars<span style="color:#000;font-weight:bold">$</span>all],
+</span></span><span style="display:flex;"><span>                      nfactors <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">sum</span>(<span style="color:#900;font-weight:bold">eigen</span>(m.fragility)<span style="color:#000;font-weight:bold">$</span>values <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">1</span>),
+</span></span><span style="display:flex;"><span>                      fm <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;pa&#34;</span>,
+</span></span><span style="display:flex;"><span>                      rotate <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;none&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Output 📤</span></p>
+<pre><code>## Factor Analysis using method =  pa
+## Call: psych::fa(r = df.fragility[l.vars$all], nfactors = sum(eigen(m.fragility)$values &gt; 
+##     1), rotate = &quot;none&quot;, fm = &quot;pa&quot;)
+## Standardized loadings (pattern matrix) based upon correlation matrix
+##                  PA1    PA2    PA3    PA4    PA5    PA6    PA7     h2    u2
+## ID                                                             0.0721 0.928
+## FRAG_C_02                                                      0.0841 0.916
+## FRAG_C_03_A1   0.425         0.529                             0.5666 0.433
+## FRAG_C_03_A2   0.538         0.459                             0.6155 0.384
+## FRAG_C_03_A3   0.526         0.511                             0.6261 0.374
+## FRAG_C_03_A4   0.634                                           0.4380 0.562
+## FRAG_C_03_A5   0.631                                           0.4290 0.571
+## FRAG_C_03_A6   0.570                                           0.4047 0.595
+## FRAG_C_03_A7   0.477        -0.302                             0.3306 0.669
+## FRAG_C_03_A8   0.650                                           0.5691 0.431
+## FRAG_C_03_A9   0.646                0.451                      0.6566 0.343
+## FRAG_C_03_A10  0.678                                           0.5637 0.436
+## FRAG_C_03_A11  0.653                                           0.5327 0.467
+## FRAG_C_03_A12  0.636                                           0.4955 0.504
+## FRAG_C_03_A13  0.656                                           0.4739 0.526
+## FRAG_C_03_A14  0.641                                           0.4991 0.501
+## FRAG_C_04                                                      0.0303 0.970
+## FRAG_C_05_A1          0.716                                    0.5913 0.409
+## FRAG_C_05_A2          0.881                                    0.8813 0.119
+## FRAG_C_05_A3          0.808                                    0.7435 0.257
+## FRAG_C_05_A4          0.557                                    0.3336 0.666
+## FRAG_C_05_A5          0.415               -0.381               0.4067 0.593
+## FRAG_C_06                                                      0.1214 0.879
+## FRAG_C_07                                         0.359        0.2984 0.702
+## FRAG_C_08                    0.370                             0.2092 0.791
+##                com
+## ID            3.04
+## FRAG_C_02     4.64
+## FRAG_C_03_A1  2.80
+## FRAG_C_03_A2  2.81
+## FRAG_C_03_A3  2.64
+## FRAG_C_03_A4  1.19
+## FRAG_C_03_A5  1.16
+## FRAG_C_03_A6  1.50
+## FRAG_C_03_A7  1.82
+## FRAG_C_03_A8  1.75
+## FRAG_C_03_A9  2.00
+## FRAG_C_03_A10 1.48
+## FRAG_C_03_A11 1.52
+## FRAG_C_03_A12 1.48
+## FRAG_C_03_A13 1.21
+## FRAG_C_03_A14 1.45
+## FRAG_C_04     3.97
+## FRAG_C_05_A1  1.32
+## FRAG_C_05_A2  1.28
+## FRAG_C_05_A3  1.29
+## FRAG_C_05_A4  1.16
+## FRAG_C_05_A5  2.98
+## FRAG_C_06     4.99
+## FRAG_C_07     3.99
+## FRAG_C_08     2.16
+## 
+##                         PA1   PA2   PA3   PA4   PA5   PA6   PA7
+## SS loadings           5.272 2.687 1.346 0.620 0.459 0.357 0.233
+## Proportion Var        0.211 0.107 0.054 0.025 0.018 0.014 0.009
+## Cumulative Var        0.211 0.318 0.372 0.397 0.415 0.430 0.439
+## Proportion Explained  0.480 0.245 0.123 0.056 0.042 0.033 0.021
+## Cumulative Proportion 0.480 0.725 0.848 0.904 0.946 0.979 1.000
+## 
+## Mean item complexity =  2.2
+## Test of the hypothesis that 7 factors are sufficient.
+## 
+## df null model =  300  with the objective function =  8.107 with Chi Square =  8024.596
+## df of  the model are 146  and the objective function was  0.371 
+## 
+## The root mean square of the residuals (RMSR) is  0.019 
+## The df corrected root mean square of the residuals is  0.028 
+## 
+## The harmonic n.obs is  1000 with the empirical chi square  113.093  with prob &lt;  0.98 
+## The total n.obs was  1000  with Likelihood Chi Square =  365.203  with prob &lt;  8.99e-21 
+## 
+## Tucker Lewis Index of factoring reliability =  0.9414
+## RMSEA index =  0.0387  and the 90 % confidence intervals are  0.0338 0.0438
+## BIC =  -643.33
+## Fit based upon off diagonal values = 0.993
+## Measures of factor score adequacy             
+##                                                     PA1   PA2   PA3   PA4   PA5
+## Correlation of (regression) scores with factors   0.958 0.953 0.867 0.764 0.708
+## Multiple R square of scores with factors          0.917 0.909 0.752 0.584 0.501
+## Minimum correlation of possible factor scores     0.835 0.818 0.504 0.168 0.002
+##                                                      PA6    PA7
+## Correlation of (regression) scores with factors    0.609  0.561
+## Multiple R square of scores with factors           0.371  0.315
+## Minimum correlation of possible factor scores     -0.258 -0.371
+</code></pre>
+</div>
+</div>
+<p>Working through the loadings and uniqueness values in the factor matrix, four variables stand out as poorly explained which we iteratively drop:</p>
+<ul>
+<li>contract enforcement (FRAG_C_04)</li>
+<li>outlook on the business’s future (FRAG_C_07)</li>
+<li>the role of ethnicity and political ties (FRAG_C_06)</li>
+<li>security spending (FRAG_C_02)</li>
+</ul>
+<p>Each has weak loadings across every factor and high uniqueness, which indicates that they are poorly explained by the retained factors.</p>
+
+
+
+
+<h3 id="rotation">Rotation
+  <a href="#rotation"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>In the final iteration of our analysis, we obtain the output below after dropping the four variables above and applying a varimax rotation. The varimax rotation, which minimizes cross-loadings without changing total variance explained, leaves most variables loading cleanly onto a single factor. Ultimately, the objective is to minimize the number of significant loadings on each row of the factor matrix.</p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>l.vars<span style="color:#000;font-weight:bold">$</span>final <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">setdiff</span>(l.vars<span style="color:#000;font-weight:bold">$</span>all, <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;FRAG_C_02&#34;</span>, <span style="color:#d14">&#34;FRAG_C_04&#34;</span>, <span style="color:#d14">&#34;FRAG_C_06&#34;</span>, <span style="color:#d14">&#34;FRAG_C_07&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>l.fa<span style="color:#000;font-weight:bold">$</span>rotated <span style="color:#000;font-weight:bold">&lt;-</span> psych<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">fa</span>(
+</span></span><span style="display:flex;"><span>  df.fragility[l.vars<span style="color:#000;font-weight:bold">$</span>final],
+</span></span><span style="display:flex;"><span>  nfactors <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">3</span>,
+</span></span><span style="display:flex;"><span>  fm <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;pa&#34;</span>,
+</span></span><span style="display:flex;"><span>  rotate <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;varimax&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Output 📤</span></p>
+<pre><code>## Factor Analysis using method =  pa
+## Call: psych::fa(r = df.fragility[l.vars$final], nfactors = 3, rotate = &quot;varimax&quot;, 
+##     fm = &quot;pa&quot;)
+## Standardized loadings (pattern matrix) based upon correlation matrix
+##                  PA1    PA2    PA3      h2    u2  com
+## ID                                 0.00813 0.992 1.86
+## FRAG_C_03_A1                 0.633 0.44842 0.552 1.23
+## FRAG_C_03_A2   0.349         0.675 0.58962 0.410 1.56
+## FRAG_C_03_A3   0.318         0.698 0.59328 0.407 1.42
+## FRAG_C_03_A4   0.573         0.314 0.42680 0.573 1.55
+## FRAG_C_03_A5   0.621               0.41046 0.590 1.13
+## FRAG_C_03_A6   0.543               0.32178 0.678 1.19
+## FRAG_C_03_A7   0.557               0.32774 0.672 1.12
+## FRAG_C_03_A8   0.632               0.41751 0.582 1.09
+## FRAG_C_03_A9   0.557               0.37881 0.621 1.45
+## FRAG_C_03_A10  0.694               0.49152 0.508 1.04
+## FRAG_C_03_A11  0.696               0.48530 0.515 1.00
+## FRAG_C_03_A12  0.655               0.43421 0.566 1.03
+## FRAG_C_03_A13  0.619               0.43162 0.568 1.25
+## FRAG_C_03_A14  0.688               0.47506 0.525 1.01
+## FRAG_C_05_A1          0.709        0.53129 0.469 1.12
+## FRAG_C_05_A2          0.890        0.79531 0.205 1.01
+## FRAG_C_05_A3          0.832        0.69571 0.304 1.01
+## FRAG_C_05_A4          0.567        0.32694 0.673 1.03
+## FRAG_C_05_A5          0.417        0.21038 0.790 1.41
+## FRAG_C_08                    0.351 0.13539 0.865 1.20
+## 
+##                         PA1   PA2   PA3
+## SS loadings           4.607 2.567 1.761
+## Proportion Var        0.219 0.122 0.084
+## Cumulative Var        0.219 0.342 0.425
+## Proportion Explained  0.516 0.287 0.197
+## Cumulative Proportion 0.516 0.803 1.000
+## 
+## Mean item complexity =  1.2
+## Test of the hypothesis that 3 factors are sufficient.
+## 
+## df null model =  210  with the objective function =  7.768 with Chi Square =  7699.249
+## df of  the model are 150  and the objective function was  0.794 
+## 
+## The root mean square of the residuals (RMSR) is  0.036 
+## The df corrected root mean square of the residuals is  0.042 
+## 
+## The harmonic n.obs is  1000 with the empirical chi square  270.538  with prob &lt;  6.01e-09 
+## The total n.obs was  1000  with Likelihood Chi Square =  785.77  with prob &lt;  8.29e-87 
+## 
+## Tucker Lewis Index of factoring reliability =  0.8809
+## RMSEA index =  0.0651  and the 90 % confidence intervals are  0.0607 0.0697
+## BIC =  -250.393
+## Fit based upon off diagonal values = 0.982
+## Measures of factor score adequacy             
+##                                                     PA1   PA2   PA3
+## Correlation of (regression) scores with factors   0.934 0.943 0.865
+## Multiple R square of scores with factors          0.872 0.889 0.748
+## Minimum correlation of possible factor scores     0.745 0.778 0.496
+</code></pre>
+</div>
+</div>
+<p>The rotated factor matrix reveals a clear three-factor structure. Two items—relating to delivery to clients and clients not paying their bills—show some cross-loading, but both capture clearly economic phenomena. We therefore retain them with the other economic indicators rather than dropping them. This follows the general guidance that cross-loading items should normally be removed unless there is a theoretical justification for retaining them (
+<a href="#ref-OECD:2008">OECD 2008</a>).</p>
+<p>The number of factors to retain is ultimately a matter of judgement, with both quantitative and qualitative criteria recommended in the literature OECD (
+<a href="#ref-OECD:2008">2008</a>). Quantitatively, the most common rule is the latent root criterion, which retains factors with eigenvalues greater than one. All three retained factors meet this criterion, with eigenvalues of 4.607, 2.567, and 1.761.</p>
+<p>Together, the three factors account for 44.2% of the total variance, with the first factor explaining 22%, the second 12%, and the third 8%. Among the common variance captured by the factor solution, these correspond to 52%, 29%, and 20%, respectively.</p>
+<p>The quantitative evidence is supported by the substantive structure of the survey. The variables group naturally into the three dimensions anticipated when the survey was designed as in Table <a href="#tab:tbl-survey">1</a>: human security, social cohesion, and economic performance. The emergence of these three factors therefore provides both statistical and conceptual support for the proposed structure.</p>
+
+
+
+
+<h3 id="index-structure">Index structure
+  <a href="#index-structure"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>That gives us the finalized index structure:</p>
+<table class="table table-blog" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<p><span id="tab:tbl-index"></span>Table 3: The three pillars of the ITC Fragility Index</p>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+<p>Pillar</p>
+</th>
+<th style="text-align:left;">
+<p>Captures</p>
+</th>
+<th style="text-align:left;">
+<p>Variables</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>Human Security</p>
+</td>
+<td style="text-align:left;">
+<p>Exposure to insecurity and instability in day-to-day operations</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_03_A5:FRAG_C_03_A14</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Social Cohesion</p>
+</td>
+<td style="text-align:left;">
+<p>Trust in surrounding groups and institutions</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_05_A1:FRAG_C_05_A5</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Economic Performance</p>
+</td>
+<td style="text-align:left;">
+<p>Revenue and investment effects of conflict and instability</p>
+</td>
+<td style="text-align:left;">
+<p>FRAG_C_03_A1:FRAG_C_03_A4, FRAG_C_08</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="validation">Validation
+  <a href="#validation"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>A factor structure that holds only under one particular set of modeling choices is of limited value. We therefore subject our proposed three-pillar index to several robustness checks:</p>
+<ol>
+<li>confirmatory factor analysis (CFA);</li>
+<li>alternative rotation methods;</li>
+<li>bootstrap resampling;</li>
+<li>polychoric correlations;</li>
+<li>random split-samples; and</li>
+<li>outlier detection.</li>
+</ol>
+<p>We perform the CFA and provide details for the others.</p>
+
+
+
+
+<h3 id="confirmatory-factor-analysis">Confirmatory factor analysis
+  <a href="#confirmatory-factor-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The most direct test is a confirmatory factor analysis (CFA). Rather than allowing the data to determine the factor structure, we specify the three pillars identified above—Human Security, Social Cohesion, and Economic Performance—and test how well this structure reproduces the observed relationships. We use the 
+<a href="https://lavaan.ugent.be/" target="_blank" rel="noopener"><code>lavaan</code></a> package and its 
+<a href="https://cran.r-project.org/web/packages/lavaan/refman/lavaan.html#cfa" target="_blank" rel="noopener"><code>cfa()</code></a> function.</p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>cfa_model <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#d14">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">  HumanSecurity        =~ FRAG_C_03_A5 + FRAG_C_03_A6 + FRAG_C_03_A7 + FRAG_C_03_A8 + FRAG_C_03_A9 +
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">                            FRAG_C_03_A10 + FRAG_C_03_A11 + FRAG_C_03_A12 + FRAG_C_03_A13 + FRAG_C_03_A14
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">  SocialCohesion       =~ FRAG_C_05_A1 + FRAG_C_05_A2 + FRAG_C_05_A3 + FRAG_C_05_A5 + FRAG_C_05_A5
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">  EconomicPerformance  =~ FRAG_C_03_A1 + FRAG_C_03_A2 + FRAG_C_03_A3 + FRAG_C_03_A4 + FRAG_C_08
+</span></span></span><span style="display:flex;"><span><span style="color:#d14">&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>l.fa<span style="color:#000;font-weight:bold">$</span>cfa <span style="color:#000;font-weight:bold">&lt;-</span> lavaan<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">cfa</span>(cfa_model, data <span style="color:#000;font-weight:bold">=</span> df.fragility[l.vars<span style="color:#000;font-weight:bold">$</span>final])
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Output 📤</span></p>
+<pre><code>## lavaan 0.7-2 ended normally after 151 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                        41
+## 
+##   Number of observations                          1000
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                              1100.007
+##   Degrees of freedom                               149
+##   P-value (Chi-square)                           0.000
+## 
+## Model Test Baseline Model:
+## 
+##   Test statistic                              7362.361
+##   Degrees of freedom                               171
+##   P-value                                        0.000
+## 
+## User Model versus Baseline Model:
+## 
+##   Comparative Fit Index (CFI)                    0.868
+##   Tucker-Lewis Index (TLI)                       0.848
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)               3092.622
+##   Loglikelihood unrestricted model (H1)       3642.626
+##                                                       
+##   Akaike (AIC)                               -6103.245
+##   Bayesian (BIC)                             -5902.027
+##   Sample-size adjusted Bayesian (SABIC)      -6032.245
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.080
+##   90 Percent confidence interval - lower         0.076
+##   90 Percent confidence interval - upper         0.084
+##   P-value H_0: RMSEA &lt;= 0.050                    0.000
+##   P-value H_0: RMSEA &gt;= 0.080                    0.490
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.075
+## 
+## Goodness of Fit Index:
+## 
+##   Goodness of Fit Index (GFI)                    0.903
+##   90 Percent confidence interval - lower         0.894
+##   90 Percent confidence interval - upper         0.912
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Latent Variables:
+##                          Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   HumanSecurity =~                                                            
+##     FRAG_C_03_A5            1.000                               0.132    0.630
+##     FRAG_C_03_A6            1.058    0.069   15.347    0.000    0.140    0.564
+##     FRAG_C_03_A7            0.741    0.052   14.271    0.000    0.098    0.517
+##     FRAG_C_03_A8            1.126    0.066   17.185    0.000    0.149    0.647
+##     FRAG_C_03_A9            1.213    0.075   16.101    0.000    0.160    0.597
+##     FRAG_C_03_A10           0.972    0.054   18.038    0.000    0.128    0.688
+##     FRAG_C_03_A11           1.044    0.058   18.112    0.000    0.138    0.692
+##     FRAG_C_03_A12           1.060    0.060   17.601    0.000    0.140    0.667
+##     FRAG_C_03_A13           1.141    0.066   17.302    0.000    0.151    0.653
+##     FRAG_C_03_A14           1.055    0.059   17.956    0.000    0.139    0.684
+##   SocialCohesion =~                                                           
+##     FRAG_C_05_A1            1.000                               0.183    0.660
+##     FRAG_C_05_A2            1.498    0.065   23.059    0.000    0.274    0.930
+##     FRAG_C_05_A3            1.372    0.059   23.107    0.000    0.251    0.866
+##     FRAG_C_05_A5            0.478    0.048    9.868    0.000    0.087    0.333
+##   EconomicPerformance =~                                                      
+##     FRAG_C_03_A1            1.000                               0.193    0.652
+##     FRAG_C_03_A2            1.171    0.061   19.081    0.000    0.226    0.800
+##     FRAG_C_03_A3            1.117    0.061   18.236    0.000    0.215    0.731
+##     FRAG_C_03_A4            0.719    0.047   15.159    0.000    0.138    0.575
+##     FRAG_C_08               0.326    0.046    7.031    0.000    0.063    0.249
+## 
+## Covariances:
+##                     Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   HumanSecurity ~~                                                       
+##     SocialCohesion     0.002    0.001    1.829    0.067    0.065    0.065
+##     EconomcPrfrmnc     0.015    0.001   10.954    0.000    0.578    0.578
+##   SocialCohesion ~~                                                      
+##     EconomcPrfrmnc    -0.003    0.001   -2.193    0.028   -0.082   -0.082
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .FRAG_C_03_A5      0.026    0.001   20.357    0.000    0.026    0.603
+##    .FRAG_C_03_A6      0.042    0.002   20.949    0.000    0.042    0.682
+##    .FRAG_C_03_A7      0.026    0.001   21.253    0.000    0.026    0.732
+##    .FRAG_C_03_A8      0.031    0.002   20.171    0.000    0.031    0.581
+##    .FRAG_C_03_A9      0.046    0.002   20.679    0.000    0.046    0.644
+##    .FRAG_C_03_A10     0.018    0.001   19.620    0.000    0.018    0.526
+##    .FRAG_C_03_A11     0.021    0.001   19.563    0.000    0.021    0.521
+##    .FRAG_C_03_A12     0.024    0.001   19.924    0.000    0.024    0.555
+##    .FRAG_C_03_A13     0.031    0.002   20.105    0.000    0.031    0.574
+##    .FRAG_C_03_A14     0.022    0.001   19.681    0.000    0.022    0.532
+##    .FRAG_C_05_A1      0.043    0.002   20.443    0.000    0.043    0.564
+##    .FRAG_C_05_A2      0.012    0.002    6.225    0.000    0.012    0.135
+##    .FRAG_C_05_A3      0.021    0.002   11.744    0.000    0.021    0.251
+##    .FRAG_C_05_A5      0.061    0.003   22.084    0.000    0.061    0.889
+##    .FRAG_C_03_A1      0.050    0.003   18.662    0.000    0.050    0.574
+##    .FRAG_C_03_A2      0.029    0.002   13.434    0.000    0.029    0.360
+##    .FRAG_C_03_A3      0.040    0.002   16.483    0.000    0.040    0.465
+##    .FRAG_C_03_A4      0.039    0.002   19.935    0.000    0.039    0.670
+##    .FRAG_C_08         0.060    0.003   22.043    0.000    0.060    0.938
+##     HumanSecurity     0.017    0.002   10.533    0.000    1.000    1.000
+##     SocialCohesion    0.033    0.003   11.294    0.000    1.000    1.000
+##     EconomcPrfrmnc    0.037    0.004   10.552    0.000    1.000    1.000
+</code></pre>
+</div>
+</div>
+<p>The CFA provides strong evidence that the individual indicators are associated with their proposed factors: all factor loadings are statistically significant. Standardized loadings are generally substantial, particularly for Human Security and Social Cohesion. The weakest relationship is between Economic Performance and FRAG_C_08, whose standardized loading is 0.25, suggesting that this indicator contributes relatively little to the latent factor.</p>
+<p>The overall fit is more mixed. The model produces an RMSEA of 0.085 and an SRMR of 0.080, while the CFI and TLI are 0.868 and 0.848, respectively. These values indicate that the three-factor model does not provide a perfect representation of the data, but they are consistent with a reasonably coherent structure given the exploratory nature of the index and the characteristics of the survey data. Importantly, the CFA broadly reproduces the factor structure identified by the EFA rather than revealing a fundamentally different organisation of the indicators.</p>
+
+
+
+
+<h3 id="alternative-rotations">Alternative rotations
+  <a href="#alternative-rotations"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Varimax is only one of many possible rotation methods. A useful robustness check would therefore be to re-estimate the EFA using orthogonal and oblique rotations. If similar factor groupings emerge across these specifications, this would suggest that the proposed structure is not an artifact of the particular rotation method used.</p>
+
+
+
+
+<h3 id="bootstrap-resampling">Bootstrap resampling
+  <a href="#bootstrap-resampling"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Bootstrapping could provide an additional check on the stability of the number of factors (
+<a href="#ref-Jackson:1993">Jackson 1993</a>). The EFA could be repeated on, for example, 1,000 samples drawn with replacement, recording the number of factors selected in each replication. Consistent identification of three factors would provide evidence that the factor count is not overly sensitive to the particular sample.</p>
+<!-- ```{r bootstrap} -->
+<!-- set.seed(1010) -->
+<!-- boot_factors <- replicate(1000, { -->
+<!--   boot_sample <- df.fragility[sample(nrow(df.fragility), replace = TRUE), l.vars$final] -->
+<!--   sum(eigen(cor(boot_sample))$values > 1) -->
+<!-- }) -->
+<!-- table(boot_factors) -->
+<!-- ``` -->
+
+
+
+
+<h3 id="polychoric-correlations">Polychoric correlations
+  <a href="#polychoric-correlations"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>The EFA currently relies on a Pearson correlation matrix, despite the Fragility Survey containing exclusively binary and ordinal variables. A useful alternative would be to repeat the analysis using polychoric correlations, which are better suited to categorical data (
+<a href="#ref-Watkins:2022">Watkins 2022</a>). Comparing the resulting loadings and factor assignments with the preferred solution would indicate whether the factor structure depends on the choice of correlation matrix. In R, this can be implemented using the 
+<a href="https://personality-project.org/r/psych/" target="_blank" rel="noopener"><code>psych</code></a> package and its 
+<a href="https://personality-project.org/r/psych/help/cortest.bartlett.html" target="_blank" rel="noopener"><code>polychoric()</code></a> and 
+<a href="https://personality-project.org/r/psych/help/fa.html" target="_blank" rel="noopener"><code>fa()</code></a> functions.</p>
+<!-- ```{r polychoric} -->
+<!-- poly_cor <- psych::polychoric(df.fragility[l.vars$final]) -->
+<!-- l.fa$poly <- psych::fa( -->
+<!--   poly_cor$rho, -->
+<!--   n.obs = nrow(df.fragility), -->
+<!--   nfactors = 3, -->
+<!--   fm = "pa", -->
+<!--   rotate = "varimax" -->
+<!-- ) -->
+<!-- print(l.fa$poly, cut = 0.3, digits = 3) -->
+<!-- ``` -->
+
+
+
+
+<h3 id="random-split-sample">Random split-sample
+  <a href="#random-split-sample"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>With a sufficiently large sample, another straightforward check would be to randomly divide the observations into two or more independent subsamples and repeat the EFA separately. Recovering a similar factor structure across subsamples would provide evidence that the results are not driven by a particular subset of respondents.</p>
+<!-- ```{r split-sample} -->
+<!-- set.seed(1010) -->
+<!-- split <- sample(rep(1:2, length.out = nrow(df.fragility))) -->
+<!-- l.fa$split[[1]] <- psych::fa(df.fragility[l.vars$final][split==1, ], nfactors=3, fm="pa", rotate="varimax") -->
+<!-- l.fa$split[[2]] <- psych::fa(df.fragility[l.vars$final][split==2, ], nfactors=3, fm="pa", rotate="varimax") -->
+<!-- ``` -->
+
+
+
+
+<h3 id="outlier-detection">Outlier detection
+  <a href="#outlier-detection"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Finally, the analysis could be tested for sensitivity to influential observations. One approach would be to identify unusual observations using a convex-hull-volume-based influence measure derived from each observation’s leverage in the variable space (
+<a href="#ref-ChatterjeeJamiesonWiesman:1991">Chatterjee et al. 1991</a>). The EFA could then be repeated after removing the most influential observations. Little change in the resulting factor structure would suggest that the index is not being driven by a small number of unusual cases.</p>
+<!-- ```{r outliers} -->
+<!-- X <- as.matrix(df.fragility[l.vars$final]) -->
+<!-- H <- X %*% solve(t(X) %*% X) %*% t(X) -->
+<!-- leverage <- diag(H) -->
+<!-- chv <- abs(1 - 1 / (1 - leverage)) -->
+<!-- is_outlier <- chv > 0.05 -->
+<!-- fa_no_outliers <- psych::fa( -->
+<!--   df.fragility[l.vars$final][!is_outlier, ], -->
+<!--   nfactors = 3, -->
+<!--   fm = "pa", -->
+<!--   rotate = "varimax" -->
+<!-- ) -->
+<!-- ``` -->
+
+
+
+
+<h2 id="index-construction">Index Construction
+  <a href="#index-construction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>With the structure confirmed, the last step is turning three latent pillars into one fragility score per firm.</p>
+<p>First, we predict each firm’s value on each of the three pillars from the confirmatory factor model using 
+<a href="https://cran.r-project.org/web/packages/lavaan/refman/lavaan.html#lavPredict" target="_blank" rel="noopener"><code>lavan::lavPredict()</code></a>, then rescale each pillar onto a 0-100 scale using a max-min transformation – flipped so that higher values always mean <em>more</em> fragile:</p>
+<p><code>$$\bar{x}_{i}^{j} = \frac{\hat{x}_{i}^{j} - \max(\mathbf{x}^{j})}{\min(\mathbf{x}^{j}) - \max(\mathbf{x}^{j})} \cdot 100$$</code></p>
+<p>where <code>\(\hat{x}_{i}^{j}\)</code> is firm <code>\(i\)</code>’s predicted value on pillar <code>\(j\)</code>, and <code>\(\mathbf{x}^{j}\)</code> is the full set of predictions for that pillar.</p>
+<p>The overall Fragility Index is then simply the average across the three standardized pillars:</p>
+<p><code>$$X_{i} = \frac{1}{3}\sum\limits_{j=1}^{3} \bar{x}_{i}^{j}$$</code></p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>normalise <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">function</span>(x) {
+</span></span><span style="display:flex;"><span>  (x <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">max</span>(x, na.rm <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">TRUE</span>)) <span style="color:#000;font-weight:bold">/</span> (<span style="color:#900;font-weight:bold">min</span>(x, na.rm <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">TRUE</span>) <span style="color:#000;font-weight:bold">-</span> <span style="color:#900;font-weight:bold">max</span>(x, na.rm <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">TRUE</span>)) <span style="color:#000;font-weight:bold">*</span> <span style="color:#099">100</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.fragility_idx <span style="color:#000;font-weight:bold">&lt;-</span> l.fa<span style="color:#000;font-weight:bold">$</span>cfa <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  lavaan<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">lavPredict</span>() <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">as.data.frame</span>() <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">mutate</span>(dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">across</span>(dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">everything</span>(), normalise)) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">mutate</span>(
+</span></span><span style="display:flex;"><span>    ID <span style="color:#000;font-weight:bold">=</span> df.fragility<span style="color:#000;font-weight:bold">$</span>ID,
+</span></span><span style="display:flex;"><span>    INDEX <span style="color:#000;font-weight:bold">=</span> (HumanSecurity <span style="color:#000;font-weight:bold">+</span> SocialCohesion <span style="color:#000;font-weight:bold">+</span> EconomicPerformance) <span style="color:#000;font-weight:bold">/</span> <span style="color:#099">3</span>
+</span></span><span style="display:flex;"><span>  ) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">relocate</span>(ID)
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Table 📅</span></p>
+<table class="table table-blog" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<p><span id="tab:index-sample"></span>Table 4: (#tab:index-sample)Fragility pillars and index sample</p>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+<p>ID</p>
+</th>
+<th style="text-align:right;">
+<p>Human Security</p>
+</th>
+<th style="text-align:right;">
+<p>Social Cohesion</p>
+</th>
+<th style="text-align:right;">
+<p>Economic Performance</p>
+</th>
+<th style="text-align:right;">
+<p>Fragility Index</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>1</p>
+</td>
+<td style="text-align:right;">
+<p>23.89038</p>
+</td>
+<td style="text-align:right;">
+<p>39.83104</p>
+</td>
+<td style="text-align:right;">
+<p>37.71936</p>
+</td>
+<td style="text-align:right;">
+<p>33.81359</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>2</p>
+</td>
+<td style="text-align:right;">
+<p>13.27290</p>
+</td>
+<td style="text-align:right;">
+<p>77.45816</p>
+</td>
+<td style="text-align:right;">
+<p>14.02848</p>
+</td>
+<td style="text-align:right;">
+<p>34.91984</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>3</p>
+</td>
+<td style="text-align:right;">
+<p>1.92684</p>
+</td>
+<td style="text-align:right;">
+<p>39.82130</p>
+</td>
+<td style="text-align:right;">
+<p>14.85420</p>
+</td>
+<td style="text-align:right;">
+<p>18.86745</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>4</p>
+</td>
+<td style="text-align:right;">
+<p>31.94179</p>
+</td>
+<td style="text-align:right;">
+<p>20.15386</p>
+</td>
+<td style="text-align:right;">
+<p>44.04348</p>
+</td>
+<td style="text-align:right;">
+<p>32.04638</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>5</p>
+</td>
+<td style="text-align:right;">
+<p>31.21534</p>
+</td>
+<td style="text-align:right;">
+<p>91.38760</p>
+</td>
+<td style="text-align:right;">
+<p>51.98541</p>
+</td>
+<td style="text-align:right;">
+<p>58.19612</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>6</p>
+</td>
+<td style="text-align:right;">
+<p>23.87504</p>
+</td>
+<td style="text-align:right;">
+<p>52.20770</p>
+</td>
+<td style="text-align:right;">
+<p>35.05560</p>
+</td>
+<td style="text-align:right;">
+<p>37.04611</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The result is a single number per firm – higher for firms facing more insecurity, less trust in institutions, and worse economic effects from instability – that can be compared across firms, sectors, and countries.</p>
+<p>We now present some summary stats and plot a histogram of the Index and its Pillars. The Index has a mean of around 31 with a standard deviation of ±15. As can be seen from its histogram, its mass is mainly below 50. This is sensible given that the Human Security and Economic Performance Pillars are both weighted towards zero. The Social Cohesion Pillar drives the higher mean for the Index as its mass is distruted around 50.</p>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>idx_order <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;Fragility Index&#34;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#d14">&#34;Human Security&#34;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#d14">&#34;Social Cohesion&#34;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#d14">&#34;Economic Performance&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df.fragility_stat <span style="color:#000;font-weight:bold">&lt;-</span> df.fragility_idx <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  tidyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">pivot_longer</span>(cols<span style="color:#000;font-weight:bold">=-</span>ID, names_to<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PILLAR&#34;</span>, values_to<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;VAL&#34;</span>) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">mutate</span>(PILLAR <span style="color:#000;font-weight:bold">=</span> stringr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">str_replace</span>(PILLAR, <span style="color:#d14">&#34;(?&lt;=[a-z])(?=[A-Z])&#34;</span>, <span style="color:#d14">&#34; &#34;</span>),
+</span></span><span style="display:flex;"><span>                PILLAR <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">ifelse</span>(PILLAR<span style="color:#000;font-weight:bold">==</span><span style="color:#d14">&#34;INDEX&#34;</span>, <span style="color:#d14">&#34;Fragility Index&#34;</span>, PILLAR),
+</span></span><span style="display:flex;"><span>                PILLAR <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">factor</span>(PILLAR, levels<span style="color:#000;font-weight:bold">=</span>idx_order)) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">group_by</span>(PILLAR) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">summarise</span>(MEAN <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">mean</span>(VAL, na.rm<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>),
+</span></span><span style="display:flex;"><span>                   SD <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">sd</span>(VAL, na.rm<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">TRUE</span>))
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Table 📅</span></p>
+<table class="table table-blog" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<p><span id="tab:index-stat-table"></span>Table 6: (#tab:index-stat-table)Fragility pillars and index sample</p>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+<p>Pillar</p>
+</th>
+<th style="text-align:right;">
+<p>Mean</p>
+</th>
+<th style="text-align:right;">
+<p>StdDev</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>Fragility Index</p>
+</td>
+<td style="text-align:right;">
+<p>31.39738</p>
+</td>
+<td style="text-align:right;">
+<p>14.59071</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Human Security</p>
+</td>
+<td style="text-align:right;">
+<p>19.09364</p>
+</td>
+<td style="text-align:right;">
+<p>18.68829</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Social Cohesion</p>
+</td>
+<td style="text-align:right;">
+<p>48.78736</p>
+</td>
+<td style="text-align:right;">
+<p>26.03198</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Economic Performance</p>
+</td>
+<td style="text-align:right;">
+<p>26.31114</p>
+</td>
+<td style="text-align:right;">
+<p>20.39473</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="panelset">
+<div class="panel">
+<p><span class="panel-name">Code 💻</span></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>df.fragility_plot <span style="color:#000;font-weight:bold">&lt;-</span> df.fragility_idx <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  tidyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">pivot_longer</span>(cols<span style="color:#000;font-weight:bold">=-</span>ID, names_to<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PILLAR&#34;</span>, values_to<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;VAL&#34;</span>) <span style="color:#000;font-weight:bold">|&gt;</span>
+</span></span><span style="display:flex;"><span>  dplyr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">mutate</span>(PILLAR <span style="color:#000;font-weight:bold">=</span> stringr<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">str_replace</span>(PILLAR, <span style="color:#d14">&#34;(?&lt;=[a-z])(?=[A-Z])&#34;</span>, <span style="color:#d14">&#34; &#34;</span>),
+</span></span><span style="display:flex;"><span>                PILLAR <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">ifelse</span>(PILLAR<span style="color:#000;font-weight:bold">==</span><span style="color:#d14">&#34;INDEX&#34;</span>, <span style="color:#d14">&#34;Fragility Index&#34;</span>, PILLAR),
+</span></span><span style="display:flex;"><span>                PILLAR <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">factor</span>(PILLAR, levels<span style="color:#000;font-weight:bold">=</span>idx_order))
+</span></span></code></pre></div></div>
+<div class="panel">
+<p><span class="panel-name">Plot 📈</span></p>
+<div class="figure">
+<img src="/blog/itc-fragility-index/index_files/figure-html/index-histogram-1.png" alt="Fragility pillar and index histogram" width="672" />
+<p class="caption">
+<p><span id="fig:index-histogram"></span>Figure 1: Fragility pillar and index histogram</p>
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+<h2 id="conclusion">Conclusion
+  <a href="#conclusion"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The Fragility Index turns a multidimensional set of business-survey responses into a single, comparable 0–100 measure. EFA provides the link between the individual indicators and the three underlying pillars—Human Security, Social Cohesion, and Economic Performance—while CFA helps assess whether this structure is supported by the data. The methodology provides a transparent and reproducible approach to constructing composite indicators. The resulting Index and its Pillars can be used as standalone measures of fragility or incorporated as explanatory variables in broader analyses of local business outcomes.</p>
+
+
+
+
+<h2 id="references">References
+  <a href="#references"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ChatterjeeJamiesonWiesman:1991" class="csl-entry">
+<p>Chatterjee, S, L Jamieson, and F Wiseman. 1991. “Identifying Most Influential Observations in Factor Analysis.” <em>Marketing Science</em> 10 (2): 145–60.</p>
+</div>
+<div id="ref-Hair_etal:2010" class="csl-entry">
+<p>Hair, JF, WC Black, BJ Babin, and RE Anderson. 2010. <em>Multivariate Data Analysis</em>. Vol. 7. Pearson.</p>
+</div>
+<div id="ref-ITC:2023" class="csl-entry">
+<p>ITC. 2023. <em>SME Competitiveness Outlook 2023: Small Businesses in Fragility: From Survival to Growth</em>. International Trade Centre. 
+<a href="https://www.intracen.org/resources/publications/sme-competitiveness-outlook-2023-small-businesses-in-fragility-from-survival" target="_blank" rel="noopener">https://www.intracen.org/resources/publications/sme-competitiveness-outlook-2023-small-businesses-in-fragility-from-survival</a>.</p>
+</div>
+<div id="ref-Jackson:1993" class="csl-entry">
+<p>Jackson, DA. 1993. “Stopping Rules in Principal Component Analysis: A Comparison of Heuristical and Statistical Approaches.” <em>Ecology</em> 74 (2): 2204–14.</p>
+</div>
+<div id="ref-KimMueller:1978" class="csl-entry">
+<p>Kim, J, and CW Mueller. 1978. <em>Factor Analysis: Statistical Methods and Practical Issues</em>. Paper Nos. 07-014. Sage University Paper Series on Quantitative Applications in the Social Sciences.</p>
+</div>
+<div id="ref-OECD:2008" class="csl-entry">
+<p>OECD. 2008. <em>Handbook on Constructing Composite Indicators: Methodology and User Guide</em>. Organization for Economic Cooperation; Development; and, Joint Research Centre, European Commission.</p>
+</div>
+<div id="ref-TabachnickFidell:2013" class="csl-entry">
+<p>Tabachnick, BG, and LS Fidell. 2013. <em>Using Multivariate Statistics</em>. Vol. 6. Pearson.</p>
+</div>
+<div id="ref-Watkins:2022" class="csl-entry">
+<p>Watkins, MW. 2022. <em>A Step-by-Step Guide to Exploratory Factor Analysis with Stata</em>. Routledge.</p>
+</div>
+</div>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>All analysis herein uses R, where the original analysis and Index were prepared in Stata.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Firm sizes are defined by employee count: “Micro” 1 to 9; “Small” 10 to 49; “Medium” 50 to 249; and “Large” 250 or more.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Note that there are two types of factor analysis: common and component. They have contrasting objectives where the former is used to identify latent dimensions represented in the data, while the latter is primarily a data reduction technique (
+<a href="#ref-Hair_etal:2010">Hair et al. 2010</a>). Here, we focus on common factor analysis.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Rotation changes the individual factor loadings and eigenvalues, but not their sum.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">May 1, 2023</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">25 minute read, 5229 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/competition">Competition</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/itc">ITC</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/itc-instability-indicators/">Creating a proxy for local instability using geospatial event data</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/git-commands/">&larr; Useful Git commands</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/itc-instability-indicators/">Creating a proxy for local instability using geospatial event data &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2026 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?hl=en&amp;user=swqolQMAAAAJ" title="google-scholar-square" target="_blank" rel="noopener">
+      <i class="ai ai-google-scholar-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact Form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
