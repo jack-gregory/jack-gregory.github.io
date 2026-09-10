@@ -41,10 +41,22 @@
     <loc>/categories/water/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/code/</loc>
-    <lastmod>2023-10-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/</loc>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/hugo/</loc>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/hugo-apero-contact/</loc>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/website/</loc>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/hugo-apero-blog-toc/</loc>
+    <lastmod>2024-01-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/code/</loc>
     <lastmod>2023-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/git/</loc>
@@ -149,6 +161,9 @@
     <loc>/blog/intangible-assets/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/blog/hugo-apero-homepage/</loc>
+    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/project/gii-presentations/</loc>
     <lastmod>2022-10-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -158,13 +173,7 @@
     <loc>/tags/speaker/</loc>
     <lastmod>2022-09-29T13:30:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/hugo/</loc>
-    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/google-analytics/</loc>
-    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/website/</loc>
     <lastmod>2022-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/hugo-apero-private/</loc>

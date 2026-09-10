@@ -35,9 +35,9 @@
 
 
     
-        <meta property="og:image" content="/blog/sidebar-listing.jpg" >
+        <meta property="og:image" content="/blog/git-commands/featured.jpg" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="/blog/sidebar-listing.jpg" >
+        <meta name="twitter:image" content="/blog/git-commands/featured.jpg" >
     
     
   <meta itemprop="name" content="Useful Git commands">
@@ -47,7 +47,7 @@ Additional git references can be found online at the following sites:
 git documentation; git user manual; GitHub documentation; and, Atlassian tutorials and glossary. Remote RepositoriesIn git, it is possible to manage set of tracked remote repositories.
 Check for linked repositoryTo check if a local repository is linked to a remote repository:"><meta itemprop="datePublished" content="2023-10-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-10-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2001">
+<meta itemprop="wordCount" content="2011"><meta itemprop="image" content="/blog/git-commands/featured.jpg">
 <meta itemprop="keywords" content="Code," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
@@ -80,7 +80,8 @@ if (!doNotTrack) {
   <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
   
   
-  <link rel="stylesheet" href="/style.main.min.a9f2a4292c3a1536884736d2642e2c7f21f17655fe23971612e5664e6b2c58cb.css" integrity="sha256-qfKkKSw6FTaIRzbSZC4sfyHxdlX&#43;I5cWEuVmTmssWMs=" media="screen">
+  <link rel="stylesheet" href="/style.main.min.cda7d1e37cc3c8102c392cf3d7d547f566e9a1336d691d9ddeae81464b04c9d4.css" integrity="sha256-zafR43zDyBAsOSzz19VH9WbpoTNtaR2d3q6BRksEydQ=" media="screen">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   
   
   <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
@@ -89,7 +90,7 @@ if (!doNotTrack) {
   <script src="/main.min.35e19ccfa3650a0c8f4f274224b70a66bd372ac9919ef0142a7628bdb457ad2b.js" type="text/javascript"></script>
 </head>
 <body>
-      <div class="grid-container single">
+      <div class="grid-container single-sidebar">
 <header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
   <nav class="site-nav db dt-l w-100" role="navigation">
     <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
@@ -127,6 +128,11 @@ if (!doNotTrack) {
         
       <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
       
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/contact/" title="Contact Form">Contact</a>
+      
       
     </div>
   </nav>
@@ -134,20 +140,15 @@ if (!doNotTrack) {
 
 <main class="page-main pa4" role="main">
   <section class="page-content mw7 center">
-    <article class="post-content pa0 ph4-l">
+    <article class="post-content pa0 pr3-l">
       <header class="post-header">
         <h1 class="f1 lh-solid measure-narrow mb3 fw4">Useful Git commands</h1>
         
         <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/git">git</a>  <a href="/categories/github">GitHub</a> </p>
         <p class="f7 db mv0 ttu">October 5, 2023</p>
-
-      
-
       </header>
       <section class="post-body pt5 pb4">
-        <!-- TODO: Add images -->
-<!-- featured.jpg `\(\longrightarrow\)` blog listing -->
-<!-- ![](header.png) `\(\longrightarrow\)` blog header -->
+        <p><img src="featured.jpg" alt=""></p>
 
 
 
@@ -490,6 +491,8 @@ $ git push origin HEAD
 </code></pre><p>If you push to a remote branch with the same name on the remote, then you must go to the particular submodule remote and complete a pull request and merge manually.</p>
 <p>Now, we return to the main project and add and commit any changes, including those from the submodule.  Next, we pull any changes from the main project on the remote.  Finally, we push our main project changes to the remote.  Where we use the “check” option to ensure the push fails if any of the committed submodule changes haven’t been pushed.</p>
 <pre tabindex="0"><code class="language-git" data-lang="git">$ cd ..
+$ git add &lt;FILENAME&gt;
+$ git commit -m &#34;&lt;COMMIT MESSAGE&gt;&#34;
 $ git pull
 $ git push --recurse-submodules=check
 </code></pre><p>Alternatively, The other option is to use the “on-demand” option, which will attempt to push the submodule changes for you.</p>
@@ -570,15 +573,122 @@ git diff &lt;BRANCH NAME&gt;..&lt;BRANCH NAME&gt;
 <p>The git <code>error: cannot lock ref</code> can usually be resolved by pruning old branches that might be conflicting with a pull operation.</p>
 <pre tabindex="0"><code class="language-git" data-lang="git">git remote prune origin
 </code></pre>
-        
-        <details closed class="f6 fw7 input-reset">
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/hugo-apero-blog-toc/">&larr; Adding a table of contents to hugo-apéro blog posts</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/itc-fragility-index/">Building a fragility index using factor analysis &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<aside class="page-sidebar" role="complementary">
+                         
+ 
+
+
+                       
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <img src="/blog/sidebar-listing.jpg" class="db ma0">
+
+
+<div class="blog-info ph4 pt4 pb4 pb0-l">
+  
+
+  <h1 class="f3">Digital Garden</h1>
+  <p class="f6 lh-copy measure">This blog is cultivated as a digital garden, somewhere between a blog and a personal notepad.  It is where I share my curiosity about R and anything else that&rsquo;s on my mind.</p>
+  <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
+
+
+  <small class="db f7"><a href="/blog/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View recent posts</a></small>
+</div>
+
+
+  
+  
+  
+  
+  <div class="ph4 pb4">
+    <h2 class="mv3 f5 fw7 ttu tracked">On this page</h2>
+    <nav id="PageTableOfContents" aria-label="PageTableOfContents" data-toc-depth="2">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#remote">Remote Repositories</a>
+      <ul>
+        <li><a href="#check-for-linked-repository">Check for linked repository</a></li>
+        <li><a href="#add-linked-repository">Add linked repository</a></li>
+        <li><a href="#undoing-pushed-changes">Undoing Pushed Changes</a></li>
+      </ul>
+    </li>
+    <li><a href="#branch">Branches</a>
+      <ul>
+        <li><a href="#list-all-local-branches">List all local branches</a></li>
+        <li><a href="#create-local-branch">Create local branch</a></li>
+        <li><a href="#push-local-branch-to-remote">Push local branch to remote</a></li>
+        <li><a href="#set-upstream-branch">Set upstream branch</a></li>
+        <li><a href="#check-upstream-branch">Check upstream branch</a></li>
+        <li><a href="#create-local--remote-branches">Create local &amp; remote branches</a></li>
+        <li><a href="#delete-local--remote-branches">Delete local &amp; remote branches</a></li>
+        <li><a href="#searching-for-branches">Searching for branches</a></li>
+      </ul>
+    </li>
+    <li><a href="#commits">Commits</a>
+      <ul>
+        <li><a href="#amend-most-recent-local-commit">Amend most recent local commit</a></li>
+      </ul>
+    </li>
+    <li><a href="#submodule">Submodules</a>
+      <ul>
+        <li><a href="#cloning-repository-with-submodules">Cloning repository with submodules</a></li>
+        <li><a href="#pulling-changes-from-submodule-remote">Pulling changes from submodule remote</a></li>
+        <li><a href="#pulling-changes-from-repository-remote">Pulling changes from repository remote</a></li>
+        <li><a href="#submodule-changes">Submodule changes</a></li>
+        <li><a href="#change-submodule-path">Change submodule path</a></li>
+      </ul>
+    </li>
+    <li><a href="#differences">Differences</a></li>
+    <li><a href="#errors">Errors</a>
+      <ul>
+        <li><a href="#cannot-lock-ref">Cannot lock ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </nav>
+  </div>
+  
+  
+  <details open class="f6 fw7 input-reset">
   <dl class="f6 lh-copy">
     <dt class="fw7">Posted on:</dt>
     <dd class="fw5 ml0">October 5, 2023</dd>
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">10 minute read, 2001 words</dd>
+    <dd class="fw5 ml0">10 minute read, 2011 words</dd>
   </dl>
   
   <dl class="f6 lh-copy">
@@ -599,23 +709,7 @@ git diff &lt;BRANCH NAME&gt;..&lt;BRANCH NAME&gt;
   </dl>
 </details>
 
-      </section>
-      <footer class="post-footer">
-        <div class="post-pagination dt w-100 mt4 mb2">
-  
-  
-  
-  
-    <a class="next dtc pl2 tr v-top fw6"
-    href="/blog/itc-fragility-index/">Building a fragility index using factor analysis &rarr;</a>
-  
-</div>
-
-      </footer>
-    </article>
-    
-  </section>
-</main>
+</aside>
 <footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
   <nav class="db dt-l w-100">
     <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
@@ -709,8 +803,6 @@ Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xml
     <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
       
       <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
-      
-      <a class="dib pv1 ph2 link" href="/contact/" title="Contact Form">Contact</a>
       
     </div>
   </nav>

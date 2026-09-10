@@ -7,7 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Jack Gregory</copyright>
-    <lastBuildDate>Fri, 09 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving the Contact link to the Hugo-Apéro header</title>
+      <link>/blog/hugo-apero-contact/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-contact/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to move the Contact link on a Hugo-Apéro site from its default spot in the bottom-right footer menu (next to License) up into the top header menu, as the last item.
+IntroductionHugo-Apéro keeps its navigation in two separate lists in config.toml:
+[[menu.header]], which renders as the top ribbon of links; and, [[menu.footer]], which renders bottom-right alongside License and Contributors. Contact ships as a footer entry by default.</description>
+    </item>
+    
+    <item>
+      <title>Adding a table of contents to hugo-apéro blog posts</title>
+      <link>/blog/hugo-apero-blog-toc/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-blog-toc/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add a table of contents to individual posts on a Hugo-Apéro website, including an optional per-post control over how many heading levels are shown.
+IntroductionHugo-Apéro doesn&amp;rsquo;t ship with a toc: true front-matter switch for ordinary blog posts. The theme&amp;rsquo;s &amp;ldquo;On this page&amp;rdquo; table of contents only renders automatically for posts that belong to a series/collection (hugo-apero/hugo-apero#106) — a standalone post never gets one, no matter how many headings it has.</description>
+    </item>
+    
+    <item>
+      <title>Stacking the hugo-apéro homepage</title>
+      <link>/blog/hugo-apero-homepage/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-homepage/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to change the homepage of a Hugo-Apéro website from the theme&amp;rsquo;s default side-by-side image/text layout to a stacked layout, with a full-width image on top and centered text below.
+IntroductionHugo-Apéro&amp;rsquo;s default layouts/index.html lays the homepage out as two flexbox columns: a text column (title, subtitle, social links, description, action link) on one side, and an image column on the other, toggled left/right with the image_left front-matter param.</description>
+    </item>
+    
     <item>
       <title>Setting up Google Analytics on hugo-apéro</title>
       <link>/blog/google-analytics/</link>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Stacking the hugo-apéro homepage | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="In this blog, I summarize the steps necessary to change a Hugo-Apéro homepage from a side-by-side image/text layout to a stacked, full-width image with centered text below.">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="Stacking the hugo-apéro homepage | Jack Gregory">
+<meta property="og:description" content="In this blog, I summarize the steps necessary to change a Hugo-Apéro homepage from a side-by-side image/text layout to a stacked, full-width image with centered text below." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/hugo-apero-homepage/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/hugo-apero-homepage/featured.jpeg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/hugo-apero-homepage/featured.jpeg" >
+    
+    
+  <meta itemprop="name" content="Stacking the hugo-apéro homepage">
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to change the homepage of a Hugo-Apéro website from the theme&rsquo;s default side-by-side image/text layout to a stacked layout, with a full-width image on top and centered text below.
+IntroductionHugo-Apéro&rsquo;s default layouts/index.html lays the homepage out as two flexbox columns: a text column (title, subtitle, social links, description, action link) on one side, and an image column on the other, toggled left/right with the image_left front-matter param."><meta itemprop="datePublished" content="2022-10-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-10-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="761"><meta itemprop="image" content="/blog/hugo-apero-homepage/featured.jpeg">
+<meta itemprop="keywords" content="Website," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.cda7d1e37cc3c8102c392cf3d7d547f566e9a1336d691d9ddeae81464b04c9d4.css" integrity="sha256-zafR43zDyBAsOSzz19VH9WbpoTNtaR2d3q6BRksEydQ=" media="screen">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.35e19ccfa3650a0c8f4f274224b70a66bd372ac9919ef0142a7628bdb457ad2b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single-sidebar">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/contact/" title="Contact Form">Contact</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 pr3-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Stacking the hugo-apéro homepage</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/hugo">Hugo</a> </p>
+        <p class="f7 db mv0 ttu">October 20, 2022</p>
+      </header>
+      <section class="post-body pt5 pb4">
+        <p><img src="homepage.png" alt=""></p>
+
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In this blog, I summarize the steps necessary to change the homepage of a 
+<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro</a> website from the theme&rsquo;s default side-by-side image/text layout to a stacked layout, with a full-width image on top and centered text below.</p>
+
+
+
+
+<h2 id="intro">Introduction
+  <a href="#intro"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Hugo-Apéro&rsquo;s default <code>layouts/index.html</code> lays the homepage out as two flexbox columns: a text column (title, subtitle, social links, description, action link) on one side, and an image column on the other, toggled left/right with the <code>image_left</code> front-matter param. That works well for a portrait-style profile photo, but it doesn&rsquo;t suit a wide, panoramic image, which gets squeezed into half the page width.</p>
+<p>In this blog, I&rsquo;ll outline the two steps necessary to restack your own Hugo-Apéro homepage:</p>
+<ol>
+<li>
+<a href="#layout">Replace the side-by-side flex layout with a stacked one</a>; and,</li>
+<li>
+<a href="#image">Constrain the image height so it doesn&rsquo;t dominate the page</a>.</li>
+</ol>
+
+
+
+
+<h2 id="layout">Layout Change
+  <a href="#layout"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The stock template wraps both columns in a single <code>flex-l items-center</code> container, with each column sized to <code>w-50-l</code> (50% width on large screens) and the image right-aligned (<code>tr</code>) or reversed via inline <code>flex-direction: row-reverse</code> when <code>image_left</code> is set:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;flex-l items-center&#34;</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ if .Params.image_left }}flex-direction: row-reverse;{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mh4 w-50-l {{ if not .Params.text_align_left }}tr{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;tr w-50-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span></code></pre></div><p>To stack the image above the text instead, that flex wrapper and both columns&rsquo; 50%-width classes need to go. Here are the changes and the full replacement <code>layouts/index.html</code>:</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Outer wrapper</strong>: <code>flex-l items-center</code> (with its <code>image_left</code>-driven <code>row-reverse</code> toggle) becomes a plain <code>w-100</code> block. There&rsquo;s no longer a second column to reverse against, so the toggle is dropped entirely.</li>
+<li><strong>Image column</strong>: <code>tr w-50-l</code>, plus the <code>image_left</code>-driven <code>ml4</code>/<code>mr4</code> margin toggle, becomes <code>w-100</code>, so the image div fills the container&rsquo;s full width rather than half of it.</li>
+<li><strong>Image element</strong>: <code>mv0 w-70-m</code> becomes <code>mv0 w-100</code>, so the <code>&lt;img&gt;</code> itself stretches to match its now full-width parent instead of shrinking to 70%.</li>
+<li><strong>Text column</strong>: <code>mh4 w-50-l</code>, plus the <code>text_align_left</code>-driven <code>tr</code> toggle, becomes <code>mh4 mt4 tc</code>. The 50%-width class is dropped since the column is no longer sharing horizontal space with the image; <code>tr</code> (right-align) is replaced with <code>tc</code> (center-align) to match a centered stacked layout; and <code>mt4</code> adds spacing between the image above and the text below.</li>
+<li><strong>Column order</strong>: the image div now comes first in the markup, followed by the text div, so the image renders on top and the text underneath.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span>{{ $page := . }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">main</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-main pa4&#34;</span> <span style="color:#008080">role</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;main&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-content mw9 center&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;w-100&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;w-100&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      {{ with .Params.images }}
+</span></span><span style="display:flex;"><span>        {{ range first 1 . }}&lt;<span style="color:#000080">img</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv0 w-100&#34;</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;max-height: 300px; object-fit: cover;&#34;</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ . }}&#34;</span>/&gt;{{ end }}
+</span></span><span style="display:flex;"><span>      {{ end }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mh4 mt4 tc&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ with .Params.title }}&lt;<span style="color:#000080">h1</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f2 f1-m f-subheadline-l fw5-ns mv4 lh-solid&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">h1</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ with .Params.subtitle }}&lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f5 fw7 mt0 mb4 ttu tracked&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">h2</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.show_social_links }}{{ partial &#34;shared/social-links.html&#34; . }}{{ end }}
+</span></span><span style="display:flex;"><span>        {{ with .Params.description }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f4 mt4 lh-copy&#34;</span>&gt;{{ . | markdownify }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.show_action_link }}&lt;<span style="color:#000080">a</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mt4 action {{ .Params.action_type }}&#34;</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ .Params.action_link | relURL }}&#34;</span>&gt;{{ .Params.action_label | safeHTML }}&lt;/<span style="color:#000080">a</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">section</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">main</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+
+
+
+
+<h2 id="image">Image Height
+  <a href="#image"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>A full-width <code>&lt;img&gt;</code> on a wide screen can end up taller than intended, especially for a panoramic source photo. Adding an inline style to the <code>&lt;img&gt;</code> tag keeps it in check:</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Set maximum height</strong>: <code>max-height: 300px</code> caps how tall the image can grow, regardless of screen width.</li>
+<li><strong>Fill width</strong>: <code>object-fit: cover</code> fills that width × max-height box proportionally, cropping any overflow rather than squashing the image out of its original aspect ratio. This only works correctly because the image already has a defined width from <code>w-100</code>.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">img</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv0 w-100&#34;</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;max-height: 500px; object-fit: cover;&#34;</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ . }}&#34;</span>/&gt;
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p>Our <code>300px</code> is a reasonable starting point, but it&rsquo;s worth adjusting up or down depending on your image&rsquo;s aspect ratio and how prominent you want it to be on the page.</p>
+
+
+
+
+<h2 id="usage">Usage
+  <a href="#usage"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>With the layout replaced, no new front-matter fields are required. The existing <code>images</code>, <code>title</code>, <code>subtitle</code>, <code>show_social_links</code>, <code>description</code>, and <code>show_action_link</code> params on your homepage&rsquo;s <code>_index.md</code> continue to work exactly as before — only their on-page arrangement has changed, from side-by-side to stacked.</p>
+<p>Note that the <code>image_left</code> and <code>text_align_left</code> params are no longer read by this version of the template. If you&rsquo;d like to keep using them — for example, toggling the text between centered and left-aligned per site — they can be reintroduced by swapping the hardcoded <code>tc</code> class for a conditional based on <code>.Params.text_align_left</code>.</p>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/intangible-assets/">&larr; Intangible assets owned by all listed companies grew to $74 trillion in 2021</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/google-analytics/">Setting up Google Analytics on hugo-apéro &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<aside class="page-sidebar" role="complementary">
+                         
+ 
+
+
+                       
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <img src="/blog/sidebar-listing.jpg" class="db ma0">
+
+
+<div class="blog-info ph4 pt4 pb4 pb0-l">
+  
+
+  <h1 class="f3">Digital Garden</h1>
+  <p class="f6 lh-copy measure">This blog is cultivated as a digital garden, somewhere between a blog and a personal notepad.  It is where I share my curiosity about R and anything else that&rsquo;s on my mind.</p>
+  <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
+
+
+  <small class="db f7"><a href="/blog/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View recent posts</a></small>
+</div>
+
+
+  
+  
+  
+  
+  <div class="ph4 pb4">
+    <h2 class="mv3 f5 fw7 ttu tracked">On this page</h2>
+    <nav id="PageTableOfContents" aria-label="PageTableOfContents" data-toc-depth="2">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#layout">Layout Change</a></li>
+    <li><a href="#image">Image Height</a></li>
+    <li><a href="#usage">Usage</a></li>
+  </ul>
+</nav>
+    </nav>
+  </div>
+  
+  
+  <details open class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">October 20, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">4 minute read, 761 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/hugo">Hugo</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/website">Website</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-contact/">Moving the Contact link to the Hugo-Apéro header</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-blog-toc/">Adding a table of contents to hugo-apéro blog posts</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/google-analytics/">Setting up Google Analytics on hugo-apéro</a></dd>
+    
+  </dl>
+</details>
+
+</aside>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2026 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?hl=en&amp;user=swqolQMAAAAJ" title="google-scholar-square" target="_blank" rel="noopener">
+      <i class="ai ai-google-scholar-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>
