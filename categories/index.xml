@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Jack Gregory</copyright>
-    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>/categories/hugo/</link>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Electricity</title>
       <link>/categories/electricity/</link>
@@ -50,15 +59,6 @@
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>/categories/water/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>/categories/hugo/</link>
-      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/hugo/</guid>
       <description></description>
     </item>
     

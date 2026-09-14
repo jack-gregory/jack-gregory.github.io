@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Jack Gregory</copyright>
-    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a dedicated publications section in Hugo-Apéro</title>
+      <link>/blog/hugo-apero-publication/</link>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-publication/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add a dedicated publication content type to a Hugo-Apéro website — including a custom byline field for the publishing venue, a choice between one- and two-column layouts, and a sidebar link for citing the work.
+IntroductionOur publications section had been repurposed from an older Academic/Wowchemy-style front matter (format: hugo, featured, publishDate, slug), which meant it inherited Hugo-Apéro&amp;rsquo;s generic _default templates by default — the same ones used by blog posts, talks, and every other section.</description>
+    </item>
+    
     <item>
       <title>Moving the Contact link to the Hugo-Apéro header</title>
       <link>/blog/hugo-apero-contact/</link>

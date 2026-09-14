@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.101.0" />
-<title>Adding a table of contents to hugo-apéro blog posts | Jack Gregory</title>
+<title>Building a dedicated publications section in Hugo-Apéro | Jack Gregory</title>
 
 
 
@@ -21,30 +21,30 @@
   
     
   
-<meta name="description" content="In this blog, I summarize the steps necessary to add a configurable-depth table of contents to individual blog posts on a Hugo-Apéro website.">
+<meta name="description" content="In this blog, I summarize the steps necessary to give a publications content type its own layout, byline field, and sidebar in a Hugo-Apéro website.">
 
 
 <meta property="og:site_name" content="Jack Gregory">
-<meta property="og:title" content="Adding a table of contents to hugo-apéro blog posts | Jack Gregory">
-<meta property="og:description" content="In this blog, I summarize the steps necessary to add a configurable-depth table of contents to individual blog posts on a Hugo-Apéro website." />
+<meta property="og:title" content="Building a dedicated publications section in Hugo-Apéro | Jack Gregory">
+<meta property="og:description" content="In this blog, I summarize the steps necessary to give a publications content type its own layout, byline field, and sidebar in a Hugo-Apéro website." />
 <meta property="og:type" content="page" />
-<meta property="og:url" content="/blog/hugo-apero-blog-toc/" />
+<meta property="og:url" content="/blog/hugo-apero-publication/" />
 <meta property="og:locale" content="en">
 
 
 
 
     
-        <meta property="og:image" content="/blog/hugo-apero-blog-toc/featured.jpeg" >
+        <meta property="og:image" content="/blog/hugo-apero-publication/featured.jpeg" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="/blog/hugo-apero-blog-toc/featured.jpeg" >
+        <meta name="twitter:image" content="/blog/hugo-apero-publication/featured.jpeg" >
     
     
-  <meta itemprop="name" content="Adding a table of contents to hugo-apéro blog posts">
-<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to add a table of contents to individual posts on a Hugo-Apéro website, including an optional per-post control over how many heading levels are shown.
-IntroductionHugo-Apéro doesn&rsquo;t ship with a toc: true front-matter switch for ordinary blog posts. The theme&rsquo;s &ldquo;On this page&rdquo; table of contents only renders automatically for posts that belong to a series/collection (hugo-apero/hugo-apero#106) — a standalone post never gets one, no matter how many headings it has."><meta itemprop="datePublished" content="2024-01-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1299"><meta itemprop="image" content="/blog/hugo-apero-blog-toc/featured.jpeg">
+  <meta itemprop="name" content="Building a dedicated publications section in Hugo-Apéro">
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to add a dedicated publication content type to a Hugo-Apéro website — including a custom byline field for the publishing venue, a choice between one- and two-column layouts, and a sidebar link for citing the work.
+IntroductionOur publications section had been repurposed from an older Academic/Wowchemy-style front matter (format: hugo, featured, publishDate, slug), which meant it inherited Hugo-Apéro&rsquo;s generic _default templates by default — the same ones used by blog posts, talks, and every other section."><meta itemprop="datePublished" content="2026-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2026-07-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1579"><meta itemprop="image" content="/blog/hugo-apero-publication/featured.jpeg">
 <meta itemprop="keywords" content="Website," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
@@ -139,10 +139,10 @@ if (!doNotTrack) {
   <section class="page-content mw7 center">
     <article class="post-content pa0 pr3-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Adding a table of contents to hugo-apéro blog posts</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Building a dedicated publications section in Hugo-Apéro</h1>
         
         <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/hugo">Hugo</a> </p>
-        <p class="f7 db mv0 ttu">January 18, 2024</p>
+        <p class="f7 db mv0 ttu">July 21, 2026</p>
       </header>
       <section class="post-body pt5 pb4">
         <p><img src="hugo_apero.png" alt=""></p>
@@ -156,8 +156,8 @@ if (!doNotTrack) {
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>In this blog, I summarize the steps necessary to add a table of contents to individual posts on a 
-<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro</a> website, including an optional per-post control over how many heading levels are shown.</p>
+<p>In this blog, I summarize the steps necessary to add a dedicated <code>publication</code> content type to a 
+<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro</a> website — including a custom byline field for the publishing venue, a choice between one- and two-column layouts, and a sidebar link for citing the work.</p>
 
 
 
@@ -168,117 +168,63 @@ if (!doNotTrack) {
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>Hugo-Apéro doesn&rsquo;t ship with a <code>toc: true</code> front-matter switch for ordinary blog posts.  The theme&rsquo;s &ldquo;On this page&rdquo; table of contents only renders automatically for posts that belong to a series/collection (
-<a href="https://github.com/hugo-apero/hugo-apero/issues/106" target="_blank" rel="noopener">hugo-apero/hugo-apero#106</a>) — a standalone post never gets one, no matter how many headings it has.</p>
-<p>In this blog, I&rsquo;ll outline the four steps necessary to add table of contents support to your own Hugo-Apéro website:</p>
+<p>Our publications section had been repurposed from an older Academic/Wowchemy-style front matter (<code>format: hugo</code>, <code>featured</code>, <code>publishDate</code>, <code>slug</code>), which meant it inherited Hugo-Apéro&rsquo;s generic <code>_default</code> templates by default — the same ones used by blog posts, talks, and every other section. That inheritance is convenient until you want a publication to behave differently: showing a journal name instead of category tags, for instance, or offering a &ldquo;cite this publication&rdquo; link that a blog post has no use for.</p>
+<p>In this blog, I&rsquo;ll outline the four steps necessary to add a dedicated publications section to your own Hugo-Apéro website:</p>
 <ol>
 <li>
-<a href="#why">Why the theme does not show a blog contents</a>;</li>
+<a href="#scope">Give publications their own layout folder</a>;</li>
 <li>
-<a href="#config">Tell Hugo to generate deeper ToC entries</a>;</li>
+<a href="#pub">Add a publication field</a>;</li>
 <li>
-<a href="#css">Add CSS to control how many levels display</a>; and,</li>
+<a href="#layout">Offer a single and a sidebar layout</a>; and,</li>
 <li>
-<a href="#layouts">Patch the post layouts to render the ToC</a>.</li>
+<a href="#cite">Add a &ldquo;cite this publication&rdquo; sidebar link</a>.</li>
 </ol>
 
 
 
 
-<h2 id="why">Why the theme does not show a blog contents
-  <a href="#why"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h2 id="scope">Why Scope by Section
+  <a href="#scope"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>Hugo&rsquo;s Goldmark markdown engine automatically builds a table of contents from a page&rsquo;s headings and stores it in <code>.TableOfContents</code>. Apéro&rsquo;s own <code>series-sidebar.html</code> and <code>section-sidebar.html</code> partials already contain the logic to display it — but that logic never gets reached for a plain post, because the post&rsquo;s own template (<code>layouts/_default/single.html</code>, or <code>layouts/blog/single-sidebar.html</code> if you use the two-column layout) never calls it.</p>
-<p>That means fixing this is a template job, not a config toggle: we need to add the missing ToC block directly into the post layouts, and wire it up to a <code>toc: true</code> front-matter flag so it&rsquo;s opt-in per post.</p>
+<p>Hugo resolves templates by content type before falling back to <code>_default</code>. Thus, a page under <code>content/publication/</code> will use <code>layouts/publication/single.html</code> if it exists, and only falls back to <code>layouts/_default/single.html</code> otherwise. That lookup order is what makes section-specific customisation safe — editing <code>_default/single.html</code> directly would change how blog posts and talks render too, since they share that same fallback template.</p>
+<p>From this point on, every change respective lives only in the <code>publication</code> folder, and the rest of the site stays untouched.</p>
 
 
 
 
-<h2 id="config">Configuration
-  <a href="#config"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h2 id="pub">Publication Field
+  <a href="#pub"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>By default, Hugo&rsquo;s ToC generator only picks up <code>&lt;h2&gt;</code> headings — anything deeper is silently dropped. We need to make headings down to <code>&lt;h6&gt;</code> available, so a per-post depth setting has something to work with:</p>
-<div id="" class="panelset">
-  
-<div class="panel">
-  <div class="panel-name">To do ✔️</div>
-  
-  <p><ul>
-<li><strong>Markup parameters</strong>: add the following code to your site config.</li>
-</ul>
-</p>
-</div>
-<div class="panel">
-  <div class="panel-name">Code 💻</div>
-  
-  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>[markup]
-</span></span><span style="display:flex;"><span>  [markup.tableOfContents]
-</span></span><span style="display:flex;"><span>    startLevel <span style="color:#000;font-weight:bold">=</span>  <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span>    endLevel <span style="color:#000;font-weight:bold">=</span>    <span style="color:#099">6</span>
-</span></span><span style="display:flex;"><span>    ordered <span style="color:#000;font-weight:bold">=</span>     false
-</span></span></code></pre></div></p>
-</div>
-
-</div>
-<p>This doesn&rsquo;t change what&rsquo;s <em>displayed</em> by default.  Instead, it makes the deeper levels available for the CSS in the next step to reveal when asked.</p>
+<p>The original byline rendered author and categories on one line:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}{{ with .Params.categories }} in{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span></code></pre></div><p>For a publication, the more natural pairing is author <em>and journal</em>, e.g. &ldquo;By Author(s)&rdquo; on one line, &ldquo;In <em>Journal Name</em>&rdquo; on the next.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  {{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy {{ if .Params.publication }}mv0{{ else }}mv1{{ end }}&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>  {{ if .Params.publication }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mt0 mb1&#34;</span>&gt;In &lt;<span style="color:#000080">em</span>&gt;{{ .Params.publication }}&lt;/<span style="color:#000080">em</span>&gt;&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>  {{ if .Params.show_post_date }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f7 db mv0 ttu&#34;</span>&gt;{{ .PublishDate.Format &#34;January 2, 2006&#34; }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>  {{ if .Params.categories }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ with .Params.categories }}{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>The author line only drops its bottom margin (<code>mv0</code>) when a <code>publication</code> value is present; otherwise it keeps its normal spacing (<code>mv1</code>) so standalone author lines still look right. The publication line&rsquo;s own top margin is zeroed (<code>mt0</code>) so it sits flush under the author line, with a small bottom margin (<code>mb1</code>) preserved before the date or categories row that follows. The <code>&lt;em&gt;</code> wrapping italicises only the venue name, leaving &ldquo;In &quot; upright — matching how citations conventionally style the venue rather than the whole phrase. Categories were kept as an optional row beneath.</p>
+<p>In front matter, this just needs one field:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>publication<span style="color:#000;font-weight:bold">:</span>  <span style="color:#d14">&#34;&lt;JOURNAL&gt;&#34;</span>
+</span></span></code></pre></div>
 
 
 
-
-<h2 id="css">CSS
-  <a href="#css"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<h2 id="layout">Layouts
+  <a href="#layout"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0z" fill="currentColor"></path>
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>With a <code>toc_depth</code> front-matter option in mind, I wanted a way to trim the rendered ToC down to a chosen depth without touching the Go template logic each time. The simplest approach is a small CSS rule keyed off a <code>data-toc-depth</code> attribute:</p>
-<div id="" class="panelset">
-  
-<div class="panel">
-  <div class="panel-name">To do ✔️</div>
-  
-  <p><ul>
-<li><strong>css navigation parameters</strong>: add the following code to <code>assets/custom.scss</code> (or <code>custom.css</code>).</li>
-</ul>
-</p>
-</div>
-<div class="panel">
-  <div class="panel-name">Code 💻</div>
-  
-  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/* ToC depth control - default (depth 2) shows h2 + h3 only */</span>
-</span></span><span style="display:flex;"><span><span style="color:#000080">nav</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> { <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">none</span>; }
-</span></span><span style="display:flex;"><span><span style="color:#000080">nav</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;2&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> { <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">none</span>; }
-</span></span><span style="display:flex;"><span><span style="color:#000080">nav</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;3&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> { <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">none</span>; }
-</span></span><span style="display:flex;"><span><span style="color:#000080">nav</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;4&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> <span style="color:#000080">ul</span> { <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">none</span>; }
-</span></span></code></pre></div><style type="text/css">
-/* ToC depth control - default (depth 2) shows h2 + h3 only */
-nav[data-toc-depth="1"] ul ul { display: none; }
-nav[data-toc-depth="2"] ul ul ul { display: none; }
-nav[data-toc-depth="3"] ul ul ul ul { display: none; }
-nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
-</style>
-</p>
-</div>
-
-</div>
-<p>Each rule simply hides nested <code>&lt;ul&gt;</code> levels beyond the chosen depth, so the full ToC is always generated but only partially shown.</p>
-
-
-
-
-<h2 id="layouts">HTML Layouts
-  <a href="#layouts"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="currentColor"></path>
-      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
-    </svg></a>
-</h2>
-<p>Both post layouts need the same addition: a block that checks whether the post has headings and <code>toc: true</code> set, and if so prints <code>.TableOfContents</code> wrapped in a <code>&lt;nav&gt;</code> carrying the <code>data-toc-depth</code> attribute.</p>
+<p>Some publications benefit from a two-column layout with a table of contents alongside long-form content; others read fine as a single column. Hugo-Apéro already supports this pattern for blog posts via a <code>layout:</code> front-matter field, so I mirrored it for publications: two templates in <code>layouts/publication/</code>, with front matter choosing between them.</p>
 
 
 
@@ -289,35 +235,29 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h3>
-<p>This is the one-column layout located in <code>layouts/_default/single.html</code>.</p>
+<p>This is the one-column layout, and the default when no <code>layout</code> field is set.</p>
 <div id="" class="panelset">
   
 <div class="panel">
   <div class="panel-name">To do ✔️</div>
   
   <p><ul>
-<li><strong>ToC code block</strong>: In <code>layouts/_default/single.html</code>, add the following block of code between the post header and post body.</li>
+<li><strong>New folder &amp; file</strong>: Copy <code>layouts/_default/single.html</code> to <code>layouts/publication/single.html</code>.</li>
+<li><strong>Byline block</strong>: In the new file, replace the single author/categories line with:
+<ul>
+<li>the author line;</li>
+<li>a new publication line; and,</li>
+<li>an optional categories line underneath.</li>
+</ul>
+</li>
 </ul>
 </p>
 </div>
 <div class="panel">
   <div class="panel-name">Code 💻</div>
   
-  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>  {{ $headers := findRE &#34;&lt;<span style="color:#000080">h</span><span style="color:#a61717;background-color:#e3d2d2">[</span><span style="color:#008080">2-6</span><span style="color:#a61717;background-color:#e3d2d2">].*</span>&gt;&#34; .Content }}
-</span></span><span style="display:flex;"><span>  {{ $has_headers := ge (len $headers) 1 }}
-</span></span><span style="display:flex;"><span>  {{ if and $has_headers .Params.toc }}
-</span></span><span style="display:flex;"><span>  {{ $tocDepth := .Params.toc_depth | default 2 }}
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">details</span> <span style="color:#008080">open</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PageTableOfContents&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv4&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">summary</span>&gt;&lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv0 f5 fw7 ttu tracked dib&#34;</span>&gt;{{ .Params.sidebar.text_contents_label | default &#34;On this page&#34; }}&lt;/<span style="color:#000080">h2</span>&gt;&lt;/<span style="color:#000080">summary</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;pl2 pr0 mh0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">nav</span> <span style="color:#008080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ $tocDepth }}&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>        {{ .TableOfContents }}
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">nav</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#000080">div</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">details</span>&gt;
-</span></span><span style="display:flex;"><span>  {{ end }}
-</span></span><span style="display:flex;"><span>...
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p layouts/publication
+</span></span><span style="display:flex;"><span>cp layouts/_default/single.html layouts/publication/single.html
 </span></span></code></pre></div></p>
 </div>
 <div class="panel">
@@ -330,8 +270,10 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">header</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-header&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">h1</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f1 lh-solid measure-narrow mb3 fw4&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#000080">h1</span>&gt;
 </span></span><span style="display:flex;"><span>        {{ if .Params.subtitle }}&lt;<span style="color:#000080">h4</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f4 mt0 mb4 lh-title measure&#34;</span>&gt;{{ .Params.subtitle }}&lt;/<span style="color:#000080">h4</span>&gt;{{ end }}
-</span></span><span style="display:flex;"><span>        {{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}{{ with .Params.categories }} in{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy {{ if .Params.publication }}mv0{{ else }}mv1{{ end }}&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.publication }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mt0 mb1&#34;</span>&gt;In &lt;<span style="color:#000080">em</span>&gt;{{ .Params.publication }}&lt;/<span style="color:#000080">em</span>&gt;&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
 </span></span><span style="display:flex;"><span>        {{ if .Params.show_post_date }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f7 db mv0 ttu&#34;</span>&gt;{{ .PublishDate.Format &#34;January 2, 2006&#34; }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.categories }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ with .Params.categories }}{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
 </span></span><span style="display:flex;"><span>      {{ if .Params.links }}
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ph0 pt5&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>        {{ partial &#34;shared/btn-links.html&#34; . }}
@@ -343,7 +285,7 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>      {{ if and $has_headers .Params.toc }}
 </span></span><span style="display:flex;"><span>      {{ $tocDepth := .Params.toc_depth | default 2 }}
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">details</span> <span style="color:#008080">open</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PageTableOfContents&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv4&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">summary</span>&gt;&lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv0 f5 fw7 ttu tracked dib&#34;</span>&gt;{{ .Params.sidebar.text_contents_label | default &#34;On this page&#34; }}&lt;/<span style="color:#000080">h2</span>&gt;&lt;/<span style="color:#000080">summary</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">summary</span>&gt;&lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mt5 f5 fw7 ttu tracked dib&#34;</span>&gt;{{ .Params.sidebar.text_contents_label | default &#34;On this page&#34; }}&lt;/<span style="color:#000080">h2</span>&gt;&lt;/<span style="color:#000080">summary</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;pl2 pr0 mh0&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>          &lt;<span style="color:#000080">nav</span> <span style="color:#008080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ $tocDepth }}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>            {{ .TableOfContents }}
@@ -368,11 +310,13 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>{{ end }}
 </span></span></code></pre></div></p>
 </div>
-<div class="panel">
+<!-- <div class="panel">
   <div class="panel-name">Screenshot 📷</div>
   
-  <p><img src="layout1.png" alt="Screenshot: ToC render for single layout"></p>
-</div>
+  <p>&ndash;&gt;</p>
+<!-- ![Screenshot: Publication single layout](layout1.png) -->
+<!--</p>
+</div> -->
 
 </div>
 
@@ -385,35 +329,31 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h3>
-<p>This is the two-column layout located in <code>layouts/blog/single-sidebar.html</code>.</p>
+<p>This is the two-column layout, selected by setting <code>layout: &quot;single-sidebar&quot;</code> in front matter.</p>
 <div id="" class="panelset">
   
 <div class="panel">
   <div class="panel-name">To do ✔️</div>
   
   <p><ul>
-<li><strong>ToC code block</strong>: Similar to above, in <code>layouts/blog/single-sidebar.html</code>, add the following block of code with <code>&lt;aside&gt;</code> alongside the existing sidebar content.</li>
+<li><strong>New file</strong>: Copy <code>layouts/blog/single-sidebar.html</code> to <code>layouts/publication/single-sidebar.html</code>.</li>
+<li><strong>Byline block</strong>: In the new file, replace the single author/categories line with:
+<ul>
+<li>the author line;</li>
+<li>a new publication line; and,</li>
+<li>an optional categories line underneath.</li>
+</ul>
+</li>
+<li><strong>Update scaffold call</strong>: Change the sidebar partial call to <code>shared/sidebar-scaffold-publication.html</code> (covered in the 
+<a href="#cite">next section</a>).</li>
+<li><strong>Margins</strong>: Add top margin above the ToC block (i.e., <code>mt5</code>).</li>
 </ul>
 </p>
 </div>
 <div class="panel">
   <div class="panel-name">Code 💻</div>
   
-  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>  {{ $headers := findRE &#34;&lt;<span style="color:#000080">h</span><span style="color:#a61717;background-color:#e3d2d2">[</span><span style="color:#008080">2-6</span><span style="color:#a61717;background-color:#e3d2d2">].*</span>&gt;&#34; .Content }}
-</span></span><span style="display:flex;"><span>  {{ $has_headers := ge (len $headers) 1 }}
-</span></span><span style="display:flex;"><span>  {{ if and $has_headers .Params.toc }}
-</span></span><span style="display:flex;"><span>  {{ $tocDepth := .Params.toc_depth | default 2 }}
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">details</span> <span style="color:#008080">open</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PageTableOfContents&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv4&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">summary</span>&gt;&lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv0 f5 fw7 ttu tracked dib&#34;</span>&gt;{{ .Params.sidebar.text_contents_label | default &#34;On this page&#34; }}&lt;/<span style="color:#000080">h2</span>&gt;&lt;/<span style="color:#000080">summary</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;pl2 pr0 mh0&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">nav</span> <span style="color:#008080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ $tocDepth }}&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>        {{ .TableOfContents }}
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">nav</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#000080">div</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">details</span>&gt;
-</span></span><span style="display:flex;"><span>  {{ end }}
-</span></span><span style="display:flex;"><span>...
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp layouts/blog/single-sidebar.html layouts/publication/single-sidebar.html
 </span></span></code></pre></div></p>
 </div>
 <div class="panel">
@@ -426,8 +366,15 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">header</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-header&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">h1</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f1 lh-solid measure-narrow mb3 fw4&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#000080">h1</span>&gt;
 </span></span><span style="display:flex;"><span>        {{ if .Params.subtitle }}&lt;<span style="color:#000080">h4</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f4 mt0 mb4 lh-title measure&#34;</span>&gt;{{ .Params.subtitle }}&lt;/<span style="color:#000080">h4</span>&gt;{{ end }}
-</span></span><span style="display:flex;"><span>        {{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}{{ with .Params.categories }} in{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.show_author_byline }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy {{ if .Params.publication }}mv0{{ else }}mv1{{ end }}&#34;</span>&gt;{{ if .Params.author }}By {{ .Params.author }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.publication }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mt0 mb1&#34;</span>&gt;In &lt;<span style="color:#000080">em</span>&gt;{{ .Params.publication }}&lt;/<span style="color:#000080">em</span>&gt;&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
 </span></span><span style="display:flex;"><span>        {{ if .Params.show_post_date }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f7 db mv0 ttu&#34;</span>&gt;{{ .PublishDate.Format &#34;January 2, 2006&#34; }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.categories }}&lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;{{ with .Params.categories }}{{ range . }} &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">categories</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">.</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">urlize</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt; {{ end }}{{ end }}&lt;/<span style="color:#000080">p</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>      {{ if .Params.links }}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ph0 pt5&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ partial &#34;shared/btn-links.html&#34; . }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>      {{ end }}
 </span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">header</span>&gt;
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-body pt5 pb4&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>        {{ .Content }}
@@ -442,12 +389,12 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">section</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">main</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">aside</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-sidebar&#34;</span> <span style="color:#008080">role</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;complementary&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  {{ partial &#34;shared/sidebar-scaffold.html&#34; . }}
+</span></span><span style="display:flex;"><span>  {{ partial &#34;shared/sidebar-scaffold-publication.html&#34; . }}
 </span></span><span style="display:flex;"><span>  {{ $headers := findRE &#34;&lt;<span style="color:#000080">h</span><span style="color:#a61717;background-color:#e3d2d2">[</span><span style="color:#008080">2-6</span><span style="color:#a61717;background-color:#e3d2d2">].*</span>&gt;&#34; .Content }}
 </span></span><span style="display:flex;"><span>  {{ $has_headers := ge (len $headers) 1 }}
 </span></span><span style="display:flex;"><span>  {{ if and $has_headers .Params.toc }}
 </span></span><span style="display:flex;"><span>  {{ $tocDepth := .Params.toc_depth | default 2 }}
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ph4 pb4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ph4 pb4 mt5&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv3 f5 fw7 ttu tracked&#34;</span>&gt;{{ .Params.sidebar.text_contents_label | default &#34;On this page&#34; }}&lt;/<span style="color:#000080">h2</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">nav</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PageTableOfContents&#34;</span> <span style="color:#008080">aria-label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;PageTableOfContents&#34;</span> <span style="color:#008080">data-toc-depth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ $tocDepth }}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>      {{ .TableOfContents }}
@@ -460,15 +407,69 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
 </span></span><span style="display:flex;"><span>{{ end }}
 </span></span></code></pre></div></p>
 </div>
-<div class="panel">
+<!-- <div class="panel">
   <div class="panel-name">Screenshot 📷</div>
   
-  <p><img src="layout2.png" alt="Screenshot: ToC render for single-sidebar layout"></p>
+  <p>&ndash;&gt;</p>
+<!-- ![Screenshot: publication single-sidebar layout](layout2.png) -->
+<!--</p>
+</div> -->
+
+</div>
+<p>Pages without a <code>layout</code> field fall through to <code>single.html</code> automatically, so only publications that need the two-column treatment need to set anything. The <code>mt5</code> added to the ToC wrapper (Tachyons&rsquo; largest standard top-margin step) puts more breathing room between the new cite link below and the &ldquo;On this page&rdquo; heading.</p>
+
+
+
+
+<h2 id="cite">Citation Link
+  <a href="#cite"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The sidebar content comes from a shared partial, <code>layouts/partials/shared/sidebar-scaffold.html</code>, used by every section. Rather than add publication-only markup there, I duplicated it and referenced the duplicate from <code>single-sidebar.html</code> above, so blog and talks keep the original untouched.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>New partial</strong>: Copy <code>layouts/partials/shared/sidebar-scaffold.html</code> to <code>layouts/partials/shared/sidebar-scaffold-publication.html</code>.</li>
+<li><strong>Cite link</strong>: Add the <code>cite_link_url</code> block below the existing sidebar link.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp layouts/partials/shared/sidebar-scaffold.html layouts/partials/shared/sidebar-scaffold-publication.html
+</span></span></code></pre></div></p>
+</div>
+<div class="panel">
+  <div class="panel-name">File 📄</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ $page := . }}                       <span style="color:#998;font-style:italic">&lt;!--save current page--&gt;</span>
+</span></span><span style="display:flex;"><span>{{ $section := $page.CurrentSection }} <span style="color:#998;font-style:italic">&lt;!--save current section--&gt;</span>
+</span></span><span style="display:flex;"><span>{{ $is_root := eq .CurrentSection .FirstSection }}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{{ partial &#34;shared/sidebar/sidebar-image.html&#34; $page }}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;blog-info ph4 pt4 pb4 pb0-l&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  {{ partial &#34;shared/sidebar/sidebar-header.html&#34; $section }}
+</span></span><span style="display:flex;"><span>  {{ partial &#34;shared/sidebar/sidebar-link.html&#34; .Params.sidebar }}
+</span></span><span style="display:flex;"><span>  {{ with .Params.cite_link_url }}
+</span></span><span style="display:flex;"><span>    {{ partial &#34;shared/sidebar/sidebar-link.html&#34; (dict &#34;text_link_label&#34; &#34;Cite this publication&#34; &#34;text_link_url&#34; .) }}
+</span></span><span style="display:flex;"><span>  {{ end }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{{ partial &#34;shared/sidebar/sidebar-adunit.html&#34; .Params.sidebar }}
+</span></span></code></pre></div></p>
 </div>
 
 </div>
-<p>Both patches reuse the <code>id=&quot;PageTableOfContents&quot;</code> that Apéro&rsquo;s own <code>custom.scss</code> already styles for series pages, so the box picks up sensible spacing and typography without any extra CSS.</p>
-
+<p>The new link reuses the existing <code>sidebar-link.html</code> partial — passing it a small <code>dict</code> with the label and URL — rather than duplicating its markup, and the <code>{{ with .Params.cite_link_url }}</code> guard means it simply doesn&rsquo;t render on publications that leave the field unset. In front matter:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>cite_link_url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;&lt;URL&gt;&#34;</span>
+</span></span></code></pre></div>
 
 
 
@@ -478,10 +479,13 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>With the config, CSS, and layouts all in place, turning on a table of contents for any post is just two front-matter fields:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>toc<span style="color:#000;font-weight:bold">:</span>        true
-</span></span><span style="display:flex;"><span>toc_depth<span style="color:#000;font-weight:bold">:</span>  <span style="color:#099">2</span>   <span style="color:#998;font-style:italic"># 1 = h2 only, 2 = h2+h3, 3 = h2+h3+h4, 4 = h2+h3+h4+h5</span>
-</span></span></code></pre></div><p>Leaving <code>toc_depth</code> out defaults to <code>2</code>, which matches Hugo&rsquo;s own out-of-the-box behaviour, so any post with just <code>toc: true</code> and no depth setting looks exactly as if the theme supported this natively.</p>
+<p>With the layouts and partials in place, each publication needs only its own front matter, no other configuration:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>author<span style="color:#000;font-weight:bold">:</span>         <span style="color:#d14">&#34;&lt;AUTHOR(S)&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>publication<span style="color:#000;font-weight:bold">:</span>    <span style="color:#d14">&#34;&lt;JOURNAL&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>layout<span style="color:#000;font-weight:bold">:</span>         single<span style="color:#000;font-weight:bold">-</span>sidebar   <span style="color:#998;font-style:italic"># omit for the one-column layout</span>
+</span></span><span style="display:flex;"><span>toc<span style="color:#000;font-weight:bold">:</span>            true
+</span></span><span style="display:flex;"><span>cite_link_url<span style="color:#000;font-weight:bold">:</span>  <span style="color:#d14">&#34;&lt;URL&gt;&#34;</span>
+</span></span></code></pre></div><p>Leaving <code>publication</code>, <code>layout</code>, or <code>cite_link_url</code> unset simply skips that piece of output — a publication with none of them set behaves exactly like a plain post.</p>
 
 
 
@@ -492,14 +496,14 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
       <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
     </svg></a>
 </h2>
-<p>I found the following references helpful in adding this table of contents feature as well as preparing this blog:</p>
+<p>I found the following references helpful in building out this publications section as well as preparing this blog:</p>
 <ul>
 <li>
-<a href="https://github.com/hugo-apero/hugo-apero/issues/49" target="_blank" rel="noopener">How to show the table of content in the sidebar</a>, an open documentation issue on the hugo-apero repository.</li>
+<a href="https://gohugo.io/templates/lookup-order/" target="_blank" rel="noopener">Hugo&rsquo;s template lookup order</a> documentation, for how section-specific templates take priority over <code>_default</code>.</li>
 <li>
-<a href="https://github.com/hugo-apero/hugo-apero/issues/106" target="_blank" rel="noopener">Display &ldquo;On this page&rdquo; for non-series pages</a>, the specific open issue describing this limitation.</li>
-<li>
-<a href="https://gohugo.io/content-management/toc/" target="_blank" rel="noopener">Hugo&rsquo;s Table of Contents documentation</a> for the underlying <code>.TableOfContents</code> and <code>markup.tableOfContents</code> config behaviour.</li>
+<a href="https://gohugo.io/functions/collections/dictionary/" target="_blank" rel="noopener">Hugo&rsquo;s <code>dict</code> function</a> documentation, used to pass ad hoc parameters into the reused <code>sidebar-link.html</code> partial.</li>
+<li>The 
+<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro theme docs</a>, for the <code>layout:</code> front-matter convention this section&rsquo;s single/single-sidebar toggle was modelled on.</li>
 </ul>
 
       </section>
@@ -507,13 +511,10 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
         <div class="post-pagination dt w-100 mt4 mb2">
   
   
-    <a class="prev dtc pr2 tl v-top fw6"
-    href="/blog/hugo-apero-contact/">&larr; Moving the Contact link to the Hugo-Apéro header</a>
-  
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="/blog/git-commands/">Useful Git commands &rarr;</a>
+    href="/blog/hugo-apero-contact/">Moving the Contact link to the Hugo-Apéro header &rarr;</a>
   
 </div>
 
@@ -566,15 +567,15 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
   <ul>
     <li><a href="#tldr">TL;DR</a></li>
     <li><a href="#intro">Introduction</a></li>
-    <li><a href="#why">Why the theme does not show a blog contents</a></li>
-    <li><a href="#config">Configuration</a></li>
-    <li><a href="#css">CSS</a></li>
-    <li><a href="#layouts">HTML Layouts</a>
+    <li><a href="#scope">Why Scope by Section</a></li>
+    <li><a href="#pub">Publication Field</a></li>
+    <li><a href="#layout">Layouts</a>
       <ul>
         <li><a href="#single">Single</a></li>
         <li><a href="#single-sidebar">Single sidebar</a></li>
       </ul>
     </li>
+    <li><a href="#cite">Citation Link</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#refs">References</a></li>
   </ul>
@@ -586,11 +587,11 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
   <details open class="f6 fw7 input-reset">
   <dl class="f6 lh-copy">
     <dt class="fw7">Posted on:</dt>
-    <dd class="fw5 ml0">January 18, 2024</dd>
+    <dd class="fw5 ml0">July 21, 2026</dd>
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">7 minute read, 1299 words</dd>
+    <dd class="fw5 ml0">8 minute read, 1579 words</dd>
   </dl>
   
   <dl class="f6 lh-copy">
@@ -608,9 +609,9 @@ nav[data-toc-depth="4"] ul ul ul ul ul { display: none; }
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
     
-    <dd class="fw5 ml0"><a href="/blog/hugo-apero-publication/">Building a dedicated publications section in Hugo-Apéro</a></dd>
-    
     <dd class="fw5 ml0"><a href="/blog/hugo-apero-contact/">Moving the Contact link to the Hugo-Apéro header</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-blog-toc/">Adding a table of contents to hugo-apéro blog posts</a></dd>
     
     <dd class="fw5 ml0"><a href="/blog/hugo-apero-homepage/">Stacking the hugo-apéro homepage</a></dd>
     
