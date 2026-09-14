@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coal on Jack Gregory</title>
+    <link>/tags/coal/</link>
+    <description>Recent content in Coal on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/coal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather’s boiler</title>
+      <link>/publication/grandfathering/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grandfathering/</guid>
+      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/osweet-grandfathering/</link>
+      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      
+      <guid>/talk/osweet-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;2023 Air Quality Seminar&amp;rdquo; for the Association of Environmental and Resource Economists at the Online Summer Workshop in Environment, Energy, and Transportation (AERE@OSWEET).
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/aweee-grandfathering/</link>
+      <pubDate>Thu, 23 Jun 2022 15:45:00 +0000</pubDate>
+      
+      <guid>/talk/aweee-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Essays on Electricity Economics</title>
+      <link>/publication/essays-on-electricity-economics/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/essays-on-electricity-economics/</guid>
+      <description>My dissertation leverages electricity data for an economic investigation of three disparate topics: the effects of the COVID-19 pandemic; the implications of government ownership on the exercise of market power in the Australian National Electricity Market; and, the unintended consequences of US Clean Air Act regulation on coal boilers.</description>
+    </item>
+    
+  </channel>
+</rss>

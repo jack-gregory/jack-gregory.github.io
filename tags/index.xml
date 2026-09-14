@@ -7,13 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Jack Gregory</copyright>
-    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Website</title>
-      <link>/tags/website/</link>
-      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Go</title>
+      <link>/tags/go/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
       
-      <guid>/tags/website/</guid>
+      <guid>/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>/tags/html/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>/tags/tutorial/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YAML</title>
+      <link>/tags/yaml/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/yaml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clean Air Act</title>
+      <link>/tags/clean-air-act/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/clean-air-act/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coal</title>
+      <link>/tags/coal/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/coal/</guid>
       <description></description>
     </item>
     
@@ -27,29 +81,245 @@
     </item>
     
     <item>
-      <title>Publication</title>
-      <link>/tags/publication/</link>
+      <title>Electricity</title>
+      <link>/tags/electricity/</link>
       <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>/tags/publication/</guid>
+      <guid>/tags/electricity/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Code</title>
-      <link>/tags/code/</link>
+      <title>IV</title>
+      <link>/tags/iv/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/iv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journal Article</title>
+      <link>/tags/journal-article/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/journal-article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>/tags/mysql/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OLS</title>
+      <link>/tags/ols/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ols/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Panel Data</title>
+      <link>/tags/panel-data/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/panel-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>/tags/sql/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stata</title>
+      <link>/tags/stata/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>United States</title>
+      <link>/tags/united-states/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/united-states/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vintage Differentiation</title>
+      <link>/tags/vintage-differentiation/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vintage-differentiation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2WFE</title>
+      <link>/tags/2wfe/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/2wfe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AMI</title>
+      <link>/tags/ami/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ami/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RCT</title>
+      <link>/tags/rct/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Water Conservation</title>
+      <link>/tags/water-conservation/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/water-conservation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>/tags/css/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamic List</title>
+      <link>/tags/dynamic-list/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>/tags/code/</guid>
+      <guid>/tags/dynamic-list/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Panel Talk</title>
-      <link>/tags/panel-talk/</link>
-      <pubDate>Wed, 07 Jun 2023 16:00:00 +0000</pubDate>
+      <title>git</title>
+      <link>/tags/git/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>/tags/panel-talk/</guid>
+      <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Australia</title>
+      <link>/tags/australia/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/australia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conference</title>
+      <link>/tags/conference/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Economic Dispatch</title>
+      <link>/tags/economic-dispatch/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/economic-dispatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Julia</title>
+      <link>/tags/julia/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/julia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Market Power</title>
+      <link>/tags/market-power/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/market-power/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cross-sectional Data</title>
+      <link>/tags/cross-sectional-data/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cross-sectional-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ecuador</title>
+      <link>/tags/ecuador/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ecuador/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Factor Analysis</title>
+      <link>/tags/factor-analysis/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/factor-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fragility</title>
+      <link>/tags/fragility/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/fragility/</guid>
       <description></description>
     </item>
     
@@ -63,11 +333,47 @@
     </item>
     
     <item>
-      <title>Project</title>
-      <link>/tags/project/</link>
-      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      <title>ACLED</title>
+      <link>/tags/acled/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>/tags/project/</guid>
+      <guid>/tags/acled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geospatial Analysis</title>
+      <link>/tags/geospatial-analysis/</link>
+      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geospatial-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID</title>
+      <link>/tags/covid/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/tags/covid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DiD</title>
+      <link>/tags/did/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/tags/did/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event Study</title>
+      <link>/tags/event-study/</link>
+      <pubDate>Mon, 06 Feb 2023 14:00:00 +0000</pubDate>
+      
+      <guid>/tags/event-study/</guid>
       <description></description>
     </item>
     
@@ -81,6 +387,51 @@
     </item>
     
     <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GII</title>
+      <link>/tags/gii/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/gii/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>/tags/github/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MariaDB</title>
+      <link>/tags/mariadb/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/mariadb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WIPO</title>
+      <link>/tags/wipo/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/wipo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Workshop</title>
       <link>/tags/workshop/</link>
       <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
@@ -90,29 +441,74 @@
     </item>
     
     <item>
-      <title>GII</title>
-      <link>/tags/gii/</link>
+      <title>XML</title>
+      <link>/tags/xml/</link>
+      <pubDate>Tue, 29 Nov 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/tags/xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Brand Finance</title>
+      <link>/tags/brand-finance/</link>
       <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gii/</guid>
+      <guid>/tags/brand-finance/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Speaker</title>
-      <link>/tags/speaker/</link>
+      <title>Intangible Assets</title>
+      <link>/tags/intangible-assets/</link>
+      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/intangible-assets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quarto</title>
+      <link>/tags/quarto/</link>
+      <pubDate>Mon, 17 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/quarto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Professional Talk</title>
+      <link>/tags/professional-talk/</link>
       <pubDate>Thu, 29 Sep 2022 13:30:00 +0000</pubDate>
       
-      <guid>/tags/speaker/</guid>
+      <guid>/tags/professional-talk/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Workflow</title>
-      <link>/tags/workflow/</link>
-      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+      <title>Google Analytics</title>
+      <link>/tags/google-analytics/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/workflow/</guid>
+      <guid>/tags/google-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rmarkdown</title>
+      <link>/tags/rmarkdown/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LaTeX</title>
+      <link>/tags/latex/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/latex/</guid>
       <description></description>
     </item>
     
@@ -122,6 +518,60 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/working-paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ZEVs</title>
+      <link>/tags/zevs/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/zevs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IPAus</title>
+      <link>/tags/ipaus/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ipaus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticity</title>
+      <link>/tags/elasticity/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/elasticity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Energy Ladder</title>
+      <link>/tags/energy-ladder/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/energy-ladder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>India</title>
+      <link>/tags/india/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/india/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SUR</title>
+      <link>/tags/sur/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sur/</guid>
       <description></description>
     </item>
     

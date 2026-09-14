@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.101.0" />
-<title>Moving the Contact link to the Hugo-Apéro header | Jack Gregory</title>
+<title>Moving the Contact link to the hugo-apéro header | Jack Gregory</title>
 
 
 
@@ -25,7 +25,7 @@
 
 
 <meta property="og:site_name" content="Jack Gregory">
-<meta property="og:title" content="Moving the Contact link to the Hugo-Apéro header | Jack Gregory">
+<meta property="og:title" content="Moving the Contact link to the hugo-apéro header | Jack Gregory">
 <meta property="og:description" content="In this blog, I summarize the steps necessary to move the Contact link on a Hugo-Apéro site from the footer menu to the last position in the top header menu." />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="/blog/hugo-apero-contact/" />
@@ -40,13 +40,13 @@
         <meta name="twitter:image" content="/blog/hugo-apero-contact/featured.jpeg" >
     
     
-  <meta itemprop="name" content="Moving the Contact link to the Hugo-Apéro header">
+  <meta itemprop="name" content="Moving the Contact link to the hugo-apéro header">
 <meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to move the Contact link on a Hugo-Apéro site from its default spot in the bottom-right footer menu (next to License) up into the top header menu, as the last item.
 IntroductionHugo-Apéro keeps its navigation in two separate lists in config.toml:
 [[menu.header]], which renders as the top ribbon of links; and, [[menu.footer]], which renders bottom-right alongside License and Contributors. Contact ships as a footer entry by default."><meta itemprop="datePublished" content="2024-02-03T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-02-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="265"><meta itemprop="image" content="/blog/hugo-apero-contact/featured.jpeg">
-<meta itemprop="keywords" content="Website," />
+<meta itemprop="keywords" content="Hugo,Tutorial," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
 <script>
@@ -140,9 +140,9 @@ if (!doNotTrack) {
   <section class="page-content mw7 center">
     <article class="post-content pa0 pr3-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Moving the Contact link to the Hugo-Apéro header</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Moving the Contact link to the hugo-apéro header</h1>
         
-        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/hugo">Hugo</a> </p>
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/web-development">Web Development</a> </p>
         <p class="f7 db mv0 ttu">February 3, 2024</p>
       </header>
       <section class="post-body pt5 pb4">
@@ -235,7 +235,7 @@ if (!doNotTrack) {
   
   
     <a class="prev dtc pr2 tl v-top fw6"
-    href="/blog/hugo-apero-publication/">&larr; Building a dedicated publications section in Hugo-Apéro</a>
+    href="/blog/hugo-apero-publication/">&larr; Building a dedicated publications section in hugo-apéro</a>
   
   
   
@@ -278,7 +278,16 @@ if (!doNotTrack) {
   <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
 
 
-  <small class="db f7"><a href="/blog/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View recent posts</a></small>
+  
+  <div class="dib bt bw1 b--black-10">
+    
+      <small class="db f7 pt3"><a href="/blog/" class="dib fw7 ttu">View recent posts</a></small>
+    
+    
+    
+    
+  </div>
+
 </div>
 
 
@@ -313,24 +322,24 @@ if (!doNotTrack) {
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="/categories/hugo">Hugo</a> </dd>
+    <dd class="fw5 ml0"> <a href="/categories/web-development">Web Development</a> </dd>
   </dl>
   
   
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Tags:</dt>
-    <dd class="fw5 ml0"> <a href="/tags/website">Website</a> </dd>
+    <dd class="fw5 ml0"> <a href="/tags/hugo">Hugo</a>  <a href="/tags/tutorial">Tutorial</a> </dd>
   </dl>
   
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
     
-    <dd class="fw5 ml0"><a href="/blog/hugo-apero-publication/">Building a dedicated publications section in Hugo-Apéro</a></dd>
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-taxonomy-index-pages/">Adding categories and tags index pages to hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-publication/">Building a dedicated publications section in hugo-apéro</a></dd>
     
     <dd class="fw5 ml0"><a href="/blog/hugo-apero-blog-toc/">Adding a table of contents to hugo-apéro blog posts</a></dd>
-    
-    <dd class="fw5 ml0"><a href="/blog/hugo-apero-homepage/">Stacking the hugo-apéro homepage</a></dd>
     
   </dl>
 </details>
@@ -427,6 +436,10 @@ Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xml
     </div>
     
     <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/categories/" title="Categories">Categories</a>
+      
+      <a class="dib pv1 ph2 link" href="/tags/" title="Tags">Tags</a>
       
       <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
       

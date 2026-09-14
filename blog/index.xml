@@ -7,9 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Jack Gregory</copyright>
-    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building a dedicated publications section in Hugo-Apéro</title>
+      <title>Adding categories and tags index pages to hugo-apéro</title>
+      <link>/blog/hugo-apero-taxonomy-index-pages/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-taxonomy-index-pages/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add index pages for categories and tags on a Hugo-Apéro website — an alphabetical, described list of categories, and a grouped, alphabetised list of tags — while keeping the theme&amp;rsquo;s default term pages intact.
+IntroductionHugo-Apéro&amp;rsquo;s default taxonomy setup generates a page for every individual term — /categories/web-development/, /tags/hugo/, and so on — listing the posts that carry it. What it doesn&amp;rsquo;t generate is a landing page at /categories/ or /tags/ that summarizes all terms at once.</description>
+    </item>
+    
+    <item>
+      <title>Building a dedicated publications section in hugo-apéro</title>
       <link>/blog/hugo-apero-publication/</link>
       <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
       
@@ -19,7 +29,7 @@ IntroductionOur publications section had been repurposed from an older Academic
     </item>
     
     <item>
-      <title>Moving the Contact link to the Hugo-Apéro header</title>
+      <title>Moving the Contact link to the hugo-apéro header</title>
       <link>/blog/hugo-apero-contact/</link>
       <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
       

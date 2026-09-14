@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on Jack Gregory</title>
+    <link>/tags/css/</link>
+    <description>Recent content in CSS on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding a table of contents to hugo-apéro blog posts</title>
+      <link>/blog/hugo-apero-blog-toc/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-blog-toc/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add a table of contents to individual posts on a Hugo-Apéro website, including an optional per-post control over how many heading levels are shown.
+IntroductionHugo-Apéro doesn&amp;rsquo;t ship with a toc: true front-matter switch for ordinary blog posts. The theme&amp;rsquo;s &amp;ldquo;On this page&amp;rdquo; table of contents only renders automatically for posts that belong to a series/collection (hugo-apero/hugo-apero#106) — a standalone post never gets one, no matter how many headings it has.</description>
+    </item>
+    
+  </channel>
+</rss>

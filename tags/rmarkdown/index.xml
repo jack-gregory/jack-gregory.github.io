@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rmarkdown on Jack Gregory</title>
+    <link>/tags/rmarkdown/</link>
+    <description>Recent content in Rmarkdown on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Fri, 10 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GII Sources and Definitions Appendix</title>
+      <link>/project/gii-sources-and-definitions/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-sources-and-definitions/</guid>
+      <description>ObjectiveTo automatize the production of the Global Innovation Index (GII) Appendix on sources and definitions.1
+DescriptionTo build the GII, WIPO collects a wide array of data from a variety of sources. As such, we must cite and describe how we prepare and utilize the data for transparency purposes. The Sources and Definitions Appendix from the GII 2022 report can be seen here.
+Previously, source metadata were collected in an ad hoc fashion and synthesized manually.</description>
+    </item>
+    
+    <item>
+      <title>GII Economy Briefs</title>
+      <link>/project/gii-briefs/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-briefs/</guid>
+      <description>ObjectiveTo insource and automatize the production of annual economy briefs for the Global Innovation Index (GII).1
+DescriptionIn addition to the ranking and report, the GII launch also includes the release of the economy briefs. The briefs summarize each economy&amp;rsquo;s innovation performance for the specific report year. They tailor material from the report and the economy profiles to provide insights specific to each ranked economy within the GII. A sample brief for Australia from the GII 2022 report can be seen here.</description>
+    </item>
+    
+  </channel>
+</rss>

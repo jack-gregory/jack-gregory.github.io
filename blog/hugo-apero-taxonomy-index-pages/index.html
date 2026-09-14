@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Adding categories and tags index pages to hugo-apéro | Jack Gregory</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="In this blog, I summarize the steps necessary to add alphabetical category and tag index pages, with descriptions and groupings, to a Hugo-Apéro website.">
+
+
+<meta property="og:site_name" content="Jack Gregory">
+<meta property="og:title" content="Adding categories and tags index pages to hugo-apéro | Jack Gregory">
+<meta property="og:description" content="In this blog, I summarize the steps necessary to add alphabetical category and tag index pages, with descriptions and groupings, to a Hugo-Apéro website." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/hugo-apero-taxonomy-index-pages/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/hugo-apero-taxonomy-index-pages/featured.jpeg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/hugo-apero-taxonomy-index-pages/featured.jpeg" >
+    
+    
+  <meta itemprop="name" content="Adding categories and tags index pages to hugo-apéro">
+<meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to add index pages for categories and tags on a Hugo-Apéro website — an alphabetical, described list of categories, and a grouped, alphabetised list of tags — while keeping the theme&rsquo;s default term pages intact.
+IntroductionHugo-Apéro&rsquo;s default taxonomy setup generates a page for every individual term — /categories/web-development/, /tags/hugo/, and so on — listing the posts that carry it. What it doesn&rsquo;t generate is a landing page at /categories/ or /tags/ that summarizes all terms at once."><meta itemprop="datePublished" content="2026-08-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2026-08-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1272"><meta itemprop="image" content="/blog/hugo-apero-taxonomy-index-pages/featured.jpeg">
+<meta itemprop="keywords" content="Hugo,YAML,HTML,Go,Tutorial," />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X2M61RSEHX', { 'anonymize_ip': true });
+}
+</script>
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-X2M61RSEHX', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  <link rel="icon" href="/img/AdobeStock_168263190_sky.png" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.cda7d1e37cc3c8102c392cf3d7d547f566e9a1336d691d9ddeae81464b04c9d4.css" integrity="sha256-zafR43zDyBAsOSzz19VH9WbpoTNtaR2d3q6BRksEydQ=" media="screen">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.35e19ccfa3650a0c8f4f274224b70a66bd372ac9919ef0142a7628bdb457ad2b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single-sidebar">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/AdobeStock_168263190_black.png" class="dib db-l h2 w-auto" alt="Jack Gregory">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Me">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/publication/" title="Published Works">Publications</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/talk/" title="Presentations">Talks</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/cv/" title="Curriculum Vitae">CV</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/contact/" title="Contact Form">Contact</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 pr3-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Adding categories and tags index pages to hugo-apéro</h1>
+        
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/web-development">Web Development</a> </p>
+        <p class="f7 db mv0 ttu">August 5, 2026</p>
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+
+<h2 id="tldr">TL;DR
+  <a href="#tldr"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>In this blog, I summarize the steps necessary to add index pages for categories and tags on a 
+<a href="https://hugo-apero-docs.netlify.app" target="_blank" rel="noopener">Hugo-Apéro</a> website — an alphabetical, described list of categories, and a grouped, alphabetised list of tags — while keeping the theme&rsquo;s default term pages intact.</p>
+
+
+
+
+<h2 id="intro">Introduction
+  <a href="#intro"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Hugo-Apéro&rsquo;s default taxonomy setup generates a page for every individual term — <code>/categories/web-development/</code>, <code>/tags/hugo/</code>, and so on — listing the posts that carry it. What it doesn&rsquo;t generate is a landing page at <code>/categories/</code> or <code>/tags/</code> that summarizes <em>all</em> terms at once. For a small site this is barely noticeable, but once a category or tag vocabulary grows past a handful of terms, a visitor has no way to browse what&rsquo;s available without already knowing a term&rsquo;s URL.</p>
+<p>In this blog, I&rsquo;ll outline the five steps necessary to add category and tag index pages to your own Hugo-Apéro website:</p>
+<ol>
+<li>
+<a href="#data">Store category descriptions and tag groupings as data</a>;</li>
+<li>
+<a href="#category">Build the categories index page</a>;</li>
+<li>
+<a href="#tag">Build the tags index page</a>;</li>
+<li>
+<a href="#term">Keep the default term pages</a>; and,</li>
+<li>
+<a href="#access">Make the index pages accessible</a>.</li>
+</ol>
+
+
+
+
+<h2 id="data">Store category descriptions and tag groupings as data
+  <a href="#data"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Hugo already knows <em>which</em> categories and tags exist and <em>how many</em> posts use each — that comes from <code>.Site.Taxonomies</code>. What it has no way to know is a one-sentence description of a category, or which conceptual group a tag belongs to. That&rsquo;s editorial judgment, and it needs to live somewhere as data rather than being repeated in every post&rsquo;s front matter.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Category data</strong>: Create <code>data/categories.yaml</code> at the site root (not inside the theme folder), with one entry per category.</li>
+<li><strong>Tag data</strong>: Create <code>data/tags.yaml</code> alongside it, grouping tags under headings.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># data/categories.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> slug<span style="color:#000;font-weight:bold">:</span> data<span style="color:#000;font-weight:bold">-</span>science
+</span></span><span style="display:flex;"><span>  name<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Data Science&#34;</span>
+</span></span><span style="display:flex;"><span>  description<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Applied methods for turning messy datasets into usable analysis.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> slug<span style="color:#000;font-weight:bold">:</span> web<span style="color:#000;font-weight:bold">-</span>development
+</span></span><span style="display:flex;"><span>  name<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Web Development&#34;</span>
+</span></span><span style="display:flex;"><span>  description<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Practical, step-by-step notes on building and maintaining this site.&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># data/tags.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> group<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Tools &amp; Languages&#34;</span>
+</span></span><span style="display:flex;"><span>  terms<span style="color:#000;font-weight:bold">:</span> [<span style="color:#d14">&#34;R&#34;</span>, <span style="color:#d14">&#34;Hugo&#34;</span>, <span style="color:#d14">&#34;Go&#34;</span>, <span style="color:#d14">&#34;YAML&#34;</span>, <span style="color:#d14">&#34;CSS&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> group<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;Format &amp; Context&#34;</span>
+</span></span><span style="display:flex;"><span>  terms<span style="color:#000;font-weight:bold">:</span> [<span style="color:#d14">&#34;Tutorial&#34;</span>, <span style="color:#d14">&#34;Working Paper&#34;</span>]
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p>Files under <code>data/</code> are parsed by Hugo and exposed to templates via <code>site.Data</code> — unlike <code>static/</code>, which just copies files through untouched. That&rsquo;s what makes <code>site.Data.categories</code> and <code>site.Data.tags</code> usable inside the templates below.</p>
+
+
+
+
+<h2 id="category">Build the categories index page
+  <a href="#category"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The categories index needs an alphabetical list of every term Hugo knows about, each matched against its description from the data file.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Categories index template</strong>: Create <code>layouts/categories/taxonomy.html</code>.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">File 📄</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">main</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-main pa4&#34;</span> <span style="color:#008080">role</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;main&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-content mw7 center&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">article</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-content pa0 ph4-l&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">header</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-header&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">h1</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f1 lh-solid measure-narrow mb3 fw4&#34;</span>&gt;Categories&lt;/<span style="color:#000080">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">header</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-body pt5 pb4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">ul</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;list pl0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          {{ range .Data.Terms.Alphabetical }}
+</span></span><span style="display:flex;"><span>            {{ $slug := .Name | urlize }}
+</span></span><span style="display:flex;"><span>            {{ $entry := index (where site.Data.categories &#34;slug&#34; $slug) 0 }}
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#000080">li</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mv4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ .Page.RelPermalink }}&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f4 b link dim&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ with $entry }}{{ .name }}{{ else }}{{ .Name | humanize }}{{ end }}
+</span></span><span style="display:flex;"><span>              &lt;/<span style="color:#000080">a</span>&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#000080">span</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 gray&#34;</span>&gt; ({{ .Count }})&lt;/<span style="color:#000080">span</span>&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#000080">p</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 measure lh-copy mv1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ with $entry }}{{ .description }}{{ else }}&lt;<span style="color:#000080">em</span>&gt;No description yet — add one to data/categories.yaml.&lt;/<span style="color:#000080">em</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>              &lt;/<span style="color:#000080">p</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#000080">li</span>&gt;
+</span></span><span style="display:flex;"><span>          {{ end }}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#000080">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">section</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#000080">article</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">section</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">main</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p><code>.Data.Terms.Alphabetical</code> is Hugo&rsquo;s built-in accessor for every term actually in use on a taxonomy page, sorted, complete with each term&rsquo;s post <code>.Count</code> and link — no manual list to maintain. The <code>where site.Data.categories &quot;slug&quot; $slug</code> lookup is the only manual step, matching the live term against its entry in the data file. A category used in front matter but missing from <code>data/categories.yaml</code> still renders, just with a placeholder prompting a description to be added, rather than silently disappearing.</p>
+
+
+
+
+<h2 id="tag">Build the tags index page
+  <a href="#tag"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Tags follow the same live-lookup pattern, but grouped under the headings from <code>data/tags.yaml</code> rather than listed flat, and sorted alphabetically within each group.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Tags index template</strong>: create <code>layouts/tags/taxonomy.html</code>.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">File 📄</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">main</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-main pa4&#34;</span> <span style="color:#008080">role</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;main&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;page-content mw7 center&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">article</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-content pa0 ph4-l&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">header</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-header&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">h1</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f1 lh-solid measure-narrow mb3 fw4&#34;</span>&gt;Tags&lt;/<span style="color:#000080">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">header</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#000080">section</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post-body pt5 pb4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ range site.Data.tags }}
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#000080">h2</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f7 fw5 mt5 mb3&#34;</span>&gt;{{ .group }}&lt;/<span style="color:#000080">h2</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#000080">ul</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;list pl0 flex flex-wrap&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            {{ range sort .terms }}
+</span></span><span style="display:flex;"><span>              {{ $slug := . | urlize }}
+</span></span><span style="display:flex;"><span>              {{ $count := 0 }}
+</span></span><span style="display:flex;"><span>              {{ with index site.Taxonomies.tags $slug }}{{ $count = len . }}{{ end }}
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#000080">li</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mr3 mb3&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{ &#34;</span><span style="color:#008080">tags</span><span style="color:#a61717;background-color:#e3d2d2">/&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">|</span> <span style="color:#008080">absURL</span> <span style="color:#a61717;background-color:#e3d2d2">}}{{</span> <span style="color:#a61717;background-color:#e3d2d2">$</span><span style="color:#008080">slug</span> <span style="color:#a61717;background-color:#e3d2d2">}}&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f6 link dim{{ if eq $count 0 }} o-50{{ end }}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#000080">a</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ if gt $count 0 }}&lt;<span style="color:#000080">span</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;f7 gray&#34;</span>&gt; ({{ $count }})&lt;/<span style="color:#000080">span</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>              &lt;/<span style="color:#000080">li</span>&gt;
+</span></span><span style="display:flex;"><span>            {{ end }}
+</span></span><span style="display:flex;"><span>          &lt;/<span style="color:#000080">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ end }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#000080">section</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#000080">article</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#000080">section</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">main</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p>Because grouping is editorial rather than something Hugo tracks, this template loops over <code>site.Data.tags</code> directly instead of <code>.Site.Taxonomies.tags</code>. Each tag is still checked against the live taxonomy to show a post count where it&rsquo;s actually in use, and any tag that&rsquo;s been planned in the data file but not yet used on a post fades out via <code>o-50</code> rather than linking to an empty page.</p>
+
+
+
+
+<h2 id="term">Keep the default term pages
+  <a href="#term"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Adding a <code>taxonomy.html</code> template only replaces the <em>index</em> page at <code>/categories/</code> and <code>/tags/</code> — but Hugo resolves term pages like <code>/categories/web-development/</code> using a <em>different</em> template. Apéro&rsquo;s own <code>layouts/taxonomy/term.html</code> no longer gets picked up once <code>layouts/categories/</code> and <code>layouts/tags/</code> exist as override folders, so without a matching <code>term.html</code> inside each, those individual term pages stop being generated entirely.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Term templates</strong>: copy the theme&rsquo;s <code>layouts/taxonomy/term.html</code> into both override folders, unchanged.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp themes/hugo-apero/layouts/taxonomy/term.html layouts/categories/term.html
+</span></span><span style="display:flex;"><span>cp themes/hugo-apero/layouts/taxonomy/term.html layouts/tags/term.html
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p>With that in place, <code>layouts/categories/</code> and <code>layouts/tags/</code> each carry two templates — <code>taxonomy.html</code> for the summary index, <code>term.html</code> for individual term pages — and both behave exactly as before.</p>
+
+
+
+
+<h2 id="access">Make the index pages accessible
+  <a href="#access"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Building the templates makes <code>/categories/</code> and <code>/tags/</code> functional, but nothing on the site linked to them yet. I added links in two places: the site footer, so they&rsquo;re reachable from anywhere, and the blog sidebar, so they&rsquo;re reachable in context while browsing posts.</p>
+<p>For the former, Apéro already renders the contents of <code>menu.footer</code> at the bottom of every page, so adding the two entries was enough on its own — no template change needed. Use the <code>weight</code> parameter to position the links as preferred.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Footer links</strong>: Add <code>Categories</code> and <code>Tags</code> entries to the footer menu in <code>config.toml</code>.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>[[menu.footer]]
+</span></span><span style="display:flex;"><span>  name    <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Categories&#34;</span>
+</span></span><span style="display:flex;"><span>  title   <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Categories&#34;</span>
+</span></span><span style="display:flex;"><span>  url     <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/categories/&#34;</span>
+</span></span><span style="display:flex;"><span>  weight  <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>[[menu.footer]]
+</span></span><span style="display:flex;"><span>  name    <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Tags&#34;</span>
+</span></span><span style="display:flex;"><span>  title   <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Tags&#34;</span>
+</span></span><span style="display:flex;"><span>  url     <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/tags/&#34;</span>
+</span></span><span style="display:flex;"><span>  weight  <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2</span>
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+<p>For the latter, it is simply necessary to activate the appropriate fields in the <code>blog/_index.md</code> file. Unlike the footer entries, this link only appears in the sidebar while browsing the blog section, giving readers a second, more contextual way to reach the same two pages.</p>
+<div id="" class="panelset">
+  
+<div class="panel">
+  <div class="panel-name">To do ✔️</div>
+  
+  <p><ul>
+<li><strong>Blog sidebar links</strong>: In <code>content/blog/_index.md</code>, switch on the sidebar&rsquo;s existing <code>categories_link</code> and <code>tags_link</code> parameters.</li>
+</ul>
+</p>
+</div>
+<div class="panel">
+  <div class="panel-name">Code 💻</div>
+  
+  <p><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>sidebar<span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  categories_link<span style="color:#000;font-weight:bold">:</span>      true
+</span></span><span style="display:flex;"><span>  tags_link<span style="color:#000;font-weight:bold">:</span>            true
+</span></span></code></pre></div></p>
+</div>
+
+</div>
+
+
+
+
+<h2 id="usage">Usage
+  <a href="#usage"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>With the data files, index templates, term templates, and links all in place, maintaining the taxonomy going forward is mostly editorial:</p>
+<ul>
+<li>Add a new category or tag to a post&rsquo;s front matter as usual — it appears on the relevant term page automatically.</li>
+<li>Add a matching entry to <code>data/categories.yaml</code> (with a description) or <code>data/tags.yaml</code> (under the right group) so it&rsquo;s represented properly on the index pages, rather than falling back to the &ldquo;no description yet&rdquo; placeholder.</li>
+</ul>
+
+
+
+
+<h2 id="refs">References
+  <a href="#refs"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>I found the following references helpful in adding these taxonomy index pages as well as preparing this blog:</p>
+<ul>
+<li>
+<a href="https://gohugo.io/templates/taxonomy-templates/" target="_blank" rel="noopener">Hugo&rsquo;s taxonomy template documentation</a>, covering the distinction between <code>taxonomy</code> and <code>term</code> template kinds that made the per-term page fix necessary.</li>
+<li>
+<a href="https://gohugo.io/templates/data-templates/" target="_blank" rel="noopener">Hugo&rsquo;s data templates documentation</a>, for how <code>data/*.yaml</code> files are parsed and exposed as <code>site.Data</code>.</li>
+</ul>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/hugo-apero-publication/">Building a dedicated publications section in hugo-apéro &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<aside class="page-sidebar" role="complementary">
+                         
+ 
+
+
+                       
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <img src="/blog/sidebar-listing.jpg" class="db ma0">
+
+
+<div class="blog-info ph4 pt4 pb4 pb0-l">
+  
+
+  <h1 class="f3">Digital Garden</h1>
+  <p class="f6 lh-copy measure">This blog is cultivated as a digital garden, somewhere between a blog and a personal notepad.  It is where I share my curiosity about R and anything else that&rsquo;s on my mind.</p>
+  <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
+
+
+  
+  <div class="dib bt bw1 b--black-10">
+    
+      <small class="db f7 pt3"><a href="/blog/" class="dib fw7 ttu">View recent posts</a></small>
+    
+    
+    
+    
+  </div>
+
+</div>
+
+
+  
+  
+  
+  
+  <div class="ph4 pb4 mt5">
+    <h2 class="mv3 f5 fw7 ttu tracked">On this page</h2>
+    <nav id="PageTableOfContents" aria-label="PageTableOfContents" data-toc-depth="2">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#data">Store category descriptions and tag groupings as data</a></li>
+    <li><a href="#category">Build the categories index page</a></li>
+    <li><a href="#tag">Build the tags index page</a></li>
+    <li><a href="#term">Keep the default term pages</a></li>
+    <li><a href="#access">Make the index pages accessible</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#refs">References</a></li>
+  </ul>
+</nav>
+    </nav>
+  </div>
+  
+  
+  <details open class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">August 5, 2026</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">6 minute read, 1272 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/web-development">Web Development</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/hugo">Hugo</a>  <a href="/tags/yaml">YAML</a>  <a href="/tags/html">HTML</a>  <a href="/tags/go">Go</a>  <a href="/tags/tutorial">Tutorial</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-publication/">Building a dedicated publications section in hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-contact/">Moving the Contact link to the hugo-apéro header</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-blog-toc/">Adding a table of contents to hugo-apéro blog posts</a></dd>
+    
+  </dl>
+</details>
+
+</aside>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      © 2026 Jack Gregory
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/jack-gregory/" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/jackgregory/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://scholar.google.com/citations?hl=en&amp;user=swqolQMAAAAJ" title="google-scholar-square" target="_blank" rel="noopener">
+      <i class="ai ai-google-scholar-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2942-6024" title="orcid" target="_blank" rel="noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/categories/" title="Categories">Categories</a>
+      
+      <a class="dib pv1 ph2 link" href="/tags/" title="Tags">Tags</a>
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

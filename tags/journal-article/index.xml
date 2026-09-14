@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Journal Article on Jack Gregory</title>
+    <link>/tags/journal-article/</link>
+    <description>Recent content in Journal Article on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/journal-article/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Still your grandfather’s boiler</title>
+      <link>/publication/grandfathering/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grandfathering/</guid>
+      <description>Through a study of New Source Review, we empirically investigate how the differential treatment of coal boilers shaped the utilization, retirement and emissions of US coal generators.</description>
+    </item>
+    
+    <item>
+      <title>AMI water meters deliver end-use water and financial savings in leaky households</title>
+      <link>/publication/leaky-households/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/leaky-households/</guid>
+      <description>Using 2WFE techniques we show that advanced metering infrastructure combined with targeted conservation messaging can significantly reduce residential water use, primarily by helping households detect and reduce leaks, generating both water savings and financial benefits.</description>
+    </item>
+    
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/osweet-grandfathering/</link>
+      <pubDate>Fri, 24 Feb 2023 14:40:00 +0000</pubDate>
+      
+      <guid>/talk/osweet-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;2023 Air Quality Seminar&amp;rdquo; for the Association of Environmental and Resource Economists at the Online Summer Workshop in Environment, Energy, and Transportation (AERE@OSWEET).
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Still your grandfather&#39;s boiler</title>
+      <link>/talk/aweee-grandfathering/</link>
+      <pubDate>Thu, 23 Jun 2022 15:45:00 +0000</pubDate>
+      
+      <guid>/talk/aweee-grandfathering/</guid>
+      <description>NotesPanel speaker during the &amp;ldquo;Energy Transition&amp;rdquo; Parallel Session.
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Fuel choice in rural Maharashtra</title>
+      <link>/publication/fuel-choice-in-rural-maharastra/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/fuel-choice-in-rural-maharastra/</guid>
+      <description>We report on and analyze the results of an energy use survey in two tribal villages in rural Maharashtra, India, finding evidence for for the ‘energy ladder’ hypothesis.</description>
+    </item>
+    
+  </channel>
+</rss>

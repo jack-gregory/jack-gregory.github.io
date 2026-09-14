@@ -44,7 +44,7 @@
 <meta itemprop="description" content="TL;DRThe ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index."><meta itemprop="datePublished" content="2023-05-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-05-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="5229"><meta itemprop="image" content="/blog/itc-fragility-index/featured.jpg">
-<meta itemprop="keywords" content="ITC," />
+<meta itemprop="keywords" content="R,Factor Analysis,Cross-sectional Data,Fragility,Ecuador,ITC,Tutorial," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
 <script>
@@ -140,7 +140,7 @@ if (!doNotTrack) {
       <header class="post-header">
         <h1 class="f1 lh-solid measure-narrow mb3 fw4">Building a fragility index using factor analysis</h1>
         
-        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/competition">Competition</a> </p>
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/data-science">Data Science</a> </p>
         <p class="f7 db mv0 ttu">May 1, 2023</p>
       </header>
       <section class="post-body pt5 pb4">
@@ -1660,7 +1660,16 @@ table.table-blog{margin:25px auto;border-collapse:collapse;border:1px solid #EEE
   <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
 
 
-  <small class="db f7"><a href="/blog/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View recent posts</a></small>
+  
+  <div class="dib bt bw1 b--black-10">
+    
+      <small class="db f7 pt3"><a href="/blog/" class="dib fw7 ttu">View recent posts</a></small>
+    
+    
+    
+    
+  </div>
+
 </div>
 
 
@@ -1721,20 +1730,24 @@ table.table-blog{margin:25px auto;border-collapse:collapse;border:1px solid #EEE
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/competition">Competition</a> </dd>
+    <dd class="fw5 ml0"> <a href="/categories/data-science">Data Science</a> </dd>
   </dl>
   
   
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Tags:</dt>
-    <dd class="fw5 ml0"> <a href="/tags/itc">ITC</a> </dd>
+    <dd class="fw5 ml0"> <a href="/tags/r">R</a>  <a href="/tags/factor-analysis">Factor Analysis</a>  <a href="/tags/cross-sectional-data">Cross-sectional Data</a>  <a href="/tags/fragility">Fragility</a>  <a href="/tags/ecuador">Ecuador</a>  <a href="/tags/itc">ITC</a>  <a href="/tags/tutorial">Tutorial</a> </dd>
   </dl>
   
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
     
-    <dd class="fw5 ml0"><a href="/blog/itc-instability-indicators/">Creating a proxy for local instability using geospatial event data</a></dd>
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-taxonomy-index-pages/">Adding categories and tags index pages to hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-publication/">Building a dedicated publications section in hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/publication/grandfathering/">Still your grandfather’s boiler</a></dd>
     
   </dl>
 </details>
@@ -1831,6 +1844,10 @@ Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xml
     </div>
     
     <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/categories/" title="Categories">Categories</a>
+      
+      <a class="dib pv1 ph2 link" href="/tags/" title="Tags">Tags</a>
       
       <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
       

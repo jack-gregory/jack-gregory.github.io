@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Julia on Jack Gregory</title>
+    <link>/tags/julia/</link>
+    <description>Recent content in Julia on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 03 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/julia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markets with power</title>
+      <link>/publication/markets-with-power/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/markets-with-power/</guid>
+      <description>We estimate counterfactual prices for the Australian National Electricity Market under the assumption of perfect competition and investigate to what extent market power contributed to elevated prices between 2015 and 2019.</description>
+    </item>
+    
+    <item>
+      <title>Markets with power</title>
+      <link>/talk/eem-markets-with-power/</link>
+      <pubDate>Wed, 07 Jun 2023 16:00:00 +0000</pubDate>
+      
+      <guid>/talk/eem-markets-with-power/</guid>
+      <description>NotesPanel speaker during Paper Session 4C.
+See the publication here.</description>
+    </item>
+    
+    <item>
+      <title>Essays on Electricity Economics</title>
+      <link>/publication/essays-on-electricity-economics/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/essays-on-electricity-economics/</guid>
+      <description>My dissertation leverages electricity data for an economic investigation of three disparate topics: the effects of the COVID-19 pandemic; the implications of government ownership on the exercise of market power in the Australian National Electricity Market; and, the unintended consequences of US Clean Air Act regulation on coal boilers.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Jack Gregory</title>
+    <link>/tags/github/</link>
+    <description>Recent content in GitHub on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Tue, 06 Dec 2022 09:30:00 +0000</lastBuildDate><atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIIDB</title>
+      <link>/talk/wipo-giidb/</link>
+      <pubDate>Tue, 06 Dec 2022 09:30:00 +0000</pubDate>
+      
+      <guid>/talk/wipo-giidb/</guid>
+      <description>An internal training session for the GII Database&amp;mdash;part of the GII Data Pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Google Analytics on hugo-apéro</title>
+      <link>/blog/google-analytics/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/google-analytics/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.
+IntroductionGoogle Analytics is a useful tool for measuring and understanding engagement with your personal website. In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site. Helpfully, most Hugo themes come with it pre-installed through an internal template.
+In this blog, I&amp;rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:</description>
+    </item>
+    
+    <item>
+      <title>How to restrict access to a hugo-apéro website on GitHub Pages ...</title>
+      <link>/blog/hugo-apero-private/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-private/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages while keeping either the content or the full website code private.
+IntroductionThis is a followup to my companion blog post titled: How to setup hugo-apéro on GitHub Pages. If you&amp;rsquo;re looking for details on how to setup your Hugo-Apéro website from scratch, I would recommend starting there.
+In the previous post, the setup resulted in a public GitHub repository for your website.</description>
+    </item>
+    
+    <item>
+      <title>How to setup hugo-apéro on GitHub Pages ...</title>
+      <link>/blog/hugo-apero/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
+Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+    </item>
+    
+    <item>
+      <title>GII Data Pipeline</title>
+      <link>/project/gii-data/</link>
+      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/gii-data/</guid>
+      <description>ObjectiveTo transition the Global Innovation Index (GII) from a disjointed data collection and quality control process to an industry-standard, cloud-based pipeline that is collaborative, integrated, reproducible, standardized, secure and documented.1
+See related workshop here.
+DescriptionThe high-level workflow of the GII can be grouped into three phases:
+Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
+Figure 1: High-level GII workflow
+This project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index.</description>
+    </item>
+    
+  </channel>
+</rss>

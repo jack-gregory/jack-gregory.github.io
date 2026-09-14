@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IPAus on Jack Gregory</title>
+    <link>/tags/ipaus/</link>
+    <description>Recent content in IPAus on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Wed, 05 Oct 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ipaus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazing Grace</title>
+      <link>/publication/amazing-grace/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/amazing-grace/</guid>
+      <description>This paper develops a model to analyse the tension between grace periods and foreclosure on public access, assessing its impacts on knowledge ow and welfare.</description>
+    </item>
+    
+    <item>
+      <title>Grace Period Literature Review</title>
+      <link>/publication/grace-period-lit-review/</link>
+      <pubDate>Wed, 05 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/grace-period-lit-review/</guid>
+      <description>This paper summarises the main contributions to the economic literature on grace periods.</description>
+    </item>
+    
+  </channel>
+</rss>

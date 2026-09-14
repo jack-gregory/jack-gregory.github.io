@@ -45,10 +45,11 @@
 See related workshop here.
 DescriptionThe high-level workflow of the GII can be grouped into three phases:
 Data; Analysis; and, Output. Figure 1 outlines these phases along with their constituent steps.
-Figure 1: High-level GII workflowThis project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index."><meta itemprop="datePublished" content="2021-02-08T00:00:00+00:00" />
+Figure 1: High-level GII workflow
+This project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index."><meta itemprop="datePublished" content="2021-02-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="503"><meta itemprop="image" content="/project/gii-data/featured.png">
-<meta itemprop="keywords" content="Workflow," />
+<meta itemprop="wordCount" content="507"><meta itemprop="image" content="/project/gii-data/featured.png">
+<meta itemprop="keywords" content="R,GitHub,SQL,MariaDB,AWS,WIPO,GII," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
 <script>
@@ -144,7 +145,7 @@ if (!doNotTrack) {
       <header class="post-header">
         <h1 class="f1 lh-solid measure-narrow mb3 fw4">GII Data Pipeline</h1>
         
-        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/r">R</a>  <a href="/categories/sql">SQL</a>  <a href="/categories/aws">AWS</a>  <a href="/categories/innovation">Innovation</a>  <a href="/categories/wipo">WIPO</a> </p>
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/innovation">Innovation</a>  <a href="/categories/data-science">Data Science</a> </p>
         <p class="f7 db mv0 ttu">February 8, 2021</p>
       
       <div class="ph0 pt5">
@@ -183,7 +184,8 @@ if (!doNotTrack) {
       
       
       <section class="post-body pt5 pb4">
-        <script src="/project/gii-data/index_files/htmlwidgets/htmlwidgets.js"></script>
+        <link href="/project/gii-data/index_files/htmltools-fill/fill.css" rel="stylesheet" />
+<script src="/project/gii-data/index_files/htmlwidgets/htmlwidgets.js"></script>
 <script src="/project/gii-data/index_files/viz/viz.js"></script>
 <link href="/project/gii-data/index_files/DiagrammeR-styles/styles.css" rel="stylesheet" />
 <script src="/project/gii-data/index_files/grViz-binding/grViz.js"></script>
@@ -219,15 +221,17 @@ if (!doNotTrack) {
 </ol>
 <p>Figure <a href="#fig:gii-workflow">1</a> outlines these phases along with their constituent steps.</p>
 <div class="figure">
-<div id="htmlwidget-1" style="width:672px;height:336px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph {\n\n  ## Define layout\n  graph [\n    layout=dot,\n    rankdir=LR,\n    bgcolor=\"transparent\"\n  ]\n  \n  ## Define global node style\n  node [\n    shape=rectangle, \n    width=1.0, \n    height=0.5, \n    fontname=\"noto sans display\", \n    fontsize=10, \n    style=filled\n  ]\n  \n  ## Define clusters\n  subgraph cluster_data {\n\t\tlabel=\"Data\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#EC5255\"];\n\t\t\n\t\t## Define cluster nodes\n    collection [label=\"Collection\"]\n    cleaning [label=\"Cleaning\"]\n    audit [label= \"Audit\"]\n\t\t\n\t\t## Define cluster edges\n\t\tcollection -> cleaning -> audit;\n\t}\n\n  subgraph cluster_analysis {\n\t\tlabel=\"Analysis\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#F7D84E\"];\n\t\t\n\t\t## Define cluster nodes\n    model [label=\"Model\"]\n\t}\n  \n  subgraph cluster_output {\n\t\tlabel=\"Output\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#83D05F\"];\n\t\t\n\t\t## Define cluster nodes\n    profiles [label=\"Profiles\", ]\n    briefs [label=\"Briefs\"]\n    sources [label=\"Sources &\nDefinitions\"]\n    etc [label=\"...\"]\n  }\n\t\n  # Define edges using node IDs\n  audit -> model -> {profiles, briefs, sources, etc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-1" style="width:672px;height:336px;"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph {\n\n  ## Define layout\n  graph [\n    layout=dot,\n    rankdir=LR,\n    bgcolor=\"transparent\"\n  ]\n  \n  ## Define global node style\n  node [\n    shape=rectangle, \n    width=1.0, \n    height=0.5, \n    fontname=\"noto sans display\", \n    fontsize=10, \n    style=filled\n  ]\n  \n  ## Define clusters\n  subgraph cluster_data {\n\t\tlabel=\"Data\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#EC5255\"];\n\t\t\n\t\t## Define cluster nodes\n    collection [label=\"Collection\"]\n    cleaning [label=\"Cleaning\"]\n    audit [label= \"Audit\"]\n\t\t\n\t\t## Define cluster edges\n\t\tcollection -> cleaning -> audit;\n\t}\n\n  subgraph cluster_analysis {\n\t\tlabel=\"Analysis\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#F7D84E\"];\n\t\t\n\t\t## Define cluster nodes\n    model [label=\"Model\"]\n\t}\n  \n  subgraph cluster_output {\n\t\tlabel=\"Output\";\n\t\tlabeljust=l;\n\t\tfontname=\"noto sans display\";\n\t\tfontsize=12;\n\t\tstyle=filled;\n\t\tcolor=lightgrey;\n\t\t\n\t\t## Define cluster node style\n\t\tnode [fillcolor=\"#83D05F\"];\n\t\t\n\t\t## Define cluster nodes\n    profiles [label=\"Profiles\", ]\n    briefs [label=\"Briefs\"]\n    presentations [label=\"Presentations\"]\n    sources [label=\"Sources &\nDefinitions\"]\n    etc [label=\"...\"]\n  }\n\t\n  # Define edges using node IDs\n  audit -> model -> {profiles, briefs, sources, etc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
-Figure 1: High-level GII workflow
+<p><span id="fig:gii-workflow"></span>Figure 1: High-level GII workflow</p>
 </p>
 </div>
 <p>This project focuses on the Data phase, where we collect, clean and audit all data necessary for the construction of the Index. Some of the Output steps are covered as separate projects, including the 
-<a href="/project/gii-profiles/">Profiles</a> and 
-<a href="/project/gii-briefs/">Briefs</a>.</p>
+<a href="/project/gii-profiles/">Profiles</a>, 
+<a href="/project/gii-briefs/">Briefs</a>, 
+<a href="/project/gii-presentations/">Presentations</a> and 
+<a href="/project/gii-sources-and-definitions/">Sources and Definitions</a>.</p>
 <p>WIPO and the GII team had historically utilized an ad hoc system for preparing the annual GII rankings and report. The Index relied on a disparate set of MS Excel workbooks, along with non-standardized data collection and cleaning processes scattered across Stata, R and Excel. This exposed the report to serious risks with respect to the accuracy and reproducibility of the associated analyses. For a product with the global reach and influence of the GII, this situation was untenable.</p>
 <p>The natural solution involved transitioning to a data pipeline to collect, transform, and store the necessary data. Once functional, the data can then be surfaced to collaborators for a variety of data projects, including those listed in the Analysis and Output phases in Figure <a href="#fig:gii-workflow">1</a>.</p>
 <p>The GII Data Pipeline is undergirded by its GitHub repository, as well as the development of the GII Database (GIIDB). The database is built in MariaDB using R and hosted in the cloud on AWS Relational Database Service (RDS). It provides the “single source of truth” for all input and output data associated with the GII. The Pipeline relies on batch processing, whereby “batches” of data are piped into storage at set time intervals. For the GII, this process occurs once per report cycle (i.e., per year).</p>
@@ -253,23 +257,29 @@ Figure 1: High-level GII workflow
   </dl>
   <dl class="f6 lh-copy">
     <dt class="fw7">Length:</dt>
-    <dd class="fw5 ml0">3 minute read, 503 words</dd>
+    <dd class="fw5 ml0">3 minute read, 507 words</dd>
   </dl>
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/sql">SQL</a>  <a href="/categories/aws">AWS</a>  <a href="/categories/innovation">Innovation</a>  <a href="/categories/wipo">WIPO</a> </dd>
+    <dd class="fw5 ml0"> <a href="/categories/innovation">Innovation</a>  <a href="/categories/data-science">Data Science</a> </dd>
   </dl>
   
   
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Tags:</dt>
-    <dd class="fw5 ml0"> <a href="/tags/workflow">Workflow</a> </dd>
+    <dd class="fw5 ml0"> <a href="/tags/r">R</a>  <a href="/tags/github">GitHub</a>  <a href="/tags/sql">SQL</a>  <a href="/tags/mariadb">MariaDB</a>  <a href="/tags/aws">AWS</a>  <a href="/tags/wipo">WIPO</a>  <a href="/tags/gii">GII</a> </dd>
   </dl>
   
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/publication/grandfathering/">Still your grandfather’s boiler</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/publication/leaky-households/">AMI water meters deliver end-use water and financial savings in leaky households</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/publication/markets-with-power/">Markets with power</a></dd>
     
   </dl>
 </details>
@@ -385,6 +395,10 @@ Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xml
     </div>
     
     <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/categories/" title="Categories">Categories</a>
+      
+      <a class="dib pv1 ph2 link" href="/tags/" title="Tags">Tags</a>
       
       <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
       

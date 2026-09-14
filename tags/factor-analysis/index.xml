@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Factor Analysis on Jack Gregory</title>
+    <link>/tags/factor-analysis/</link>
+    <description>Recent content in Factor Analysis on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Mon, 01 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/factor-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a fragility index using factor analysis</title>
+      <link>/blog/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/itc-fragility-index/</guid>
+      <description>TL;DRThe ITC Fragility Index turns a set of business-survey questions about insecurity, trust, and economic performance into a single 0–100 fragility score for each business. We use exploratory factor analysis (EFA) to uncover three underlying dimensions—Human Security, Social Cohesion, and Economic Performance—and then use confirmatory factor analysis (CFA) to test the resulting structure. The three pillars are standardized and combined to produce the final index. Along the way, we demonstrate a practical, reproducible approach to using factor analysis in R to turn a multidimensional survey into a theoretically grounded composite index.</description>
+    </item>
+    
+    <item>
+      <title>ITC Fragility Index</title>
+      <link>/project/itc-fragility-index/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/itc-fragility-index/</guid>
+      <description>ObjectiveTo build a business-specific “fragility index” based on the International Trade Centre (ITC) Business Fragility Survey.1
+DescriptionThe Business Fragility Survey is a national business-level questionnaire aimed at assessing how small and medium enterprises (SME) cope within fragile social and political environments. The Survey contacted around 2,600 businesses from eight developing countries, of which over 1,100 provided complete responses. The Survey was carried out in partnership with domestic business support organizations.</description>
+    </item>
+    
+  </channel>
+</rss>

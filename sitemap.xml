@@ -2,55 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/blog/hugo-apero-taxonomy-index-pages/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/go/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/html/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tutorial/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/web-development/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/yaml/</loc>
+    <lastmod>2026-08-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/blog/hugo-apero-publication/</loc>
     <lastmod>2026-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
+    <loc>/tags/clean-air-act/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/hugo/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/website/</loc>
-    <lastmod>2026-07-21T00:00:00+00:00</lastmod>
+    <loc>/tags/coal/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/dissertation/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/electricity/</loc>
+    <loc>/categories/econometrics/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/energy/</loc>
+    <loc>/tags/electricity/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/publication/</loc>
+    <loc>/categories/energy-environmental-economics/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/iv/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/journal-article/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/mysql/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ols/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/panel-data/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publication/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/regulation/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sql/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/stata/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/publication/grandfathering/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/united-states/</loc>
+    <loc>/tags/united-states/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/vintage-differentiation/</loc>
+    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/2wfe/</loc>
+    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ami/</loc>
+    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publication/leaky-households/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/us/</loc>
+    <loc>/tags/rct/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/water/</loc>
+    <loc>/tags/water-conservation/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/hugo-apero-contact/</loc>
@@ -59,22 +116,34 @@
     <loc>/blog/hugo-apero-blog-toc/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/code/</loc>
+    <loc>/tags/css/</loc>
+    <lastmod>2024-01-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/dynamic-list/</loc>
     <lastmod>2023-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/git/</loc>
-    <lastmod>2023-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/git/</loc>
     <lastmod>2023-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/git-commands/</loc>
     <lastmod>2023-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/australia/</loc>
+    <loc>/tags/australia/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/market-power/</loc>
+    <loc>/tags/conference/</loc>
+    <lastmod>2023-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/economic-dispatch/</loc>
+    <lastmod>2023-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/electricity-modelling/</loc>
+    <lastmod>2023-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/julia/</loc>
+    <lastmod>2023-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/market-power/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publication/markets-with-power/</loc>
@@ -83,37 +152,43 @@
     <loc>/talk/eem-markets-with-power/</loc>
     <lastmod>2023-06-07T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/panel-talk/</loc>
-    <lastmod>2023-06-07T16:00:00+00:00</lastmod>
-  </url><url>
     <loc>/talk/</loc>
     <lastmod>2023-06-07T16:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/itc-fragility-index/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/competition/</loc>
+    <loc>/tags/cross-sectional-data/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/data-science/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ecuador/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/factor-analysis/</loc>
+    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/fragility/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/itc/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/itc/</loc>
-    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/project/itc-fragility-index/</loc>
-    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/project/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/</loc>
     <lastmod>2023-05-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/r/</loc>
-    <lastmod>2023-05-01T00:00:00+00:00</lastmod>
+    <loc>/tags/acled/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/itc-instability-indicators/</loc>
+    <lastmod>2023-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/geospatial-analysis/</loc>
     <lastmod>2023-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/itc-instability-indicators/</loc>
@@ -122,31 +197,40 @@
     <loc>/talk/osweet-grandfathering/</loc>
     <lastmod>2023-02-24T14:40:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/california/</loc>
-    <lastmod>2023-02-06T14:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/covid/</loc>
+    <loc>/tags/covid/</loc>
     <lastmod>2023-02-06T14:00:00+00:00</lastmod>
   </url><url>
     <loc>/talk/oecd-covid/</loc>
     <lastmod>2023-02-06T14:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/did/</loc>
+    <lastmod>2023-02-06T14:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/event-study/</loc>
+    <lastmod>2023-02-06T14:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/invited-talk/</loc>
     <lastmod>2023-02-06T14:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/aws/</loc>
+    <loc>/tags/aws/</loc>
+    <lastmod>2022-12-06T09:30:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/gii/</loc>
     <lastmod>2022-12-06T09:30:00+00:00</lastmod>
   </url><url>
     <loc>/talk/wipo-giidb/</loc>
     <lastmod>2022-12-06T09:30:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/github/</loc>
+    <lastmod>2022-12-06T09:30:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/innovation/</loc>
     <lastmod>2022-12-06T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/sql/</loc>
+    <loc>/tags/mariadb/</loc>
     <lastmod>2022-12-06T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/wipo/</loc>
+    <loc>/tags/wipo/</loc>
     <lastmod>2022-12-06T09:30:00+00:00</lastmod>
   </url><url>
     <loc>/tags/workshop/</loc>
@@ -155,10 +239,13 @@
     <loc>/talk/wipo-profiles/</loc>
     <lastmod>2022-11-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/xml/</loc>
+    <loc>/tags/xml/</loc>
     <lastmod>2022-11-29T09:30:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/gii/</loc>
+    <loc>/tags/brand-finance/</loc>
+    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/intangible-assets/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/intangible-assets/</loc>
@@ -170,11 +257,17 @@
     <loc>/project/gii-presentations/</loc>
     <lastmod>2022-10-17T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/quarto/</loc>
+    <lastmod>2022-10-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/talk/gii22-launch/</loc>
     <lastmod>2022-09-29T13:30:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/speaker/</loc>
+    <loc>/tags/professional-talk/</loc>
     <lastmod>2022-09-29T13:30:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/google-analytics/</loc>
+    <lastmod>2022-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/google-analytics/</loc>
     <lastmod>2022-09-09T00:00:00+00:00</lastmod>
@@ -191,6 +284,9 @@
     <loc>/project/gii-sources-and-definitions/</loc>
     <lastmod>2022-06-10T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/rmarkdown/</loc>
+    <lastmod>2022-06-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/talk/mcee-covid/</loc>
     <lastmod>2022-05-16T13:45:00+00:00</lastmod>
   </url><url>
@@ -203,10 +299,10 @@
     <loc>/project/gii-briefs/</loc>
     <lastmod>2021-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/project/gii-data/</loc>
-    <lastmod>2021-02-08T00:00:00+00:00</lastmod>
+    <loc>/tags/latex/</loc>
+    <lastmod>2021-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/workflow/</loc>
+    <loc>/project/gii-data/</loc>
     <lastmod>2021-02-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/gii-profiles/</loc>
@@ -215,10 +311,10 @@
     <loc>/publication/zev-incentives/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/transportation/</loc>
+    <loc>/tags/working-paper/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/working-paper/</loc>
+    <loc>/tags/zevs/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publication/amazing-grace/</loc>
@@ -227,10 +323,22 @@
     <loc>/publication/grace-period-lit-review/</loc>
     <lastmod>2016-10-05T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/ipaus/</loc>
+    <lastmod>2016-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/elasticity/</loc>
+    <lastmod>2014-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/energy-ladder/</loc>
+    <lastmod>2014-10-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/publication/fuel-choice-in-rural-maharastra/</loc>
     <lastmod>2014-10-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/india/</loc>
+    <loc>/tags/india/</loc>
+    <lastmod>2014-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sur/</loc>
     <lastmod>2014-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/cv/</loc>

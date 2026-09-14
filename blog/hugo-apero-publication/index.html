@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.101.0" />
-<title>Building a dedicated publications section in Hugo-Apéro | Jack Gregory</title>
+<title>Building a dedicated publications section in hugo-apéro | Jack Gregory</title>
 
 
 
@@ -25,7 +25,7 @@
 
 
 <meta property="og:site_name" content="Jack Gregory">
-<meta property="og:title" content="Building a dedicated publications section in Hugo-Apéro | Jack Gregory">
+<meta property="og:title" content="Building a dedicated publications section in hugo-apéro | Jack Gregory">
 <meta property="og:description" content="In this blog, I summarize the steps necessary to give a publications content type its own layout, byline field, and sidebar in a Hugo-Apéro website." />
 <meta property="og:type" content="page" />
 <meta property="og:url" content="/blog/hugo-apero-publication/" />
@@ -40,12 +40,12 @@
         <meta name="twitter:image" content="/blog/hugo-apero-publication/featured.jpeg" >
     
     
-  <meta itemprop="name" content="Building a dedicated publications section in Hugo-Apéro">
+  <meta itemprop="name" content="Building a dedicated publications section in hugo-apéro">
 <meta itemprop="description" content="TL;DRIn this blog, I summarize the steps necessary to add a dedicated publication content type to a Hugo-Apéro website — including a custom byline field for the publishing venue, a choice between one- and two-column layouts, and a sidebar link for citing the work.
 IntroductionOur publications section had been repurposed from an older Academic/Wowchemy-style front matter (format: hugo, featured, publishDate, slug), which meant it inherited Hugo-Apéro&rsquo;s generic _default templates by default — the same ones used by blog posts, talks, and every other section."><meta itemprop="datePublished" content="2026-07-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2026-07-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1579"><meta itemprop="image" content="/blog/hugo-apero-publication/featured.jpeg">
-<meta itemprop="keywords" content="Website," />
+<meta itemprop="keywords" content="Hugo,HTML,Go,Tutorial," />
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2M61RSEHX"></script>
 <script>
@@ -139,9 +139,9 @@ if (!doNotTrack) {
   <section class="page-content mw7 center">
     <article class="post-content pa0 pr3-l">
       <header class="post-header">
-        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Building a dedicated publications section in Hugo-Apéro</h1>
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Building a dedicated publications section in hugo-apéro</h1>
         
-        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/hugo">Hugo</a> </p>
+        <p class="f6 measure lh-copy mv1">By Jack Gregory in <a href="/categories/web-development">Web Development</a> </p>
         <p class="f7 db mv0 ttu">July 21, 2026</p>
       </header>
       <section class="post-body pt5 pb4">
@@ -511,10 +511,13 @@ if (!doNotTrack) {
         <div class="post-pagination dt w-100 mt4 mb2">
   
   
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/hugo-apero-taxonomy-index-pages/">&larr; Adding categories and tags index pages to hugo-apéro</a>
+  
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="/blog/hugo-apero-contact/">Moving the Contact link to the Hugo-Apéro header &rarr;</a>
+    href="/blog/hugo-apero-contact/">Moving the Contact link to the hugo-apéro header &rarr;</a>
   
 </div>
 
@@ -552,7 +555,16 @@ if (!doNotTrack) {
   <p class="f7 measure lh-copy i mh0-l">Written by Jack Gregory</p>
 
 
-  <small class="db f7"><a href="/blog/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View recent posts</a></small>
+  
+  <div class="dib bt bw1 b--black-10">
+    
+      <small class="db f7 pt3"><a href="/blog/" class="dib fw7 ttu">View recent posts</a></small>
+    
+    
+    
+    
+  </div>
+
 </div>
 
 
@@ -596,24 +608,24 @@ if (!doNotTrack) {
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="/categories/hugo">Hugo</a> </dd>
+    <dd class="fw5 ml0"> <a href="/categories/web-development">Web Development</a> </dd>
   </dl>
   
   
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Tags:</dt>
-    <dd class="fw5 ml0"> <a href="/tags/website">Website</a> </dd>
+    <dd class="fw5 ml0"> <a href="/tags/hugo">Hugo</a>  <a href="/tags/html">HTML</a>  <a href="/tags/go">Go</a>  <a href="/tags/tutorial">Tutorial</a> </dd>
   </dl>
   
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
     
-    <dd class="fw5 ml0"><a href="/blog/hugo-apero-contact/">Moving the Contact link to the Hugo-Apéro header</a></dd>
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-taxonomy-index-pages/">Adding categories and tags index pages to hugo-apéro</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/hugo-apero-contact/">Moving the Contact link to the hugo-apéro header</a></dd>
     
     <dd class="fw5 ml0"><a href="/blog/hugo-apero-blog-toc/">Adding a table of contents to hugo-apéro blog posts</a></dd>
-    
-    <dd class="fw5 ml0"><a href="/blog/hugo-apero-homepage/">Stacking the hugo-apéro homepage</a></dd>
     
   </dl>
 </details>
@@ -710,6 +722,10 @@ Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xml
     </div>
     
     <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/categories/" title="Categories">Categories</a>
+      
+      <a class="dib pv1 ph2 link" href="/tags/" title="Tags">Tags</a>
       
       <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
       

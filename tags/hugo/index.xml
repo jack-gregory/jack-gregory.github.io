@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Jack Gregory</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on Jack Gregory</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Jack Gregory</copyright>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding categories and tags index pages to hugo-apéro</title>
+      <link>/blog/hugo-apero-taxonomy-index-pages/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-taxonomy-index-pages/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add index pages for categories and tags on a Hugo-Apéro website — an alphabetical, described list of categories, and a grouped, alphabetised list of tags — while keeping the theme&amp;rsquo;s default term pages intact.
+IntroductionHugo-Apéro&amp;rsquo;s default taxonomy setup generates a page for every individual term — /categories/web-development/, /tags/hugo/, and so on — listing the posts that carry it. What it doesn&amp;rsquo;t generate is a landing page at /categories/ or /tags/ that summarizes all terms at once.</description>
+    </item>
+    
+    <item>
+      <title>Building a dedicated publications section in hugo-apéro</title>
+      <link>/blog/hugo-apero-publication/</link>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-publication/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add a dedicated publication content type to a Hugo-Apéro website — including a custom byline field for the publishing venue, a choice between one- and two-column layouts, and a sidebar link for citing the work.
+IntroductionOur publications section had been repurposed from an older Academic/Wowchemy-style front matter (format: hugo, featured, publishDate, slug), which meant it inherited Hugo-Apéro&amp;rsquo;s generic _default templates by default — the same ones used by blog posts, talks, and every other section.</description>
+    </item>
+    
+    <item>
+      <title>Moving the Contact link to the hugo-apéro header</title>
+      <link>/blog/hugo-apero-contact/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-contact/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to move the Contact link on a Hugo-Apéro site from its default spot in the bottom-right footer menu (next to License) up into the top header menu, as the last item.
+IntroductionHugo-Apéro keeps its navigation in two separate lists in config.toml:
+[[menu.header]], which renders as the top ribbon of links; and, [[menu.footer]], which renders bottom-right alongside License and Contributors. Contact ships as a footer entry by default.</description>
+    </item>
+    
+    <item>
+      <title>Adding a table of contents to hugo-apéro blog posts</title>
+      <link>/blog/hugo-apero-blog-toc/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-blog-toc/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to add a table of contents to individual posts on a Hugo-Apéro website, including an optional per-post control over how many heading levels are shown.
+IntroductionHugo-Apéro doesn&amp;rsquo;t ship with a toc: true front-matter switch for ordinary blog posts. The theme&amp;rsquo;s &amp;ldquo;On this page&amp;rdquo; table of contents only renders automatically for posts that belong to a series/collection (hugo-apero/hugo-apero#106) — a standalone post never gets one, no matter how many headings it has.</description>
+    </item>
+    
+    <item>
+      <title>Stacking the hugo-apéro homepage</title>
+      <link>/blog/hugo-apero-homepage/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-homepage/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to change the homepage of a Hugo-Apéro website from the theme&amp;rsquo;s default side-by-side image/text layout to a stacked layout, with a full-width image on top and centered text below.
+IntroductionHugo-Apéro&amp;rsquo;s default layouts/index.html lays the homepage out as two flexbox columns: a text column (title, subtitle, social links, description, action link) on one side, and an image column on the other, toggled left/right with the image_left front-matter param.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Google Analytics on hugo-apéro</title>
+      <link>/blog/google-analytics/</link>
+      <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/google-analytics/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to set up Google Analytics on a Hugo-Apéro website.
+IntroductionGoogle Analytics is a useful tool for measuring and understanding engagement with your personal website. In my experience, it is probably the most painless method for accessing detailed tracking data for a Hugo site. Helpfully, most Hugo themes come with it pre-installed through an internal template.
+In this blog, I&amp;rsquo;ll outline the two steps necessary to configure Google Analytics for your Hugo-Apéro website:</description>
+    </item>
+    
+    <item>
+      <title>How to restrict access to a hugo-apéro website on GitHub Pages ...</title>
+      <link>/blog/hugo-apero-private/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero-private/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages while keeping either the content or the full website code private.
+IntroductionThis is a followup to my companion blog post titled: How to setup hugo-apéro on GitHub Pages. If you&amp;rsquo;re looking for details on how to setup your Hugo-Apéro website from scratch, I would recommend starting there.
+In the previous post, the setup resulted in a public GitHub repository for your website.</description>
+    </item>
+    
+    <item>
+      <title>How to setup hugo-apéro on GitHub Pages ...</title>
+      <link>/blog/hugo-apero/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugo-apero/</guid>
+      <description>TL;DRIn this blog, I summarize the steps necessary to adapt the deployment of a Hugo-Apéro website to GitHub Pages. I also discuss how to use git submodules to include a theme dynamically.
+IntroductionHugo-Apéro is a Hugo theme for publishing websites using the blogdown package within R. In fact, it&amp;rsquo;s what I&amp;rsquo;m using to publish my personal site here!
+Even if you&amp;rsquo;ve never used Hugo or blogdown previously, the setup is fairly straightforward.</description>
+    </item>
+    
+  </channel>
+</rss>
